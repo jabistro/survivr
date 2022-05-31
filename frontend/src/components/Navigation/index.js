@@ -16,15 +16,19 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
+                <NavLink to="/signup">
+                    <i class="fa-solid fa-xl fa-pen">Sign Up</i>
+                </NavLink>
                 <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
             </>
         );
     }
 
     return (
         <div className='spash-container'>
-            <NavLink exact to="/">Home</NavLink>
+            <NavLink exact to="/">
+                <i class="fa-solid fa-2xl fa-tent"></i>
+            </NavLink>
             {isLoaded && sessionLinks}
         </div>
     );

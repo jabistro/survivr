@@ -1,0 +1,35 @@
+.login-form {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.login-modal-email {
+    padding: 10px;
+}
+
+.login-label-password {
+    padding: 10px;
+    margin: 15px;
+}
+
+.login-label-button {
+    padding: 10px;
+    width: 200px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.login-username-input {
+    margin: 15px;
+}
+
+.login-password-input {
+    margin: 15px;
+}
