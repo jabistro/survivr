@@ -23,12 +23,10 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-        <ul>
-            <li>
-                <NavLink exact to="/">Home</NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-        </ul>
+        <div className='spash-container'>
+            <NavLink exact to="/">Home</NavLink>
+            {isLoaded && sessionLinks}
+        </div>
     );
 }
 
