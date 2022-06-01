@@ -3,11 +3,23 @@
     height: 60px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: absolute;
     bottom: 0;
     background-color: black;
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.splash-footer-left {
+    margin-left: 50px;
+}
+
+.splash-footer-right {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 100px;
 }
