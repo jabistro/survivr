@@ -9,7 +9,7 @@ function SplashBlurb() {
                 The best place to relive all of your favorite survivor moments.
             </div>
             <NavLink to="/signup">
-                <button className='splash-start-button' type="submit">START FOR FREE</button>
+                <button className='splash-blurb-button' type="submit">START FOR FREE</button>
             </NavLink>
         </>
     );
