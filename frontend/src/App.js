@@ -5,6 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Images from "./components/Images";
+import Footer from "./components/Footer";
+import SplashBlurb from "./components/SplashBlurb";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,8 +23,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='/'>
+            <SplashBlurb />
+          </Route>
         </Switch>
       )}
+      <Footer />
       {/* <Images /> */}
     </>
   );

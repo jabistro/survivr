@@ -16,21 +16,27 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <NavLink to="/signup">
-                    <i class="fa-solid fa-xl fa-pen">Sign Up</i>
-                </NavLink>
                 <LoginFormModal />
+                <NavLink to="/signup">
+                    <button className='splash-signup-button' type="submit">SIGN UP</button>
+                </NavLink>
             </>
         );
     }
 
     return (
-        <div className='spash-container'>
-            <NavLink exact to="/">
-                <i class="fa-solid fa-2xl fa-tent"></i>
-            </NavLink>
-            {isLoaded && sessionLinks}
-        </div>
+        <>
+            <div className='spash-header'>
+                <div className='splash-top-left'>
+                    <NavLink exact to="/">
+                        <i class="fa-solid fa-2xl fa-tent"></i>
+                    </NavLink>
+                </div>
+                <div className='splash-top-right'>
+                    {isLoaded && sessionLinks}
+                </div>
+            </div>
+        </>
     );
 }
 

@@ -1,0 +1,10 @@
+.splash-blurb {
+    color: #ecc796;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    background-color: white;
+    width: 400px;
+    font-size: 20px;
+}

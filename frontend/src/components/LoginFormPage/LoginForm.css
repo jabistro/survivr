@@ -7,23 +7,34 @@
     padding: 10px;
 }
 
-.login-modal-email {
-    padding: 10px;
+.login-label-email {
+    padding: 0px;
+    color: #2e1817;
+    font-size: 25px;
 }
 
 .login-label-password {
     padding: 10px;
     margin: 15px;
+    color: #2e1817;
+    font-size: 25px;
 }
 
-.login-label-button {
+.splash-login-button {
     padding: 10px;
-    width: 200px;
+    width: 80px;
     height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 15px;
+    background-color: black;
+    border: none;
+    margin-right: 20px;
+    opacity: 100%;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .login-username-input {
@@ -32,4 +43,16 @@
 
 .login-password-input {
     margin: 15px;
+}
+
+.modal-login-button {
+    background-color: #2e1817;
+    width: 200px;
+    height: 45px;
+    border-radius: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    border-color: #93c1a0;
+    color: #a3865a;
+    font-size: 25px;
 }

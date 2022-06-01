@@ -28,7 +28,7 @@ function LoginForm() {
                 ))}
             </ul>
             <label className="login-label-email">
-                Username/Email
+                Username/Email:
                 <input
                     className="login-username-input"
                     type="text"
@@ -38,7 +38,7 @@ function LoginForm() {
                 />
             </label>
             <label className="login-label-password">
-                Password
+                Password:
                 <input
                     className="login-password-input"
                     type="password"
@@ -47,7 +47,7 @@ function LoginForm() {
                     required
                 />
             </label>
-            <button className='login-label-button' type="submit">Log In</button>
+            <button className='modal-login-button' type="submit">Log In</button>
         </form>
     );
 }
