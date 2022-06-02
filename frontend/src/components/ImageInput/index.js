@@ -1,13 +1,24 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { writeImage } from '../../store/images';
 import './ImageInput.css';
 
 const ImageInput = () => {
-    const [userId, setUserId] = useState('');
     const [albumId, setAlbumId] = useState('');
+    const [albums, setAlbums] = useState([]);
     const [imageUrl, setImageUrl] = useState('');
     const [caption, setCaption] = useState('');
+
+    const userId = useSelector(state => state.user.id);
+
+
+
+    useEffect(() => {
+        const variable = async () => {
+            const albumThunk = await dispatch(somethunk(user.id));
+            setAlbums(albumThunk);
+        };
+    })
 
     const dispatch = useDispatch();
 
@@ -26,7 +37,6 @@ const ImageInput = () => {
     };
 
     const reset = () => {
-        setUserId('');
         setImageUrl('');
         setAlbumId('');
         setCaption('');
@@ -36,13 +46,6 @@ const ImageInput = () => {
         <div className='inputBox'>
             <h1>Add Image</h1>
             <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    onChange={(e) => setUserId(e.target.value)}
-                    value={userId}
-                    placeholder='UserId'
-                    name='userId'
-                />
                 <input
                     type='text'
                     onChange={(e) => setImageUrl(e.target.value)}
