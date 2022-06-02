@@ -20,6 +20,9 @@ const ImageInput = () => {
 
     const dispatch = useDispatch();
 
+    // console.log(user)
+
+
     useEffect(() => {
         if (user && albums.length === 0) {
             const getAlbumsFunc = async () => {
@@ -34,8 +37,10 @@ const ImageInput = () => {
     })
 
     useEffect(() => {
-        console.log(albumId)
-    }, [albumId])
+        if (!user) {
+            history.push('/');
+        }
+    }, [history, user])
 
 
     const handleSubmit = async (e) => {

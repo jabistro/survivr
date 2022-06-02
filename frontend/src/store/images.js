@@ -16,6 +16,12 @@ export const addImage = (image) => {
     };
 };
 
+export const findOneImage = (albumId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/{albumId}`);
+    const images = await response.json();
+    dispatch()
+}
+
 export const getImages = () => async (dispatch) => {
     const response = await csrfFetch(`/api/images`);
 

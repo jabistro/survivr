@@ -8,6 +8,7 @@ import Images from "./components/Images";
 import Footer from "./components/Footer";
 import SplashBlurb from "./components/SplashBlurb";
 import ImageInput from "./components/ImageInput";
+import Albums from "./components/Albums";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,8 +30,11 @@ function App() {
       <Route exact path='/'>
         <SplashBlurb />
       </Route>
-      <Route path='/create-image'>
+      <Route exact path='/create-image'>
         <ImageInput />
+      </Route>
+      <Route exact path='/explore'>
+        <Albums />
       </Route>
       <Footer />
       {/* <Images /> */}

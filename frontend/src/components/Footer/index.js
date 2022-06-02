@@ -6,7 +6,7 @@ function Footer() {
         <div className='splash-footer'>
             <div className='splash-footer-left'>About</div>
             <div className='splash-footer-right'>
-                <div>Linkden</div>
+                <div>Linkdin</div>
                 <div>Github</div>
             </div>
         </div>

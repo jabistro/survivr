@@ -3,7 +3,8 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     align-content: center;
-    justify-content: flex-start;
+    justify-content: center;
+    flex-direction: column;
     width: 400px;
     font-size: 20px;
     margin-top: 430px;
@@ -19,5 +20,4 @@
     opacity: 100%;
     cursor: pointer;
     margin-top: 10px;
-    margin-left: 70px;
 }

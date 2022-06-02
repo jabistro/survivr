@@ -11,7 +11,12 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <>
+                <ProfileButton user={sessionUser} />
+                <NavLink className='create-image-link' exact to='/create-image'>
+                    TESTING -----------
+                </NavLink>
+            </>
         );
     } else {
         sessionLinks = (
