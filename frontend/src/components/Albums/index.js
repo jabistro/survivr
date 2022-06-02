@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAlbums } from '../../store/albums';
+import './Albums.css';
 
 function Albums() {
 

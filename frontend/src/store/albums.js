@@ -23,7 +23,7 @@ export const getAlbums = () => async dispatch => {
     }
 }
 
-const albumReducer = (state = initialState, action) => {
+const albumReducer = (state = {}, action) => {
     switch (action.type) {
         case LOAD_ALBUMS:
             const allAlbums = {};

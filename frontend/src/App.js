@@ -34,7 +34,7 @@ function App() {
         <ImageInput />
       </Route>
       <Route exact path='/explore'>
-        <Albums />
+        <Images />
       </Route>
       <Footer />
       {/* <Images /> */}

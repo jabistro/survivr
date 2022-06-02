@@ -1,0 +1,11 @@
+.img-display {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.img-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
