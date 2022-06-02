@@ -2,36 +2,54 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { writeImage } from '../../store/images';
 import './ImageInput.css';
+import { getUserAlbums } from '../../store/albums';
+import { useHistory } from 'react-router-dom';
+
+
 
 const ImageInput = () => {
-    const [albumId, setAlbumId] = useState('');
+    const [albumId, setAlbumId] = useState(1);
     const [albums, setAlbums] = useState([]);
     const [imageUrl, setImageUrl] = useState('');
     const [caption, setCaption] = useState('');
 
-    const userId = useSelector(state => state.user.id);
+    const history = useHistory();
 
+    const user = useSelector(state => state.session.user);
 
-
-    useEffect(() => {
-        const variable = async () => {
-            const albumThunk = await dispatch(somethunk(user.id));
-            setAlbums(albumThunk);
-        };
-    })
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (user && albums.length === 0) {
+            const getAlbumsFunc = async () => {
+                const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
+                    setAlbums(albums);
+                    console.log(albums)
+                }
+                );
+            };
+            getAlbumsFunc();
+        }
+    })
+
+    useEffect(() => {
+        console.log(albumId)
+    }, [albumId])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newImage = {
-            userId,
+            userId: user.id,
             albumId,
-            imageUrl,
+            imageURL: imageUrl,
             caption
         };
 
-        const image = await dispatch(writeImage(newImage));
+        console.log(newImage)
+
+        const image = await dispatch(writeImage(newImage)).then(history.push('/'));
         // console.log('without await', image)
         if (image) reset();
     };
@@ -53,13 +71,17 @@ const ImageInput = () => {
                     placeholder='Image URL'
                     name='imageUrl'
                 />
-                <input
-                    type='text'
+                <select
                     value={albumId}
                     onChange={(e) => setAlbumId(e.target.value)}
                     name='albumId'
-                    placeholder='AlbumId'
-                ></input>
+                >
+                    {
+                        albums.map(album => {
+                            return <option key={album.id} value={album.id}>{album.title}</option>
+                        })
+                    }
+                </select>
                 <input
                     type='text'
                     onChange={(e) => setCaption(e.target.value)}

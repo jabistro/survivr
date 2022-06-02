@@ -15,7 +15,7 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json(images);
 }));
 
-router.post('/', validateCreate, asyncHandler(async (req, res) => {
+router.post('/', asyncHandler(async (req, res) => {
     const image = await Image.create(req.body);
     res.json(image);
 }));
