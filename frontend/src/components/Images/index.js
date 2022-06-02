@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
+import './Images.css';
 
 function Images() {
 
@@ -14,13 +15,15 @@ function Images() {
     }, [])
 
     return (
-        <ul>
-            {images.map(image => (
-                <li key={image.id}>
-                    <img src={image.imageURL}></img>
-                </li>
-            ))}
-        </ul>
+        <div className='img-list'>
+            <ul>
+                {images.map(image => (
+                    <li key={image.id}>
+                        <img className='img-display' src={image.imageURL}></img>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }
 

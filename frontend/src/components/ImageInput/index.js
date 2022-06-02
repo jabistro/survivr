@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { writeImage } from '../../store/images';
+import { createImage } from '../../store/images';
 import './ImageInput.css';
 import { getUserAlbums } from '../../store/albums';
 import { useHistory } from 'react-router-dom';
@@ -54,7 +54,7 @@ const ImageInput = () => {
 
         console.log(newImage)
 
-        const image = await dispatch(writeImage(newImage)).then(history.push('/'));
+        const image = await dispatch(createImage(newImage)).then(history.push('/explore'));
         // console.log('without await', image)
         if (image) reset();
     };
@@ -91,7 +91,7 @@ const ImageInput = () => {
                     type='text'
                     onChange={(e) => setCaption(e.target.value)}
                     value={caption}
-                    placeholder='Caption'
+                    placeholder='Caption (optional)'
                     name='caption'
                 />
                 <button type='submit'>Submit</button>
