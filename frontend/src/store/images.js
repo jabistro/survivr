@@ -52,7 +52,7 @@ export const createImage = (image) => async (dispatch) => {
     return createdImage
 }
 
-export const editImage = (editImage) => async (dispatch) => {
+export const editImageThunk = (editImage) => async (dispatch) => {
     const response = await csrfFetch('/api/images', {
         method: "PUT",
         body: JSON.stringify(editImage)

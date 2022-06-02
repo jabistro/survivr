@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { editImage, deleteImage } from '../../store/images';
+import { editImageThunk, deleteImage } from '../../store/images';
 import { getImages } from "../../store/images";
 import './EditPhoto.css'
 
@@ -38,7 +38,7 @@ const EditImageForm = () => {
             caption,
             albumId
         }
-        dispatch(editImage(editingImage))
+        dispatch(editImageThunk(editingImage))
             .then(() => history.push('/explore'))
             .catch(async (res) => {
                 const data = await res.json()
@@ -89,3 +89,5 @@ const EditImageForm = () => {
         </div>
     );
 }
+
+export default EditImageForm;
