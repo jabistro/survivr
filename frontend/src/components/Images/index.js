@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
+import { Link } from 'react-router-dom';
 import './Images.css';
 
 function Images() {
@@ -15,14 +16,13 @@ function Images() {
     }, [])
 
     return (
+
         <div className='img-list'>
-            <ul>
-                {images.map(image => (
-                    <li key={image.id}>
-                        <img className='img-display' src={image.imageURL}></img>
-                    </li>
-                ))}
-            </ul>
+            {images.map(image => (
+                <Link to={`/image/${image.id}`}>
+                    <img className='img-display' src={image.imageURL}></img>
+                </Link>
+            ))}
         </div>
     );
 }

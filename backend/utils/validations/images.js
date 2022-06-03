@@ -1,10 +1,6 @@
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('./validation');
 
-const userId =
-    check('userId')
-        .notEmpty()
-        .withMessage('UserId must not be empty.');
 
 const albumId =
     check('albumId')
@@ -12,13 +8,12 @@ const albumId =
         .withMessage('albumId must not be empty.');
 
 const imageURL =
-    check('userId')
+    check('imageURL')
         .notEmpty()
         .isURL()
         .withMessage('URL for image must be a valid URL.');
 
 exports.validateCreate = [
-    userId,
     albumId,
     imageURL,
     handleValidationErrors

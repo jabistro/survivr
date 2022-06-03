@@ -21,4 +21,9 @@ router.get('/:userId', asyncHandler(async (req, res) => {
     res.json(albums);
 }));
 
+router.post('/', validateCreate, asyncHandler(async (req, res) => {
+    const album = await Album.create(req.body);
+    res.json(album);
+}));
+
 module.exports = router;

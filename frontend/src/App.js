@@ -7,8 +7,10 @@ import Navigation from "./components/Navigation";
 import Images from "./components/Images";
 import Footer from "./components/Footer";
 import SplashBlurb from "./components/SplashBlurb";
+import ImageDetail from "./components/ImageDetail";
 import ImageInput from "./components/ImageInput";
 import Albums from "./components/Albums";
+import EditImageForm from "./components/EditImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +37,12 @@ function App() {
       </Route>
       <Route exact path='/explore'>
         <Images />
+      </Route>
+      <Route exact path='/image/:imageId'>
+        <ImageDetail />
+      </Route>
+      <Route exact path='/image/edit/:imageId'>
+        <EditImageForm />
       </Route>
       <Footer />
       {/* <Images /> */}

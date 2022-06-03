@@ -61,7 +61,7 @@ export const editImageThunk = (editImage) => async (dispatch) => {
     if (editedImage) {
         dispatch(addImage(editedImage))
     }
-    return editedPhoto
+    return editedImage
 }
 
 export const deleteImage = (destroyedImage) => async (dispatch) => {
