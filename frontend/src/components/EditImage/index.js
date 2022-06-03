@@ -3,7 +3,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { editImageThunk, deleteImage } from '../../store/images';
 import { getImages } from "../../store/images";
-import './EditPhoto.css'
+import { getUserAlbums } from '../../store/albums';
+import './EditImage.css'
 
 const EditImageForm = () => {
     const allImages = useSelector(state => state.images)
@@ -13,10 +14,13 @@ const EditImageForm = () => {
     const [caption, setCaption] = useState(editImage.caption || '');
     const [imageURL, setImageURL] = useState(editImage.imageURL || '');
     const [albumId, setAlbumId] = useState(editImage.albumId || '');
+    const [albums, setAlbums] = useState([]);
 
     const [errors, setErrors] = useState([]);
     const history = useHistory()
     const dispatch = useDispatch();
+
+    const user = useSelector(state => state.session.user);
 
     useEffect(() => {
         if (!sessionUser || sessionUser.id !== editImage.userId) {
@@ -28,6 +32,19 @@ const EditImageForm = () => {
         dispatch(getImages())
     }, [dispatch])
 
+    useEffect(() => {
+        if (user && albums.length === 0) {
+            const getAlbumsFunc = async () => {
+                const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
+                    setAlbums(albums);
+                    console.log(albums)
+                }
+                );
+            };
+            getAlbumsFunc();
+        }
+    })
+
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         const userId = sessionUser.id;
@@ -38,7 +55,7 @@ const EditImageForm = () => {
             caption,
             albumId
         }
-        dispatch(editImageThunk(editingImage))
+        await dispatch(editImageThunk(editingImage))
             .then(() => history.push('/explore'))
             .catch(async (res) => {
                 const data = await res.json()
@@ -83,7 +100,7 @@ const EditImageForm = () => {
                 />
                 <div className='edit-buttons'>
                     <button id="img-edit-button" type="submit">Submit</button>
-                    <button className='img-delete-button' onClick={(e) => deleteHandler(e, editPhoto)}>DELETE ICON</button>
+                    <button className='img-delete-button' onClick={(e) => deleteHandler(e, editImage)}>DELETE ICON</button>
                 </div>
             </form>
         </div>

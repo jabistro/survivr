@@ -28,7 +28,7 @@ const ImageDetail = () => {
         <>
             {image &&
                 <div id='img-detail-container'>
-                    <img id='img-detail-img' src={img.imageURL}></img>
+                    <img id='img-detail-img' src={image.imageURL}></img>
                     {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT ICON</button>}
                     <div className='img-detail-info'>
                         <h2 className='img-detail-caption'>{image.caption}</h2>
