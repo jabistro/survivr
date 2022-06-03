@@ -8,7 +8,7 @@ module.exports = {
         title: "Test1"
       },
       {
-        userId: 1,
+        userId: 2,
         title: "Test2"
       }
     ], {});
