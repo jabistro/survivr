@@ -11,6 +11,7 @@ import ImageDetail from "./components/ImageDetail";
 import ImageInput from "./components/ImageInput";
 import Albums from "./components/Albums";
 import EditImageForm from "./components/EditImage";
+import AlbumInput from "./components/AlbumInput";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,23 +28,28 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path='/'>
+            <SplashBlurb />
+          </Route>
+          <Route exact path='/create-image'>
+            <ImageInput />
+          </Route>
+          <Route exact path='/explore'>
+            <Images />
+          </Route>
+          <Route exact path='/image/:imageId'>
+            <ImageDetail />
+          </Route>
+          <Route exact path='/image/edit/:imageId'>
+            <EditImageForm />
+          </Route>
+          <Route exact path='/create-album' >
+            <AlbumInput />
+          </Route>
+          <Route exact path='/users/:userId/albums'>
+          </Route>
         </Switch>
       )}
-      <Route exact path='/'>
-        <SplashBlurb />
-      </Route>
-      <Route exact path='/create-image'>
-        <ImageInput />
-      </Route>
-      <Route exact path='/explore'>
-        <Images />
-      </Route>
-      <Route exact path='/image/:imageId'>
-        <ImageDetail />
-      </Route>
-      <Route exact path='/image/edit/:imageId'>
-        <EditImageForm />
-      </Route>
       <Footer />
       {/* <Images /> */}
     </>

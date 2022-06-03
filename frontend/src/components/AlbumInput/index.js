@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createImage } from '../../store/images';
-import './ImageInput.css';
-import { getUserAlbums } from '../../store/albums';
 import { useHistory } from 'react-router-dom';
-
+import { createAlbum } from '../../store/albums';
+import './AlbumInput.css';
 
 
 const AlbumInput = () => {
@@ -14,10 +12,12 @@ const AlbumInput = () => {
 
     const user = useSelector(state => state.session.user);
 
-
     const dispatch = useDispatch();
 
     useEffect(() => {
+
+        console.log(user);
+
         if (!user) {
             history.push('/');
         }
@@ -26,54 +26,24 @@ const AlbumInput = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newImage = {
+        const newAlbum = {
             userId: user.id,
-            albumId,
-            imageURL: imageUrl,
-            caption
+            title
         };
 
-        console.log(newImage)
-
-        const image = await dispatch(createImage(newImage)).then(() => (history.push('/explore')));
-        // console.log('without await', image)
-        if (image) reset();
-    };
-
-    const reset = () => {
-        setImageUrl('');
-        setAlbumId('');
-        setCaption('');
+        const album = await dispatch(createAlbum(newAlbum)).then(() => (history.push(`/users/${user.id}/albums`)));
     };
 
     return (
-        <div className='inputBox'>
-            <h1>Add Image</h1>
+        <div className='album-input-box'>
+            <h1>Add Album</h1>
             <form onSubmit={handleSubmit}>
                 <input
-                    type='text'
-                    onChange={(e) => setImageUrl(e.target.value)}
-                    value={imageUrl}
-                    placeholder='Image URL'
-                    name='imageUrl'
-                />
-                <select
-                    value={albumId}
-                    onChange={(e) => setAlbumId(e.target.value)}
-                    name='albumId'
-                >
-                    {
-                        albums.map(album => {
-                            return <option key={album.id} value={album.id}>{album.title}</option>
-                        })
-                    }
-                </select>
-                <input
-                    type='text'
-                    onChange={(e) => setCaption(e.target.value)}
-                    value={caption}
-                    placeholder='Caption (optional)'
-                    name='caption'
+                    type='title'
+                    onChange={(e) => setTitle(e.target.value)}
+                    value={title}
+                    placeholder='Title'
+                    name='title'
                 />
                 <button type='submit'>Submit</button>
             </form>
@@ -81,4 +51,4 @@ const AlbumInput = () => {
     );
 };
 
-export default ImageInput;
+export default AlbumInput;

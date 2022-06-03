@@ -66,7 +66,7 @@ const ImageInput = () => {
     };
 
     return (
-        <div className='inputBox'>
+        <div className='img-input-box'>
             <h1>Add Image</h1>
             <form onSubmit={handleSubmit}>
                 <input
