@@ -23,7 +23,7 @@
     flex-direction: column;
     position: absolute;
     background-color: #a3865a;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 40px;
     border-radius: 25px;

@@ -2,3 +2,8 @@
     max-width: 300px;
     max-height: 300px;
 }
+
+#img-detail-container {
+    width: 500px;
+    background-color: white;
+}
