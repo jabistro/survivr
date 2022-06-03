@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { editAlbumThunk, deleteAlbum } from '../../store/albums';
-import { getAlbums } from "../../store/albums";
 import './EditAlbum.css'
 
 const EditAlbumForm = () => {
     const allAlbums = useSelector(state => state.albums)
     const editAlbumId = useParams().albumId
     const editAlbum = allAlbums[editAlbumId] || {};
-    const sessionUser = useSelector((state) => state.session.user);
     const [title, setTitle] = useState(editAlbum.title || '');
 
     const [errors, setErrors] = useState([]);
@@ -19,24 +17,25 @@ const EditAlbumForm = () => {
     const user = useSelector(state => state.session.user);
 
     useEffect(() => {
-        if (!sessionUser || sessionUser.id !== editAlbum.userId) {
+        if (!user || user.id !== editAlbum.userId) {
             history.push('/')
         }
     }, [])
 
-    useEffect(() => {
-        dispatch(getAlbums())
-    }, [dispatch])
-
     const handleOnSubmit = async (e) => {
         e.preventDefault();
+        const userId = user.id;
         const editingAlbum = {
             id: editAlbum.id,
+            userId,
             title
         }
         await dispatch(editAlbumThunk(editingAlbum))
-            .then(() => history.push(`/users/${user.id}/albums`))
+            .then(() => history.push(`/users/${userId}/albums/${editingAlbum.id}`))
             .catch(async (res) => {
+
+                console.log(res);
+
                 const data = await res.json()
                 if (data && errors) setErrors(data.errors)
             })

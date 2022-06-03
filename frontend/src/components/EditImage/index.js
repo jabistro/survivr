@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { editImageThunk, deleteImage } from '../../store/images';
-import { getImages } from "../../store/images";
 import { getUserAlbums } from '../../store/albums';
 import './EditImage.css'
 
@@ -10,7 +9,6 @@ const EditImageForm = () => {
     const allImages = useSelector(state => state.images)
     const editImageId = useParams().imageId
     const editImage = allImages[editImageId] || {};
-    const sessionUser = useSelector((state) => state.session.user);
     const [caption, setCaption] = useState(editImage.caption || '');
     const [imageURL, setImageURL] = useState(editImage.imageURL || '');
     const [albumId, setAlbumId] = useState(editImage.albumId || '');
@@ -23,14 +21,10 @@ const EditImageForm = () => {
     const user = useSelector(state => state.session.user);
 
     useEffect(() => {
-        if (!sessionUser || sessionUser.id !== editImage.userId) {
+        if (!user || user.id !== editImage.userId) {
             history.push('/')
         }
     }, [])
-
-    useEffect(() => {
-        dispatch(getImages())
-    }, [dispatch])
 
     useEffect(() => {
         if (user && albums.length === 0) {
@@ -47,7 +41,7 @@ const EditImageForm = () => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        const userId = sessionUser.id;
+        const userId = user.id;
         const editingImage = {
             id: editImage.id,
             userId,

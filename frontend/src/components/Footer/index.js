@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css'
 
 function Footer() {
     return (
         <div className='splash-footer'>
-            <div className='splash-footer-left'>About</div>
+            <div className='splash-footer-left'>
+                <Link className='about-link' to='/about'>About</Link>
+            </div>
             <div className='splash-footer-right'>
-                <a url='https://www.linkedin.com/in/john-allan-hinds-2aba11237/'>
-                    <i class="fa-brands fa-xl fa-linkedin"></i>
+                <a className='linkdin-link' href='https://www.linkedin.com/in/john-allan-hinds-2aba11237/'>
+                    <i className="fa-brands fa-xl fa-linkedin"></i>
                 </a>
-                <a url='https://github.com/jabistro/survivr/wiki'>
-                    <i class="fa-brands fa-xl fa-github"></i>
+                <a className='github-link' href='https://github.com/jabistro/survivr/wiki'>
+                    <i className="fa-brands fa-xl fa-github"></i>
                 </a>
             </div>
         </div>

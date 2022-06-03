@@ -12,6 +12,21 @@ function LoginForm() {
 
     const history = useHistory();
 
+
+    const handleDefaultButton = (e) => {
+        e.preventDefault();
+        const credential = 'Demo-lition'
+        const password = 'password'
+        return dispatch(sessionActions.login({ credential, password }))
+            .then(() => history.push('/explore'))
+            .catch(
+                async (res) => {
+                    const data = await res.json();
+                    if (data && data.errors) setErrors(data.errors);
+                }
+            );
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
@@ -24,34 +39,37 @@ function LoginForm() {
     };
 
     return (
-        <form className='login-form' onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
-            <label className="login-label-email">
-                Username/Email:
-                <input
-                    className="login-username-input"
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label className="login-label-password">
-                Password:
-                <input
-                    className="login-password-input"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button className='modal-login-button' type="submit">Log In</button>
-        </form>
+        <>
+            <form className='login-form' onSubmit={handleSubmit}>
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
+                <label className="login-label-email">
+                    Username/Email:
+                    <input
+                        className="login-username-input"
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </label>
+                <label className="login-label-password">
+                    Password:
+                    <input
+                        className="login-password-input"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <button className='modal-login-button' type="submit">Log In</button>
+                <button id='splash-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
+            </form>
+        </>
     );
 }
 

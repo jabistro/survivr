@@ -60,4 +60,10 @@
 
 .create-image-link {
     color: white;
+    padding: 10px;
+}
+
+.create-album-link {
+    color: white;
+    padding: 10px;
 }

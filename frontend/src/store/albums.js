@@ -56,9 +56,12 @@ export const editAlbumThunk = (editAlbum) => async (dispatch) => {
     })
     const editedAlbum = await response.json()
     if (editedAlbum) {
+
+        console.log(editedAlbum);
+
         dispatch(addAlbum(editedAlbum))
+        return editedAlbum
     }
-    return editedAlbum
 }
 
 export const deleteAlbum = (destroyedAlbum) => async (dispatch) => {

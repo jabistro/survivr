@@ -14,7 +14,10 @@ function Navigation({ isLoaded }) {
             <>
                 <ProfileButton user={sessionUser} />
                 <NavLink className='create-image-link' exact to='/create-image'>
-                    TESTING -----------
+                    * IMAGE TESTING *
+                </NavLink>
+                <NavLink className='create-album-link' exact to='/create-album'>
+                    * ALBUM TESTING *
                 </NavLink>
             </>
         );
@@ -34,7 +37,7 @@ function Navigation({ isLoaded }) {
             <div className='spash-header'>
                 <div className='splash-top-left'>
                     <NavLink exact to="/">
-                        <i class="fa-solid fa-2xl fa-tent"></i>
+                        <i className="fa-solid fa-2xl fa-tent"></i>
                     </NavLink>
                 </div>
                 <div className='splash-top-right'>
