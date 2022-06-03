@@ -12,7 +12,7 @@ function Footer() {
                 <a className='linkdin-link' href='https://www.linkedin.com/in/john-allan-hinds-2aba11237/'>
                     <i className="fa-brands fa-xl fa-linkedin"></i>
                 </a>
-                <a className='github-link' href='https://github.com/jabistro/survivr/wiki'>
+                <a className='github-link' href='https://github.com/jabistro'>
                     <i className="fa-brands fa-xl fa-github"></i>
                 </a>
             </div>
