@@ -26,4 +26,10 @@ router.post('/', asyncHandler(async (req, res) => {
     res.json(album);
 }));
 
+router.delete('/', asyncHandler(async (req, res) => {
+    const deleteAlbum = await Album.findByPk(req.body.id)
+    await deleteAlbum.destroy()
+    return res.json(req.body.id)
+}))
+
 module.exports = router;

@@ -70,7 +70,7 @@ const EditImageForm = () => {
     }
 
     return (
-        <div className='inputBox'>
+        <div className='img-edit-input-box'>
             <h1>Add Image</h1>
             <form onSubmit={handleOnSubmit}>
                 <input
@@ -98,7 +98,7 @@ const EditImageForm = () => {
                     placeholder='Caption (optional)'
                     name='caption'
                 />
-                <div className='edit-buttons'>
+                <div className='img-edit-form-buttons'>
                     <button id="img-edit-button" type="submit">Submit</button>
                     <button className='img-delete-button' onClick={(e) => deleteHandler(e, editImage)}>DELETE ICON</button>
                 </div>
