@@ -67,7 +67,7 @@ function LoginForm() {
                     />
                 </label>
                 <button className='modal-login-button' type="submit">Log In</button>
-                <button id='splash-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
+                <button id='demo-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
             </form>
         </>
     );

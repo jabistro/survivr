@@ -12,7 +12,7 @@ function OthersAlbums() {
     return (
         <div className='albums-container'>
             {albums.map(album => {
-                if (album.userId !== user.id) {     // removed implicit return, only rendered albums for logged in user
+                if (album?.userId !== user?.id) {     // removed implicit return, only rendered albums for logged in user
                     return <Link to={`/users/${user.id}/albums/${album.id}`}>
                         <div className='album-list'>{album.title}</div>
                     </Link>

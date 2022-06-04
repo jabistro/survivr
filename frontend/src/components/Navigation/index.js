@@ -27,18 +27,22 @@ function Navigation({ isLoaded }) {
                 <div className='nav-item'>
                     <div
                         className='nav-links'
-                        onMouseEnter={onYourMouseEnter}
-                        onMouseLeave={onYourMouseLeave}
-                    >You</div>
-                    {yourDropdown && <YourDropdown />}
+                        onMouseEnter={() => onYourMouseEnter()}
+                        onMouseLeave={() => onYourMouseLeave()}
+                    >
+                        <p>You</p>
+                        {yourDropdown && <YourDropdown />}
+                    </div>
                 </div>
                 <div className='nav-item'>
                     <div
                         className='nav-links'
-                        onMouseEnter={onOthersMouseEnter}
-                        onMouseLeave={onOthersMouseLeave}
-                    >Explore</div>
-                    {othersDropdown && <OthersDropdown />}
+                        onMouseEnter={() => onOthersMouseEnter()}
+                        onMouseLeave={() => onOthersMouseLeave()}
+                    >
+                        <p>Explore</p>
+                        {othersDropdown && <OthersDropdown />}
+                    </div>
                 </div>
                 <ProfileButton user={sessionUser} />
                 <Link className='create-image-link' exact to='/create-image'>
