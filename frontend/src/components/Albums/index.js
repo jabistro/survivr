@@ -4,21 +4,13 @@ import { getAlbums } from '../../store/albums';
 import { Link } from 'react-router-dom';
 import './Albums.css';
 
-function Albums() {
+function MyAlbums() {
 
-    const dispatch = useDispatch();
     const albums = Object.values(useSelector(state => state.albums));
     const user = useSelector(state => state.session.user);
 
-
-    // console.log(images)
-
-    useEffect(() => {
-        dispatch(getAlbums());
-    }, [])
-
     return (
-        <div>
+        <div className='albums-container'>
             {albums.map(album => {
                 if (album.userId === user.id) {     // removed implicit return, only rendered albums for logged in user
                     return <Link to={`/users/${user.id}/albums/${album.id}`}>
@@ -30,4 +22,4 @@ function Albums() {
     );
 }
 
-export default Albums;
+export default MyAlbums;
