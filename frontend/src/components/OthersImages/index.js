@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
 import { Link } from 'react-router-dom';
-import './UserImages.css';
+import './OthersImages.css';
 
-function UserImages() {
+function OthersImages() {
 
     const images = Object.values(useSelector(state => state.images));
     const user = useSelector(state => state.session.user);
-    const userImages = images.filter(image => image.userId === user.id)
+    const userImages = images.filter(image => image.userId !== user.id)
 
     return (
 
@@ -22,4 +22,4 @@ function UserImages() {
     );
 }
 
-export default UserImages;
+export default OthersImages;

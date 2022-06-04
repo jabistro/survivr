@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAlbums } from '../../store/albums';
 import { Link } from 'react-router-dom';
-import './Albums.css';
+import './UserAlbums.css';
 
-function MyAlbums() {
+function UserAlbums() {
 
     const albums = Object.values(useSelector(state => state.albums));
     const user = useSelector(state => state.session.user);
@@ -22,4 +22,4 @@ function MyAlbums() {
     );
 }
 
-export default MyAlbums;
+export default UserAlbums;

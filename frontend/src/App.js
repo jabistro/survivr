@@ -8,17 +8,23 @@ import Footer from "./components/Footer";
 import SplashBlurb from "./components/SplashBlurb";
 import ImageDetail from "./components/ImageDetail";
 import ImageInput from "./components/ImageInput";
-import MyAlbums from "./components/Albums";
+import MyAlbums from "./components/UserAlbums";
 import About from "./components/About";
 import EditImageForm from "./components/EditImage";
 import AlbumInput from "./components/AlbumInput";
 import EditAlbumForm from "./components/EditAlbum";
 import AlbumImages from "./components/AlbumImages";
+
 import Home from './components/Home';
 // import You from './components/You';
 import UserImages from "./components/UserImages";
 import UserAlbums from './components/UserAlbums';
 // import Explore from './components/Explore';
+import OthersImages from './components/OthersImages';
+import OthersAlbums from './components/OthersAlbums';
+
+import Navbar from './components/menu/Navbar';
+
 import { getImages } from "./store/images";
 import { getAlbums } from "./store/albums";
 
@@ -39,15 +45,28 @@ function App() {
 
   return (
     <>
+      {/* <Navbar /> */}
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
           <Route exact path='/'>
             <Home />
             <SplashBlurb />
+          </Route>
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
+          <Route path="/users/:userId/images">
+            <UserImages />
+          </Route>
+          <Route path="/users/:userId/albums">
+            <UserAlbums />
+          </Route>
+          <Route path="/explore/images">
+            <OthersImages />
+          </Route>
+          <Route path="/explore/albums">
+            <OthersAlbums />
           </Route>
           <Route exact path='/create-image'>
             <ImageInput />
@@ -68,7 +87,7 @@ function App() {
             <AlbumInput />
           </Route>
           <Route exact path='/users/:userId/albums'>
-            <MyAlbums />
+            <UserAlbums />
           </Route>
           <Route exact path='/users/:userId/albums/:albumId'>
             <AlbumImages />
