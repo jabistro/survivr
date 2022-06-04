@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Images from "./components/Images";
 import Footer from "./components/Footer";
 import SplashBlurb from "./components/SplashBlurb";
 import ImageDetail from "./components/ImageDetail";
@@ -15,6 +14,11 @@ import EditImageForm from "./components/EditImage";
 import AlbumInput from "./components/AlbumInput";
 import EditAlbumForm from "./components/EditAlbum";
 import AlbumImages from "./components/AlbumImages";
+import Home from './components/Home';
+// import You from './components/You';
+import UserImages from "./components/UserImages";
+import UserAlbums from './components/UserAlbums';
+// import Explore from './components/Explore';
 import { getImages } from "./store/images";
 import { getAlbums } from "./store/albums";
 
@@ -42,6 +46,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path='/'>
+            <Home />
             <SplashBlurb />
           </Route>
           <Route exact path='/create-image'>
