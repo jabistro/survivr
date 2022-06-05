@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import '../LoginFormPage/LoginForm.css';
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 function LoginForm() {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
+
+    // if (user) {
+    //     return <Redirect to={`/users/${user.id}/images`} />
+    // }
+
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
@@ -18,7 +24,7 @@ function LoginForm() {
         const credential = 'Demo-lition'
         const password = 'password'
         return dispatch(sessionActions.login({ credential, password }))
-            .then(() => history.push('/explore'))
+            .then((user) => history.push(`/users/${user.id}/images`))
             .catch(
                 async (res) => {
                     const data = await res.json();
@@ -30,7 +36,7 @@ function LoginForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(sessionActions.login({ credential, password })).then(() => history.push('/explore')).catch(
+        return dispatch(sessionActions.login({ credential, password })).then(() => history.push(`/users/${user.id}/images`)).catch(
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
@@ -67,7 +73,7 @@ function LoginForm() {
                     />
                 </label>
                 <button className='modal-login-button' type="submit">Log In</button>
-                <button id='splash-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
+                <button id='demo-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
             </form>
         </>
     );

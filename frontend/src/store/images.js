@@ -59,6 +59,7 @@ export const editImageThunk = (editImage) => async (dispatch) => {
     })
     const editedImage = await response.json()
     if (editedImage) {
+        console.log(editedImage);
         dispatch(addImage(editedImage))
     }
     return editedImage

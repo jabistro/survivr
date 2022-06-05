@@ -4,23 +4,34 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Images from "./components/Images";
 import Footer from "./components/Footer";
 import SplashBlurb from "./components/SplashBlurb";
 import ImageDetail from "./components/ImageDetail";
 import ImageInput from "./components/ImageInput";
-import Albums from "./components/Albums";
+import MyAlbums from "./components/UserAlbums";
 import About from "./components/About";
 import EditImageForm from "./components/EditImage";
 import AlbumInput from "./components/AlbumInput";
 import EditAlbumForm from "./components/EditAlbum";
 import AlbumImages from "./components/AlbumImages";
+
+import Home from './components/Home';
+// import You from './components/You';
+import UserImages from "./components/UserImages";
+import UserAlbums from './components/UserAlbums';
+// import Explore from './components/Explore';
+import OthersImages from './components/OthersImages';
+import OthersAlbums from './components/OthersAlbums';
+
+import Navbar from './components/menu/Navbar';
+
 import { getImages } from "./store/images";
 import { getAlbums } from "./store/albums";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -35,20 +46,34 @@ function App() {
 
   return (
     <>
+      {/* <Navbar /> */}
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/signup">
+          <Route exact path='/'>
+            <Home />
+            <SplashBlurb />
+          </Route>
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path='/'>
-            <SplashBlurb />
+          <Route exact path="/users/:userId/images">
+            <UserImages />
+          </Route>
+          <Route exact path="/users/:userId/albums">
+            <UserAlbums />
+          </Route>
+          <Route exact path="/explore/images">
+            <OthersImages />
+          </Route>
+          <Route exact path="/explore/albums">
+            <OthersAlbums />
           </Route>
           <Route exact path='/create-image'>
             <ImageInput />
           </Route>
           <Route exact path='/explore'>
-            <Images />
+            <MyAlbums />
           </Route>
           <Route exact path='/image/:imageId'>
             <ImageDetail />
@@ -63,9 +88,9 @@ function App() {
             <AlbumInput />
           </Route>
           <Route exact path='/users/:userId/albums'>
-            <Albums />
+            <UserAlbums />
           </Route>
-          <Route exact path='/users/:userId/albums/:albumId'>
+          <Route exact path='/users/:userId/albums/:albumId/images'>
             <AlbumImages />
           </Route>
           <Route exact path='/about' >

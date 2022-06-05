@@ -31,7 +31,7 @@ const EditAlbumForm = () => {
             title
         }
         await dispatch(editAlbumThunk(editingAlbum))
-            .then(() => history.push(`/users/${userId}/albums/${editingAlbum.id}`))
+            .then(() => history.push(`/users/${userId}/albums/${editAlbum.id}/images`))
             .catch(async (res) => {
 
                 console.log(res);

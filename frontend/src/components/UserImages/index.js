@@ -2,23 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
 import { Link } from 'react-router-dom';
-import './Images.css';
+import './UserImages.css';
 
-function Images() {
+function UserImages() {
 
-    const dispatch = useDispatch();
     const images = Object.values(useSelector(state => state.images));
-
-    // console.log(images)
-
-    useEffect(() => {
-        dispatch(getImages());
-    }, [])
+    const user = useSelector(state => state.session.user);
+    const userImages = images.filter(image => image.userId === user.id)
 
     return (
 
         <div className='img-list'>
-            {images.map(image => (
+            <Link className='create-image-link' exact to='/create-image'>
+                * ADD IMAGE *
+            </Link>
+            {userImages.map(image => (
                 <Link to={`/image/${image.id}`}>
                     <img className='img-display' src={image.imageURL}></img>
                 </Link>
@@ -27,4 +25,4 @@ function Images() {
     );
 }
 
-export default Images;
+export default UserImages;

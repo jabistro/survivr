@@ -26,7 +26,7 @@ router.put('/', validateCreate, asyncHandler(async (req, res) => {
     } = req.body
 
     const editImage = await Image.findByPk(id)
-    const newImage = editImage.update(
+    const newImage = await editImage.update(
         {
             userId,
             imageURL,

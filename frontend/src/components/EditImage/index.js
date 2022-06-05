@@ -50,7 +50,7 @@ const EditImageForm = () => {
             albumId
         }
         await dispatch(editImageThunk(editingImage))
-            .then(() => history.push('/explore'))
+            .then(() => history.push(`/image/${editImageId}`))
             .catch(async (res) => {
                 const data = await res.json()
                 if (data && errors) setErrors(data.errors)
@@ -60,7 +60,7 @@ const EditImageForm = () => {
     const deleteHandler = (e, image) => {
         e.preventDefault()
         dispatch(deleteImage(editImage))
-            .then(() => history.push('/explore'))
+            .then(() => history.push(`/users/${user.id}/images`))
     }
 
     return (
