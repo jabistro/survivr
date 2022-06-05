@@ -33,19 +33,81 @@
     height: 300px;
 }
 
-.splash-top-right {
+.splash-top-right-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-top-right-logged-in {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px;
-    width: 1000px;
+    width: 1200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+.profile-button {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+}
+
+.profile-logout-button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.back-button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.profile-lists {
+    color: white;
+    margin: 10px;
+}
+
+.profile-button-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
+.profile-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-top-right-logged-out {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    width: 200px;
 }
 
 .splash-top-right-left {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 200px;
+    width: 300px;
 }
 
 /* #root {
@@ -73,12 +135,13 @@
     cursor: pointer;
 }
 
-.splash-top-left>a>i {
+.splash-top-left {
     margin-left: 20px;
     color: white;
     width: 300px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #home-logo {
@@ -113,19 +176,19 @@
 }
 
 .dropdown-menu {
-    width: 200px;
+    width: 140px;
     position: absolute;
     list-style: none;
     text-align: start;
 }
 
 .dropdown-menu li {
-    background: #1888ff;
+    background: #393a3b;
     cursor: pointer;
 }
 
 .dropdown-menu li:hover {
-    background: #5cabff;
+    background: #535556;
 }
 
 .dropdown-menu.clicked {

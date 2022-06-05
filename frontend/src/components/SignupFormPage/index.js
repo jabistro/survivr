@@ -34,7 +34,7 @@ function SignupFormPage() {
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <label>
+                <label className="signup-inputs">
                     Email
                     <input
                         type="text"
@@ -43,7 +43,7 @@ function SignupFormPage() {
                         required
                     />
                 </label>
-                <label>
+                <label className="signup-inputs">
                     Username
                     <input
                         type="text"
@@ -52,7 +52,7 @@ function SignupFormPage() {
                         required
                     />
                 </label>
-                <label>
+                <label className="signup-inputs">
                     Password
                     <input
                         type="password"
@@ -61,7 +61,7 @@ function SignupFormPage() {
                         required
                     />
                 </label>
-                <label>
+                <label className="signup-inputs">
                     Confirm Password
                     <input
                         type="password"
@@ -70,7 +70,7 @@ function SignupFormPage() {
                         required
                     />
                 </label>
-                <button type="submit">Sign Up</button>
+                <button className="signup-page-button" type="submit">Sign Up</button>
             </form>
         </div>
     );

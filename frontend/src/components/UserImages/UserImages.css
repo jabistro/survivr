@@ -7,3 +7,33 @@
     display: grid;
     grid-auto-flow: row;
 }
+
+.create-image-button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 150px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.user-img-container {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    margin-top: 50px;
+    border-radius: 25px;
+}

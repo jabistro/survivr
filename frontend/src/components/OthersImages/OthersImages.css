@@ -1,0 +1,12 @@
+.img-list {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    margin-top: 50px;
+    border-radius: 25px;
+}

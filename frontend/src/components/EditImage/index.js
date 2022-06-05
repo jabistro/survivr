@@ -76,7 +76,7 @@ const EditImageForm = () => {
                 />
                 <select
                     value={albumId}
-                    onChange={(e) => setAlbumId(e.target.value)}
+                    onChange={(e) => setAlbumId(parseInt(e.target.value))}
                     name='albumId'
                 >
                     {
