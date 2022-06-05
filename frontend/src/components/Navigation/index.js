@@ -69,7 +69,7 @@ function Navigation({ isLoaded }) {
                 <div className='splash-top-left'>
                     {sessionUser &&
                         <button onClick={() => history.goBack()}>
-                            Go Back
+                            Go Back Now
                             <i class="fa-solid fa-hand-back-point-left" />
                         </button>
                     }
