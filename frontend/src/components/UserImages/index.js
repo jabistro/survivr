@@ -13,6 +13,9 @@ function UserImages() {
     return (
 
         <div className='img-list'>
+            <Link className='create-image-link' exact to='/create-image'>
+                * ADD IMAGE *
+            </Link>
             {userImages.map(image => (
                 <Link to={`/image/${image.id}`}>
                     <img className='img-display' src={image.imageURL}></img>

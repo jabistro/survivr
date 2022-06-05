@@ -31,6 +31,7 @@ import { getAlbums } from "./store/albums";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -53,19 +54,19 @@ function App() {
             <Home />
             <SplashBlurb />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/users/:userId/images">
+          <Route exact path="/users/:userId/images">
             <UserImages />
           </Route>
-          <Route path="/users/:userId/albums">
+          <Route exact path="/users/:userId/albums">
             <UserAlbums />
           </Route>
-          <Route path="/explore/images">
+          <Route exact path="/explore/images">
             <OthersImages />
           </Route>
-          <Route path="/explore/albums">
+          <Route exact path="/explore/albums">
             <OthersAlbums />
           </Route>
           <Route exact path='/create-image'>
@@ -89,7 +90,7 @@ function App() {
           <Route exact path='/users/:userId/albums'>
             <UserAlbums />
           </Route>
-          <Route exact path='/users/:userId/albums/:albumId'>
+          <Route exact path='/users/:userId/albums/:albumId/images'>
             <AlbumImages />
           </Route>
           <Route exact path='/about' >

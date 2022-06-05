@@ -54,7 +54,7 @@ const ImageInput = () => {
 
         console.log(newImage)
 
-        const image = await dispatch(createImage(newImage)).then(() => (history.push('/explore')));
+        const image = await dispatch(createImage(newImage)).then(() => (history.push(`/users/${user.id}/images`)));
         // console.log('without await', image)
         if (image) reset();
     };

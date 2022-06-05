@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -8,6 +8,7 @@ import YourDropdown from './YourDropdown';
 import OthersDropdown from './OthersDropdown';
 
 function Navigation({ isLoaded }) {
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [click, setClick] = useState(false);
     const [yourDropdown, setYourDropdown] = useState(false);
@@ -24,33 +25,31 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <div className='nav-item'>
-                    <div
-                        className='nav-links'
-                        onMouseEnter={() => onYourMouseEnter()}
-                        onMouseLeave={() => onYourMouseLeave()}
-                    >
-                        <p>You</p>
-                        {yourDropdown && <YourDropdown />}
+                <div className='splash-top-right-left'>
+                    <div className='nav-item'>
+                        <div
+                            className='nav-links'
+                            onMouseEnter={() => onYourMouseEnter()}
+                            onMouseLeave={() => onYourMouseLeave()}
+                        >
+                            <p>You</p>
+                            {yourDropdown && <YourDropdown />}
+                        </div>
+                    </div>
+                    <div className='nav-item'>
+                        <div
+                            className='nav-links'
+                            onMouseEnter={() => onOthersMouseEnter()}
+                            onMouseLeave={() => onOthersMouseLeave()}
+                        >
+                            <p>Explore</p>
+                            {othersDropdown && <OthersDropdown />}
+                        </div>
                     </div>
                 </div>
-                <div className='nav-item'>
-                    <div
-                        className='nav-links'
-                        onMouseEnter={() => onOthersMouseEnter()}
-                        onMouseLeave={() => onOthersMouseLeave()}
-                    >
-                        <p>Explore</p>
-                        {othersDropdown && <OthersDropdown />}
-                    </div>
+                <div className='splash-top-right-right'>
+                    <ProfileButton user={sessionUser} />
                 </div>
-                <ProfileButton user={sessionUser} />
-                <Link className='create-image-link' exact to='/create-image'>
-                    * IMAGE TESTING *
-                </Link>
-                <Link className='create-album-link' exact to='/create-album'>
-                    * ALBUM TESTING *
-                </Link>
             </>
         );
     } else {
@@ -66,10 +65,16 @@ function Navigation({ isLoaded }) {
 
     return (
         <nav>
-            <div className='spash-header'>
+            <div className={sessionUser ? 'splash-header-login' : 'splash-header'}>
                 <div className='splash-top-left'>
-                    <Link exact to="/">
-                        <i className="fa-solid fa-2xl fa-tent"></i>
+                    {sessionUser &&
+                        <button onClick={() => history.goBack()}>
+                            Go Back
+                            <i class="fa-solid fa-hand-back-point-left" />
+                        </button>
+                    }
+                    <Link exact to={sessionUser ? `/users/${sessionUser.id}/images` : "/"}>
+                        <i id='home-logo' className=" fa-solid fa-xl fa-tent">survivr</i>
                     </Link>
                 </div>
                 <div className='splash-top-right'>

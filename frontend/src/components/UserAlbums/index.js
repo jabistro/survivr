@@ -11,9 +11,12 @@ function UserAlbums() {
 
     return (
         <div className='albums-container'>
+            <Link className='create-album-link' exact to='/create-album'>
+                * ADD ALBUM *
+            </Link>
             {albums.map(album => {
                 if (album.userId === user.id) {     // removed implicit return, only rendered albums for logged in user
-                    return <Link to={`/users/${user.id}/albums/${album.id}`}>
+                    return <Link to={`/users/${user.id}/albums/${album.id}/images`}>
                         <div className='album-list'>{album.title}</div>
                     </Link>
                 }

@@ -1,4 +1,4 @@
-.spash-header {
+.splash-header {
     height: 60px;
     background-color: black;
     justify-content: space-between;
@@ -9,6 +9,18 @@
     flex-direction: start;
     align-items: center;
     opacity: 50%;
+}
+
+.splash-header-login {
+    height: 60px;
+    background-color: black;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 100vw;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: start;
+    align-items: center;
 }
 
 .splash-center {
@@ -23,9 +35,17 @@
 
 .splash-top-right {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 20px;
+    width: 1000px;
+}
+
+.splash-top-right-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
 }
 
 /* #root {
@@ -55,7 +75,27 @@
 
 .splash-top-left>a>i {
     margin-left: 20px;
-    color: white
+    color: white;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#home-logo {
+    color: white;
+    text-decoration: none;
+}
+
+#home-logo:hover {
+    color: grey;
+    text-decoration: none;
+}
+
+
+.home-logo:hover,
+:active {
+    color: grey;
+    text-decoration: none;
 }
 
 .create-image-link {

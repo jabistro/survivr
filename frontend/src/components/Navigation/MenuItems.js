@@ -6,7 +6,7 @@ export const YourMenuItems = [
     },
     {
         title: 'Albums',
-        path: '/users/:userId/images',
+        path: '/users/:userId/albums',
         cName: 'dropdown-link'
     }
 ];

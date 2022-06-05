@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 // import CommentForm from '../CommentForm'
 import './AlbumImages.css'
 
@@ -31,7 +31,9 @@ const AlbumImages = () => {
                 console.log(album.id, image.albumId)
                 if (album.id === image.albumId) {
                     return (
-                        <img className='album-imgs' src={image.imageURL}></img>
+                        <Link to={`/image/${image.id}`}>
+                            <img className='album-imgs' src={image.imageURL}></img>
+                        </Link>
                     )
                 }
             })}
