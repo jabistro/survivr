@@ -58,5 +58,14 @@
 }
 
 #demo-login-button {
+    background-color: #2e1817;
+    width: 200px;
+    height: 45px;
+    border-radius: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    border-color: #93c1a0;
+    color: #a3865a;
+    font-size: 15px;
     margin-top: 10px;
 }

@@ -22,6 +22,7 @@ router.put('/', validateCreate, asyncHandler(async (req, res) => {
         id,
         userId,
         imageURL,
+        albumId,
         caption
     } = req.body
 
@@ -30,6 +31,7 @@ router.put('/', validateCreate, asyncHandler(async (req, res) => {
         {
             userId,
             imageURL,
+            albumId,
             caption
         })
     return res.json(newImage)

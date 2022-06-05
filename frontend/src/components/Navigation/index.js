@@ -68,8 +68,8 @@ function Navigation({ isLoaded }) {
             <div className={sessionUser ? 'splash-header-login' : 'splash-header'}>
                 <div className='splash-top-left'>
                     {sessionUser &&
-                        <button onClick={() => history.goBack()}>
-                            Go Back Now
+                        <button className='back-button' onClick={() => history.goBack()}>
+                            Go Back
                             <i class="fa-solid fa-hand-back-point-left" />
                         </button>
                     }
@@ -77,7 +77,7 @@ function Navigation({ isLoaded }) {
                         <i id='home-logo' className=" fa-solid fa-xl fa-tent">survivr</i>
                     </Link>
                 </div>
-                <div className='splash-top-right'>
+                <div className={sessionUser ? 'splash-top-right-logged-in' : 'splash-top-right-logged-out'}>
                     {isLoaded && sessionLinks}
                 </div>
             </div>
