@@ -18,7 +18,7 @@ function UserImages() {
             </Link>
             <div className='img-list'>
                 {userImages.map(image => (
-                    <Link to={`/image/${image.id}`}>
+                    <Link key={image.id} to={`/image/${image.id}`}>
                         <img className='img-display' src={image.imageURL}></img>
                     </Link>
                 ))}
@@ -28,19 +28,3 @@ function UserImages() {
 }
 
 export default UserImages;
-
-
-{/* <div class="gallery">
-            <div class="gallery__column">
-                {userImages.map(image => {
-                    <figure class="gallery__thumb">
-                        <Link to={`/image/${image.id}`}>
-                            <img src={image.imageURL} class="gallery__image" />
-                        </Link>
-                        <figcaption class="gallery__caption">{image.caption}</figcaption>
-                    </figure>
-                })}
-            </div>
-        </div> */}
-
-{/* <a href="https://unsplash.com/@jeka_fe" target="_blank" class="gallery__link"></a> */ }

@@ -14,7 +14,7 @@ function OthersImages() {
 
         <div className='img-list'>
             {userImages.map(image => (
-                <Link to={`/image/${image.id}`}>
+                <Link key={image.id} to={`/image/${image.id}`}>
                     <img className='img-display' src={image.imageURL}></img>
                 </Link>
             ))}

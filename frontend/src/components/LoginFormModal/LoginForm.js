@@ -8,10 +8,6 @@ function LoginForm() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
 
-    // if (user) {
-    //     return <Redirect to={`/users/${user.id}/images`} />
-    // }
-
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);

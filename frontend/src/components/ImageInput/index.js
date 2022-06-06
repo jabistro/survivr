@@ -27,13 +27,15 @@ const ImageInput = () => {
             const getAlbumsFunc = async () => {
                 const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
                     setAlbums(albums);
-                    if (albums.length < 1) setAlbumId(albums[0].id);
-                }
-                );
+                });
             };
             getAlbumsFunc();
         }
-    }, [albums])
+    }, [albums]);
+
+    useEffect(() => {
+        if (albums.length > 0) setAlbumId(albums[0].id);
+    }, [albums]);
 
     useEffect(() => {
         if (!user) {

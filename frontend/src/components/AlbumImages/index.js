@@ -36,7 +36,7 @@ const AlbumImages = () => {
             {images.map(image => {
                 if (album.id === image.albumId) {
                     return (
-                        <Link to={`/image/${image.id}`}>
+                        <Link key={image.id} to={`/image/${image.id}`}>
                             <img className='album-imgs' src={image.imageURL}></img>
                         </Link>
                     )
