@@ -8,7 +8,7 @@
 
 <p align="center"><a  href="https://john-allan-survivr.herokuapp.com/">survivr Live Demo</a></p>
 
-<img width="866" src='/home/jabistro/Deferred-2nd-try/projects/mod5(w15-w16)solo/authenticate-me/frontend/src/images/survivr-screenshot.jpg'>
+<img width="866" src='https://user-images.githubusercontent.com/97556168/172131164-b6ba4c84-389c-4760-aa3f-586756111933.jpg'>
 Splash page
 <br><br>
 
