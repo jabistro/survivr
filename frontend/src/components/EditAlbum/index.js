@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { editAlbumThunk, deleteAlbum } from '../../store/albums';
+import { getImages } from '../../store/images';
 import './EditAlbum.css'
 
 const EditAlbumForm = () => {
@@ -41,7 +42,7 @@ const EditAlbumForm = () => {
 
     const deleteHandler = (e, album) => {
         e.preventDefault()
-        dispatch(deleteAlbum(editAlbum))
+        dispatch(deleteAlbum(editAlbum)).then(() => dispatch(getImages()))
             .then(() => history.push(`/users/${user.id}/albums`))
     }
 

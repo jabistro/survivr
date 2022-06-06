@@ -14,7 +14,13 @@ module.exports = {
       },
       albumId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        hooks: 'true',
+        references: {
+          model: 'Albums',
+          key: 'id'
+        }
       },
       imageURL: {
         allowNull: false,

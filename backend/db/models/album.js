@@ -13,11 +13,11 @@ module.exports = (sequelize, DataTypes) => {
   Album.associate = function (models) {
     // associations can be defined here
     Album.hasMany(models.Image, {
-      as: 'images',
+      onDelete: 'cascade',
+      hooks: 'true',
       foreignKey: 'albumId'
     });
     Album.belongsTo(models.User, {
-      as: 'user',
       foreignKey: 'userId'
     });
   };

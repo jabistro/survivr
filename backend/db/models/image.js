@@ -18,15 +18,12 @@ module.exports = (sequelize, DataTypes) => {
   Image.associate = function (models) {
     // associations can be defined here
     Image.hasMany(models.Comment, {
-      as: 'comments',
       foreignKey: 'imageId'
     });
     Image.belongsTo(models.User, {
-      as: 'user',
       foreignKey: 'userId'
     });
     Image.belongsTo(models.Album, {
-      as: 'album',
       foreignKey: 'albumId'
     });
   };
