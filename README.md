@@ -8,6 +8,10 @@
 
 <p align="center"><a  href="https://john-allan-survivr.herokuapp.com/">survivr Live Demo</a></p>
 
+<img width="866" alt="Screen Shot 2022-06-06 at 4 57 25 AM" src='/home/jabistro/Deferred-2nd-try/projects/mod5(w15-w16)solo/authenticate-me/frontend/src/images/survivr-screenshot.jpg'>
+Splash page
+<br><br>
+
 ## survivr at a Glance
 
 survivr is a full stack application that allows users to upload and store images from their favorite show, Survivor! Users are require to sign up for an account to use any of the service.
