@@ -30,7 +30,7 @@ const AlbumImages = () => {
                     <div className='album-title'>
                         {album.title}
                     </div>
-                    <div className='edit-album-button'>
+                    <div className={user.id === album.userId ? 'edit-album-button' : 'no-button'}>
                         {user && user.id === album.userId && <i id='edit-album-icon' class="fa-solid fa-xs fa-pen-to-square" onClick={() => editHandler(album)}>Edit Album Name</i>}
                     </div>
                 </h1>

@@ -54,6 +54,7 @@ const EditAlbumForm = () => {
                 <form onSubmit={handleOnSubmit}>
                     <label className='input-words'>Title
                         <input
+                            required
                             type='title'
                             onChange={(e) => setTitle(e.target.value)}
                             value={title}

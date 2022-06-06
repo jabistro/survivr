@@ -2,6 +2,11 @@
     color: black;
     font-size: 40px;
     margin: 40px;
+    text-decoration: none;
+}
+
+.album-list-link {
+    text-decoration: none;
 }
 
 .albums-container {

@@ -15,15 +15,12 @@ import AlbumInput from "./components/AlbumInput";
 import EditAlbumForm from "./components/EditAlbum";
 import AlbumImages from "./components/AlbumImages";
 
-import Home from './components/Home';
 // import You from './components/You';
 import UserImages from "./components/UserImages";
 import UserAlbums from './components/UserAlbums';
 // import Explore from './components/Explore';
 import OthersImages from './components/OthersImages';
 import OthersAlbums from './components/OthersAlbums';
-
-import Navbar from './components/menu/Navbar';
 
 import { getImages } from "./store/images";
 import { getAlbums } from "./store/albums";
@@ -51,7 +48,6 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            <Home />
             <SplashBlurb />
           </Route>
           <Route exact path="/signup">

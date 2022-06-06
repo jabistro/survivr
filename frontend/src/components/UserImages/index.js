@@ -12,15 +12,16 @@ function UserImages() {
 
     return (
         <div className='user-img-container'>
+            <h1 className='your-images'>{user.username}'s Photos</h1>
+            <Link className='create-image-button' exact to='/create-image'>
+                ADD IMAGE
+            </Link>
             <div className='img-list'>
                 {userImages.map(image => (
                     <Link to={`/image/${image.id}`}>
                         <img className='img-display' src={image.imageURL}></img>
                     </Link>
                 ))}
-                <Link className='create-image-button' exact to='/create-image'>
-                    ADD IMAGE
-                </Link>
             </div>
         </div>
     );

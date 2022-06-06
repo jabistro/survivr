@@ -103,7 +103,7 @@ const EditImageForm = () => {
                     </select>
                 </label>
                 <div className='img-edit-form-buttons'>
-                    <button className="img-edit-button" type="submit">Edit</button>
+                    <button className="img-edit-button" type="submit">Submit</button>
                     <button className='img-delete-button' onClick={(e) => deleteHandler(e, editImage)}>Delete</button>
                 </div>
             </form >

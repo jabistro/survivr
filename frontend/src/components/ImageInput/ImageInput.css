@@ -1,0 +1,77 @@
+.add-img-input-box {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    margin-top: 50px;
+    border-radius: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#blank-image {
+    margin-bottom: 30px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 275px;
+}
+
+.add-album-button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.add-image-title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.image-add-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.add-image-input {
+    margin-left: 15px;
+}
+
+.add-image-select {
+    margin-left: 57px;
+}
+
+.img-add-button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.add-input-words {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}

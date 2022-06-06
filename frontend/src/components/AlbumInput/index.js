@@ -35,18 +35,24 @@ const AlbumInput = () => {
     };
 
     return (
-        <div className='album-input-box'>
-            <h1>Add Album</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type='title'
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
-                    placeholder='Title'
-                    name='title'
-                />
-                <button type='submit'>Submit</button>
-            </form>
+        <div className='add-album-input-box'>
+            <h1 className='add-album-header'>Add Album</h1>
+            <div className='add-form-and-buttons'>
+                <form className='add-form' onSubmit={handleSubmit}>
+                    <label>Title
+                        <input
+                            required
+                            className='add-input-words'
+                            type='title'
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                            placeholder='Title'
+                            name='title'
+                        />
+                    </label>
+                    <button id="album-add-button" type='submit'>Submit</button>
+                </form>
+            </div>
         </div>
     );
 };

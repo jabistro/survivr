@@ -8,6 +8,12 @@
     grid-auto-flow: row;
 }
 
+.your-images {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 30px;
+    font-size: 25px
+}
+
 .create-image-button {
     text-decoration: none;
     display: flex;

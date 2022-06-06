@@ -23,6 +23,26 @@
     font-weight: bold;
 }
 
+.img-detail-date {
+    font-weight: bold;
+}
+
 .img-detail-caption {
     width: 300px;
+}
+
+.photo-detail-edit-button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS',
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        'Lucida Sans',
+        Arial,
+        sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
 }
