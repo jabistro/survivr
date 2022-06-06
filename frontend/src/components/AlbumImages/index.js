@@ -24,9 +24,17 @@ const AlbumImages = () => {
     }
 
     return (
-        <div>
-            <h1>{album.title}</h1>
-            {user && user.id === album.userId && <button className='album-edit-button' onClick={() => editHandler(album)}>EDIT ICON</button>}
+        <div className='albumImages-container'>
+            <div>
+                <h1 className='album-title-and-edit-button'>
+                    <div className='album-title'>
+                        {album.title}
+                    </div>
+                    <div className='edit-album-button'>
+                        {user && user.id === album.userId && <i id='edit-album-icon' class="fa-solid fa-xs fa-pen-to-square" onClick={() => editHandler(album)}>Edit Album Name</i>}
+                    </div>
+                </h1>
+            </div>
             {images.map(image => {
                 console.log(album.id, image.albumId)
                 if (album.id === image.albumId) {

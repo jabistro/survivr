@@ -65,39 +65,49 @@ const EditImageForm = () => {
 
     return (
         <div className='img-edit-input-box'>
-            <h1>Add Image</h1>
-            <form onSubmit={handleOnSubmit}>
-                <input
-                    type='text'
-                    onChange={(e) => setImageURL(e.target.value)}
-                    value={imageURL}
-                    placeholder='Image URL'
-                    name='imageUrl'
-                />
-                <select
-                    value={albumId}
-                    onChange={(e) => setAlbumId(parseInt(e.target.value))}
-                    name='albumId'
-                >
-                    {
-                        albums.map(album => {
-                            return <option key={album.id} value={album.id}>{album.title}</option>
-                        })
-                    }
-                </select>
-                <input
-                    type='text'
-                    onChange={(e) => setCaption(e.target.value)}
-                    value={caption}
-                    placeholder='Caption (optional)'
-                    name='caption'
-                />
+            <h1 className='edited-image-title'>Edit Image</h1>
+            <img className='edited-image' src={editImage.imageURL}></img>
+            <form className='image-edit-form' onSubmit={handleOnSubmit}>
+                <label className='input-words'>Image URL
+                    <input
+                        className='edit-image-input'
+                        type='text'
+                        onChange={(e) => setImageURL(e.target.value)}
+                        value={imageURL}
+                        placeholder='Image URL'
+                        name='imageUrl'
+                    />
+                </label>
+                <label className='input-words'>Caption
+                    <input
+                        className='edit-image-input'
+                        type='text'
+                        onChange={(e) => setCaption(e.target.value)}
+                        value={caption}
+                        placeholder='Caption (optional)'
+                        name='caption'
+                    />
+                </label>
+                <label className='input-words'>Album
+                    <select
+                        className='edit-image-select'
+                        value={albumId}
+                        onChange={(e) => setAlbumId(parseInt(e.target.value))}
+                        name='albumId'
+                    >
+                        {
+                            albums.map(album => {
+                                return <option key={album.id} value={album.id}>{album.title}</option>
+                            })
+                        }
+                    </select>
+                </label>
                 <div className='img-edit-form-buttons'>
-                    <button id="img-edit-button" type="submit">Submit</button>
-                    <button className='img-delete-button' onClick={(e) => deleteHandler(e, editImage)}>DELETE ICON</button>
+                    <button className="img-edit-button" type="submit">Edit</button>
+                    <button className='img-delete-button' onClick={(e) => deleteHandler(e, editImage)}>Delete</button>
                 </div>
-            </form>
-        </div>
+            </form >
+        </div >
     );
 }
 

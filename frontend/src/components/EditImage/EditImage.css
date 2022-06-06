@@ -1,0 +1,78 @@
+.img-edit-input-box {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    margin-top: 50px;
+    border-radius: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.image-edit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.edited-image {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.edited-image-title {
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.edit-image-input {
+    margin-left: 15px;
+}
+
+.edit-image-select {
+    margin-left: 132px;
+}
+
+.img-edit-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    margin-top: 20px;
+}
+
+.img-edit-button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.img-delete-button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.input-words {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}

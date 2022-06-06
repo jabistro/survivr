@@ -43,6 +43,7 @@ const ImageDetail = () => {
                     <img id='img-detail-img' src={image.imageURL}></img>
                     {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT ICON</button>}
                     <div className='img-detail-info'>
+                        {sessionUser && sessionUser.id !== image.userId && <h2 className='poster'>{image.imageUsername}</h2>}
                         <h2 className='img-detail-caption'>{image.caption}</h2>
                         <h3 className='img-detail-date'>{month[date.getMonth()]}{date.getDay() - 1}</h3>
                     </div>

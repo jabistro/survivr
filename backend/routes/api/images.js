@@ -23,7 +23,8 @@ router.put('/', validateCreate, asyncHandler(async (req, res) => {
         userId,
         imageURL,
         albumId,
-        caption
+        caption,
+        imageUsername
     } = req.body
 
     const editImage = await Image.findByPk(id)
@@ -32,7 +33,8 @@ router.put('/', validateCreate, asyncHandler(async (req, res) => {
             userId,
             imageURL,
             albumId,
-            caption
+            caption,
+            imageUsername
         })
     return res.json(newImage)
 }))

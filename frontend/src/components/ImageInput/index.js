@@ -49,7 +49,8 @@ const ImageInput = () => {
             userId: user.id,
             albumId,
             imageURL: imageUrl,
-            caption
+            caption,
+            imageUsername: user.username
         };
 
         console.log(newImage)

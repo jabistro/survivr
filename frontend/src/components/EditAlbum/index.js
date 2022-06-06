@@ -49,20 +49,24 @@ const EditAlbumForm = () => {
 
     return (
         <div className='album-edit-input-box'>
-            <h1>Edit Album</h1>
-            <form onSubmit={handleOnSubmit}>
-                <input
-                    type='title'
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
-                    placeholder='Title'
-                    name='title'
-                />
-                <div className='album-form-edit-buttons'>
-                    <button id="album-edit-button" type="submit">Submit</button>
-                    <button className='album-delete-button' onClick={(e) => deleteHandler(e, editAlbum)}>DELETE ICON</button>
-                </div>
-            </form>
+            <h1 className='edit-album-header'>Edit Album</h1>
+            <div className='edit-form-and-buttons'>
+                <form onSubmit={handleOnSubmit}>
+                    <label className='input-words'>Title
+                        <input
+                            type='title'
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                            placeholder='Title'
+                            name='title'
+                        />
+                    </label>
+                    <div className='album-form-edit-buttons'>
+                        <button id="album-edit-button" type="submit">Submit</button>
+                        <button className='album-delete-button' onClick={(e) => deleteHandler(e, editAlbum)}>DELETE</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
