@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 
 
 const ImageInput = () => {
-    const [albumId, setAlbumId] = useState(1);
     const [albums, setAlbums] = useState([]);
+    const [albumId, setAlbumId] = useState(1);
     const [imageUrl, setImageUrl] = useState('');
     const [caption, setCaption] = useState('');
 
@@ -27,6 +27,7 @@ const ImageInput = () => {
             const getAlbumsFunc = async () => {
                 const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
                     setAlbums(albums);
+                    setAlbumId(albums[0].id)
                 }
                 );
             };
@@ -43,6 +44,7 @@ const ImageInput = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(albumId)
         const newImage = {
             userId: user.id,
             albumId,
@@ -66,7 +68,7 @@ const ImageInput = () => {
             <div>
                 <img id='blank-image' src={require('../../images/5.jpg')}></img>
             </div>
-            <form className='image-add-form' onSubmit={handleSubmit}>
+            <form className='image-add-form' onSubmit={(e) => handleSubmit(e)}>
                 <label className='add-input-words'>Image URL
                     <input
                         className='add-image-input'
