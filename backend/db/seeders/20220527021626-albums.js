@@ -5,11 +5,11 @@ module.exports = {
     return queryInterface.bulkInsert('Albums', [
       {
         userId: 1,
-        title: "Test1"
+        title: "Women of Survivor"
       },
       {
         userId: 2,
-        title: "Test2"
+        title: "Jaw Droppers"
       }
     ], {});
   },
