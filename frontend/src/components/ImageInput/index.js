@@ -13,6 +13,7 @@ const ImageInput = () => {
     const [albumId, setAlbumId] = useState(1);
     const [imageUrl, setImageUrl] = useState('');
     const [caption, setCaption] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const history = useHistory();
 
@@ -27,7 +28,7 @@ const ImageInput = () => {
             const getAlbumsFunc = async () => {
                 const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
                     setAlbums(albums);
-                });
+                })
             };
             getAlbumsFunc();
         }
@@ -53,7 +54,11 @@ const ImageInput = () => {
             caption
         };
 
-        const image = await dispatch(createImage(newImage)).then(() => (history.push(`/users/${user.id}/images`)));
+        const image = await dispatch(createImage(newImage)).then(() => (history.push(`/users/${user.id}/images`)))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
         if (image) reset();
     };
 
@@ -65,6 +70,10 @@ const ImageInput = () => {
 
     return (
         <div className='add-img-input-box'>
+            <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+            <br />
             <h1 className='add-image-title'>Add Image</h1>
             <div>
                 <img id='blank-image' src={require('../../images/5.jpg')}></img>
