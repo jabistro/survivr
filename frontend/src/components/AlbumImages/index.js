@@ -42,6 +42,7 @@ const AlbumImages = () => {
                     )
                 }
             })}
+            {album.userId === user.id ? <Link className='create-image-button' exact to='/create-image'>ADD IMAGE</Link> : <></>}
         </div>
     )
 }

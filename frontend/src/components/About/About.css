@@ -23,3 +23,8 @@
     display: flex;
     word-wrap: normal;
 }
+
+p {
+    width: 470px;
+    font-size: 25px;
+}

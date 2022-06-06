@@ -9,4 +9,9 @@
     height: 600px;
     margin-top: 50px;
     border-radius: 25px;
+    text-decoration: none;
+}
+
+.album-list-link {
+    text-decoration: none;
 }

@@ -33,14 +33,14 @@ const AlbumInput = () => {
     };
 
     return (
-        <div className='add-album-input-box'>
+        <div className='album-add-input-box'>
             <h1 className='add-album-header'>Add Album</h1>
             <div className='add-form-and-buttons'>
-                <form className='add-form' onSubmit={handleSubmit}>
-                    <label>Title
+                <form onSubmit={handleSubmit}>
+                    <label className='add-words-label'>Title
                         <input
+                            className='add-words'
                             required
-                            className='add-input-words'
                             type='title'
                             onChange={(e) => setTitle(e.target.value)}
                             value={title}
@@ -48,7 +48,9 @@ const AlbumInput = () => {
                             name='title'
                         />
                     </label>
-                    <button id="album-add-button" type='submit'>Submit</button>
+                    <div className='album-form-add-buttons'>
+                        <button id="album-add-button" type='submit'>Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

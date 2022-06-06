@@ -1,4 +1,4 @@
-.add-album-input-box {
+.album-add-input-box {
     background-color: white;
     display: flex;
     align-items: center;
@@ -12,39 +12,29 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.add-words-label {
+    font-size: 22px;
+}
+
+.add-words {
+    margin-left: 20px;
+}
+
 .add-album-header {
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.add-input-words {
-    margin-left: 20px;
-}
-
-.add-form {
-    width: 100px;
-}
 
 .album-form-add-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 280px;
     margin-top: 20px;
 }
 
 #album-add-button {
-    width: 100px;
-    height: 35px;
-    font-size: 15px;
-    background-color: white;
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.album-add-button {
     width: 100px;
     height: 35px;
     font-size: 15px;
