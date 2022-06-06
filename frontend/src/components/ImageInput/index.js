@@ -27,13 +27,13 @@ const ImageInput = () => {
             const getAlbumsFunc = async () => {
                 const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
                     setAlbums(albums);
-                    setAlbumId(albums[0].id)
+                    if (albums.length < 1) setAlbumId(albums[0].id);
                 }
                 );
             };
             getAlbumsFunc();
         }
-    })
+    }, [albums])
 
     useEffect(() => {
         if (!user) {
@@ -44,7 +44,6 @@ const ImageInput = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(albumId)
         const newImage = {
             userId: user.id,
             albumId,

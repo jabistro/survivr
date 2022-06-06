@@ -24,7 +24,6 @@ function SignupFormPage() {
                 .then((user) => history.push(`/users/${user.id}/images`))
                 .catch(
                     async (res) => {
-                        console.log(res)
                         const data = await res.json();
                         if (data && data.errors) setErrors(data.errors);
                     }
