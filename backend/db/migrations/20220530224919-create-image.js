@@ -12,13 +12,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      imageUsername: {
-        type: Sequelize.STRING,
-        references: {
-          model: 'Users',
-          key: 'username'
-        }
-      },
       albumId: {
         allowNull: false,
         type: Sequelize.INTEGER
