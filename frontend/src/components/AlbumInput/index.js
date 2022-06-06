@@ -16,8 +16,6 @@ const AlbumInput = () => {
 
     useEffect(() => {
 
-        console.log(user);
-
         if (!user) {
             history.push('/');
         }

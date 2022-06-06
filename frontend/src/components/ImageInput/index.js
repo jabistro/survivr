@@ -21,15 +21,12 @@ const ImageInput = () => {
 
     const dispatch = useDispatch();
 
-    // console.log(user)
-
 
     useEffect(() => {
         if (user && albums.length === 0) {
             const getAlbumsFunc = async () => {
                 const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
                     setAlbums(albums);
-                    console.log(albums)
                 }
                 );
             };
@@ -53,10 +50,7 @@ const ImageInput = () => {
             caption
         };
 
-        console.log(newImage)
-
         const image = await dispatch(createImage(newImage)).then(() => (history.push(`/users/${user.id}/images`)));
-        // console.log('without await', image)
         if (image) reset();
     };
 

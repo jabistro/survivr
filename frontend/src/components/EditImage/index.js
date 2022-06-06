@@ -31,7 +31,6 @@ const EditImageForm = () => {
             const getAlbumsFunc = async () => {
                 const albumThunk = await dispatch(getUserAlbums(user.id)).then((albums) => {
                     setAlbums(albums);
-                    console.log(albums)
                 }
                 );
             };

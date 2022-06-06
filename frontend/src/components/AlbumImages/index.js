@@ -13,8 +13,6 @@ const AlbumImages = () => {
     const history = useHistory();
     const user = useSelector(state => state.session.user);
 
-    console.log(images);
-
     useEffect(() => {
         if (!user) history.push('/')
     }, [])
@@ -36,7 +34,6 @@ const AlbumImages = () => {
                 </h1>
             </div>
             {images.map(image => {
-                console.log(album.id, image.albumId)
                 if (album.id === image.albumId) {
                     return (
                         <Link to={`/image/${image.id}`}>

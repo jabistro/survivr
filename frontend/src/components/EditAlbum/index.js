@@ -34,8 +34,6 @@ const EditAlbumForm = () => {
             .then(() => history.push(`/users/${userId}/albums/${editAlbum.id}/images`))
             .catch(async (res) => {
 
-                console.log(res);
-
                 const data = await res.json()
                 if (data && errors) setErrors(data.errors)
             })

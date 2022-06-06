@@ -34,8 +34,6 @@ const ImageDetail = () => {
         'december'
     ]
 
-    // console.log(date);
-
     return (
         <>
             {image &&
