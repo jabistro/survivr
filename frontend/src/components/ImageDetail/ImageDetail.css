@@ -1,6 +1,6 @@
 #img-detail-img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 500px;
+    max-height: 500px;
     margin: 20px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .img-detail-caption {
-    width: 300px;
+    width: 500px;
 }
 
 .photo-detail-edit-button {

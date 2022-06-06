@@ -23,8 +23,12 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-.signup-inputs {
+.signup-labels {
     margin-top: 10px;
+}
+
+.signup-inputs {
+    margin-left: 15px;
 }
 
 .signup-page-button {

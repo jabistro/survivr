@@ -14,6 +14,7 @@ import EditImageForm from "./components/EditImage";
 import AlbumInput from "./components/AlbumInput";
 import EditAlbumForm from "./components/EditAlbum";
 import AlbumImages from "./components/AlbumImages";
+import HiddenImmunityIdol from "./components/HiddenImmunityIdol";
 
 // import You from './components/You';
 import UserImages from "./components/UserImages";
@@ -91,6 +92,9 @@ function App() {
           </Route>
           <Route exact path='/about' >
             <About />
+          </Route>
+          <Route exact path='/hidden-idol'>
+            <HiddenImmunityIdol />
           </Route>
         </Switch>
       )}
