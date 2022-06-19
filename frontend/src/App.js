@@ -25,6 +25,7 @@ import OthersAlbums from './components/OthersAlbums';
 
 import { getImages } from "./store/images";
 import { getAlbums } from "./store/albums";
+import { getComments } from "./store/comments";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,10 @@ function App() {
 
   useEffect(() => {
     dispatch(getImages());
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getComments());
   }, [dispatch])
 
   useEffect(() => {
