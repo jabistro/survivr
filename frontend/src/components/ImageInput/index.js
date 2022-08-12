@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const ImageInput = () => {
     const [albums, setAlbums] = useState([]);
     const [albumId, setAlbumId] = useState(1);
-    const [imageUrl, setImageUrl] = useState('');
+    const [image, setImage] = useState(false);
     const [caption, setCaption] = useState('');
     const [errors, setErrors] = useState([]);
 
@@ -21,6 +21,7 @@ const ImageInput = () => {
 
 
     const dispatch = useDispatch();
+
 
 
     useEffect(() => {
@@ -50,22 +51,27 @@ const ImageInput = () => {
         const newImage = {
             userId: user.id,
             albumId,
-            imageURL: imageUrl,
+            image,
             caption
         };
 
-        const image = await dispatch(createImage(newImage)).then(() => (history.push(`/users/${user.id}/images`)))
+        const theImage = await dispatch(createImage(newImage)).then(() => (history.push(`/users/${user.id}/images`)))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        if (image) reset();
+        if (theImage) reset();
     };
 
     const reset = () => {
-        setImageUrl('');
+        setImage(false);
         setAlbumId('');
         setCaption('');
+    };
+
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        if (file) setImage(file);
     };
 
     return (
@@ -79,14 +85,15 @@ const ImageInput = () => {
                 <img id='blank-image' src={require('../../images/5.jpg')}></img>
             </div>
             <form className='image-add-form' onSubmit={(e) => handleSubmit(e)}>
-                <label className='add-input-words'>Image URL
+                <label className='add-input-words'>Image
                     <input
                         className='add-image-input'
-                        type='text'
-                        onChange={(e) => setImageUrl(e.target.value)}
-                        value={imageUrl}
-                        placeholder='Image URL'
-                        name='imageUrl'
+                        type='file'
+                        onChange={updateImage}
+                        // value={image}
+                        placeholder='Image'
+                        // name='imageUrl'
+                        accept="image/*"
                     />
                 </label>
                 <label className='add-input-words'>Caption

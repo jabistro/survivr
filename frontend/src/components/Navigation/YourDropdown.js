@@ -1,13 +1,29 @@
 import React, { useState } from "react";
-import { YourMenuItems } from "./MenuItems";
+// import { YourMenuItems } from "./MenuItems";
 import { Link } from "react-router-dom";
 import './Navigation.css';
+import { useSelector } from "react-redux";
 
 function YourDropdown() {
 
     const [click, setClick] = useState(false);
 
+    const user = useSelector(state => state.session.user);
+
     const handleClick = () => setClick(!click);
+
+    const YourMenuItems = [
+        {
+            title: 'Images',
+            path: `/users/${user.id}/images`,
+            cName: 'dropdown-link'
+        },
+        {
+            title: 'Albums',
+            path: `/users/${user.id}/albums`,
+            cName: 'dropdown-link'
+        }
+    ];
 
     return (
         <>

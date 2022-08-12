@@ -3,7 +3,9 @@ const asyncHandler = require('express-async-handler');
 const { requireAuth } = require('../../utils/auth');
 const { Image } = require('../../db/models');
 const { check } = require('express-validator');
-const { validateCreate } = require('../../utils/validations/images')
+const { validateCreate } = require('../../utils/validations/images');
+const { singleMulterUpload } = require('../../awsS3');
+const { singlePublicFileUpload } = require('../../awsS3');
 
 const router = express.Router();
 
@@ -12,24 +14,30 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json(images);
 }));
 
-router.post('/', validateCreate, asyncHandler(async (req, res) => {
-    const image = await Image.create(req.body);
+router.post('/', singleMulterUpload("image"), validateCreate, asyncHandler(async (req, res) => {
+    const { caption, albumId, userId } = req.body;
+    const imageURL = await singlePublicFileUpload(req.file);
+    const image = await Image.create({ caption, albumId, imageURL, userId });
     res.json(image);
 }));
 
-router.put('/', validateCreate, asyncHandler(async (req, res) => {
-    const {
+router.put('/', singleMulterUpload("image"), validateCreate, asyncHandler(async (req, res) => {
+    let {
         id,
-        userId,
+        // userId,
         imageURL,
         albumId,
         caption
     } = req.body
 
+    if (req.file) {
+        imageURL = await singlePublicFileUpload(req.file);
+    }
+
     const editImage = await Image.findByPk(id)
     const newImage = await editImage.update(
         {
-            userId,
+            // userId,
             imageURL,
             albumId,
             caption

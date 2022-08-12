@@ -10,7 +10,7 @@ const EditImageForm = () => {
     const editImageId = useParams().imageId
     const editImage = allImages[editImageId] || {};
     const [caption, setCaption] = useState(editImage.caption || '');
-    const [imageURL, setImageURL] = useState(editImage.imageURL || '');
+    const [image, setImage] = useState(editImage.imageURL || false);
     const [albumId, setAlbumId] = useState(editImage.albumId || '');
     const [albums, setAlbums] = useState([]);
 
@@ -40,11 +40,12 @@ const EditImageForm = () => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        const userId = user.id;
+        // const userId = user.id;
         const editingImage = {
             id: editImage.id,
-            userId,
-            imageURL,
+            // userId,
+            imageURL: editImage.imageURL,
+            image,
             caption,
             albumId
         }
@@ -55,6 +56,11 @@ const EditImageForm = () => {
                 if (data && errors) setErrors(data.errors)
             })
     }
+
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        if (file) setImage(file);
+    };
 
     const deleteHandler = (e, image) => {
         e.preventDefault()
@@ -67,14 +73,15 @@ const EditImageForm = () => {
             <h1 className='edited-image-title'>Edit Image</h1>
             <img className='edited-image' src={editImage.imageURL}></img>
             <form className='image-edit-form' onSubmit={handleOnSubmit}>
-                <label className='input-words'>Image URL
+                <label className='input-words'>Image
                     <input
                         className='edit-image-input'
-                        type='text'
-                        onChange={(e) => setImageURL(e.target.value)}
-                        value={imageURL}
-                        placeholder='Image URL'
-                        name='imageUrl'
+                        type='file'
+                        onChange={updateImage}
+                        // value={imageURL}
+                        placeholder='Image'
+                        // name='imageUrl'
+                        accept="image/*"
                     />
                 </label>
                 <label className='input-words'>Caption

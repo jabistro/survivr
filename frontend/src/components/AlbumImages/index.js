@@ -21,6 +21,8 @@ const AlbumImages = () => {
         history.push(`/album/edit/${album.id}`)
     }
 
+    if (!album) return null;
+
     return (
         <div className='albumImages-container'>
             <div>
@@ -34,7 +36,7 @@ const AlbumImages = () => {
                 </h1>
             </div>
             {images.map(image => {
-                if (album.id === image.albumId) {
+                if (album.id == image.albumId) {
                     return (
                         <Link key={image.id} to={`/image/${image.id}`}>
                             <img className='album-imgs' src={image.imageURL}></img>

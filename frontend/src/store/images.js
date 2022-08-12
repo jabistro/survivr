@@ -39,11 +39,35 @@ export const getImages = () => async (dispatch) => {
     }
 }
 
-export const createImage = (image) => async (dispatch) => {
-    const response = await csrfFetch(`/api/images`, {
+// export const createImage = (image) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/images`, {
+//         method: "POST",
+//         body: JSON.stringify(image)
+//     });
+//     const createdImage = await response.json();
+
+//     if (createdImage) {
+//         dispatch(addImage(createdImage))
+//     }
+//     return createdImage
+// }
+
+export const createImage = (imageData) => async (dispatch) => {
+    const { albumId, image, caption, userId } = imageData;
+    const formData = new FormData();
+    formData.append("albumId", albumId);
+    formData.append("image", image);
+    formData.append("caption", caption);
+    formData.append("userId", userId);
+
+    const response = await csrfFetch('/api/images', {
         method: "POST",
-        body: JSON.stringify(image)
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData,
     });
+
     const createdImage = await response.json();
 
     if (createdImage) {
@@ -52,17 +76,49 @@ export const createImage = (image) => async (dispatch) => {
     return createdImage
 }
 
-export const editImageThunk = (editImage) => async (dispatch) => {
+export const editImageThunk = (editImageData) => async (dispatch) => {
+    const { id, albumId, imageURL, image, caption } = editImageData;
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("albumId", albumId);
+
+    console.log(albumId);
+    console.log(typeof albumId);
+
+    formData.append("imageURL", imageURL);
+    formData.append("caption", caption);
+    // formData.append("userId", userId);
+    if (image) formData.append("image", image);
+
+    console.log(albumId);
+
     const response = await csrfFetch('/api/images', {
         method: "PUT",
-        body: JSON.stringify(editImage)
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData,
     })
+
     const editedImage = await response.json()
+
     if (editedImage) {
         dispatch(addImage(editedImage))
     }
     return editedImage
 }
+
+// export const editImageThunk = (editImage) => async (dispatch) => {
+//     const response = await csrfFetch('/api/images', {
+//         method: "PUT",
+//         body: JSON.stringify(editImage)
+//     })
+//     const editedImage = await response.json()
+//     if (editedImage) {
+//         dispatch(addImage(editedImage))
+//     }
+//     return editedImage
+// }
 
 export const deleteImage = (destroyedImage) => async (dispatch) => {
     const response = await csrfFetch('/api/images', {
@@ -83,7 +139,7 @@ const imageReducer = (state = {}, action) => {
             });
             return allImages
         case ADD_IMAGE:
-            return { ...state, [action.image.id]: action.image }
+            return { ...state, [action.image.id]: { ...action.image } }
         case DELETE_IMAGE:
             const deleteState = { ...state }
             delete deleteState[action.imageId]

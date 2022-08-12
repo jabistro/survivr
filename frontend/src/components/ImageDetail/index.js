@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import CommentDetail from '../CommentDetail'
+// import CommentDetail from '../CommentDetail'
 import './ImageDetail.css'
 
 
@@ -44,7 +44,7 @@ const ImageDetail = () => {
                         <h3 className='img-detail-date'>{month[date.getMonth()]}{date.getDay() - 1}, {date.getFullYear()}</h3>
                     </div>
                     {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>}
-                    <CommentDetail />
+                    {/* <CommentDetail /> */}
                 </div>
             }
         </>
