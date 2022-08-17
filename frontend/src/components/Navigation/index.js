@@ -24,33 +24,9 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <>
-                <div className='splash-top-right-left'>
-                    <div className='nav-item'>
-                        <div
-                            className='nav-links'
-                            onMouseEnter={() => onYourMouseEnter()}
-                            onMouseLeave={() => onYourMouseLeave()}
-                        >
-                            <p className='nav-txt'>You</p>
-                            {yourDropdown && <YourDropdown />}
-                        </div>
-                    </div>
-                    <div className='nav-item'>
-                        <div
-                            className='nav-links'
-                            onMouseEnter={() => onOthersMouseEnter()}
-                            onMouseLeave={() => onOthersMouseLeave()}
-                        >
-                            <p className='nav-txt'>Explore</p>
-                            {othersDropdown && <OthersDropdown />}
-                        </div>
-                    </div>
-                </div>
-                <div className='splash-top-right-right'>
-                    <ProfileButton user={sessionUser} />
-                </div>
-            </>
+            <div className='splash-top-right-right'>
+                <ProfileButton user={sessionUser} />
+            </div>
         );
     } else {
         sessionLinks = (
@@ -78,6 +54,30 @@ function Navigation({ isLoaded }) {
                     <img className='home-logo' alt='' src={require('../../images/torch.png')} />
                     <div>survivr</div>
                 </Link>
+                {sessionUser &&
+                    <div className='splash-top-right-left'>
+                        <div className='nav-item'>
+                            <div
+                                className='nav-links'
+                                onMouseEnter={() => onYourMouseEnter()}
+                                onMouseLeave={() => onYourMouseLeave()}
+                            >
+                                <p className='nav-txt'>You</p>
+                                {yourDropdown && <YourDropdown />}
+                            </div>
+                        </div>
+                        <div className='nav-item'>
+                            <div
+                                className='nav-links'
+                                onMouseEnter={() => onOthersMouseEnter()}
+                                onMouseLeave={() => onOthersMouseLeave()}
+                            >
+                                <p className='nav-txt'>Explore</p>
+                                {othersDropdown && <OthersDropdown />}
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
             <div className={sessionUser ? 'splash-top-right-logged-in' : 'splash-top-right-logged-out'}>
                 {isLoaded && sessionLinks}

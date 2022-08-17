@@ -6,10 +6,11 @@
 .img-list {
     display: grid;
     grid-auto-flow: row;
+    margin-top: 0px;
 }
 
 .your-images {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-top: 30px;
     font-size: 25px
 }
@@ -25,21 +26,19 @@
     font-size: 15px;
     background-color: white;
     color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     border-radius: 5px;
     border: 2px solid black;
 }
 
-.user-img-container {
-    background-color: white;
+.user-img-wrap {
+    background-color: #f3f5f6;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     display: flex;
-    width: 600px;
-    height: 600px;
-    margin-top: 50px;
-    border-radius: 25px;
+    width: 100%;
+    height: 93vh;
 }

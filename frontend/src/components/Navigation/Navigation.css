@@ -40,7 +40,7 @@
 
 .splash-top-right-logged-in {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     margin-right: 20px;
     width: 100%;
@@ -49,9 +49,10 @@
 }
 
 .profile-button {
-    height: 45px;
-    width: 45px;
-    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    cursor: pointer;
 }
 
 .profile-logout-button {
@@ -102,10 +103,10 @@
 }
 
 .splash-top-right-left {
+    margin-left: 35px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 300px;
+    align-items: flex-end;
 }
 
 /* #root {
@@ -143,7 +144,6 @@
 .splash-top-left {
     margin-left: 180px;
     color: white;
-    width: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -211,11 +211,19 @@
 }
 
 .nav-txt {
-    width: 50px;
+    height: 32px;
+    display: flex;
+    align-items: flex-end;
+    width: 60px;
     font-weight: 500;
     font-size: 15px;
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.nav-txt:hover {
+    cursor: pointer;
+    /* color: #585858; */
 }
 
 .dropdown-menu {
@@ -223,15 +231,18 @@
     position: absolute;
     list-style: none;
     text-align: start;
+    border: 1px gray solid;
+    border-radius: 2px;
+    height: 75px;
 }
 
 .dropdown-menu li {
-    background: #393a3b;
+    background: #ffffff;
     cursor: pointer;
 }
 
 .dropdown-menu li:hover {
-    background: #535556;
+    background: #f1f1f1;
 }
 
 .dropdown-menu.clicked {
@@ -241,8 +252,29 @@
 .dropdown-link {
     display: block;
     width: 100%;
-    height: 100%;
     text-decoration: none;
-    color: white;
+    color: #585858;
     padding: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.dropdown-pointer {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #585858;
+    width: 96.5%;
+    background-color: #ffffff;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+    font-size: 15px;
+    height: 15px;
+}
+
+.dropdown-link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
 }

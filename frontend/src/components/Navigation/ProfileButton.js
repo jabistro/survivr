@@ -33,9 +33,6 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            <button className='profile-button' onClick={openMenu}>
-                <i class="fa-solid fa-2xl fa-id-card"></i>
-            </button>
             {showMenu && (
                 <div className="profile-button-contents">
                     <ul className="profile-dropdown">
@@ -47,6 +44,7 @@ function ProfileButton({ user }) {
                     </ul>
                 </div>
             )}
+            <img alt="" src={require('../../images/deefault.jpg')} className='profile-button' onClick={openMenu} />
         </>
     );
 }

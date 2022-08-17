@@ -11,7 +11,7 @@ function UserImages() {
     const userImages = images.filter(image => image.userId === user.id)
 
     return (
-        <div className='user-img-container'>
+        <div className='user-img-wrap'>
             <h1 className='your-images'>{user.username}'s Photos</h1>
             <Link className='create-image-button' exact to='/create-image'>
                 ADD IMAGE

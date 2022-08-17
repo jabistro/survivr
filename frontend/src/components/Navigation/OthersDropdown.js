@@ -15,9 +15,10 @@ function OthersDropdown() {
                 onClick={handleClick}
                 className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
             >
+                <p className="dropdown-pointer">^</p>
                 {OthersMenuItems.map((item, index) => {
                     return (
-                        <li key={index}>
+                        <li className="dropdown-link-container" key={index}>
                             <Link
                                 className={item.cName}
                                 to={item.path}
