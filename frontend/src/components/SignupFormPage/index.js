@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import ReCAPTCHA from "react-google-recaptcha";
+
 import './SignupForm.css';
 
 function SignupFormPage() {
@@ -31,6 +33,10 @@ function SignupFormPage() {
         }
         return setErrors(['Confirm Password field must be the same as the Password field']);
     };
+
+    function recaptchaOnChange(value) {
+        console.log("Captcha value:", value);
+    }
 
     return (
         <div className="signup-form-wrap">
@@ -83,7 +89,11 @@ function SignupFormPage() {
                         />
                         <span className="signup-floating-label">Confirm password</span>
                     </div>
-                    <div className="g-recaptcha" data-sitekey="6Ld_34AhAAAAAKLAi5WeOZLAfCVZ2C801-P7ZJlI"></div>
+                    <ReCAPTCHA
+                        className="g-recaptcha"
+                        sitekey="6Ld_34AhAAAAAKLAi5WeOZLAfCVZ2C801-P7ZJlI"
+                        onChange={recaptchaOnChange}
+                    />
                     <button className="signup-page-button" type="submit">Sign up</button>
                 </form>
                 <div className="signup-divider"></div>
