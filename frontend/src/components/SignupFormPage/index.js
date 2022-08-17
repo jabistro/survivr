@@ -15,12 +15,13 @@ function SignupFormPage() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
+    const [recaptcha, setRecaptcha] = useState(false);
 
     if (sessionUser) return <Redirect to={`/users/${sessionUser.id}/images`} />
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password === confirmPassword) {
+        if (password === confirmPassword && recaptcha) {
             setErrors([]);
             return dispatch(sessionActions.signup({ email, username, password }))
                 .then((user) => history.push(`/users/${user.id}/images`))
@@ -30,12 +31,15 @@ function SignupFormPage() {
                         if (data && data.errors) setErrors(data.errors);
                     }
                 );
+        } else if (password === confirmPassword && !recaptcha) {
+            return setErrors(['reCAPTCHA must be clicked'])
         }
         return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
     function recaptchaOnChange(value) {
         console.log("Captcha value:", value);
+        setRecaptcha(true);
     }
 
     return (
