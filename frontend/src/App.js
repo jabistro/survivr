@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import SplashBlurb from "./components/SplashBlurb";
 import ImageDetail from "./components/ImageDetail";
 import ImageInput from "./components/ImageInput";
@@ -49,7 +49,6 @@ function App() {
 
   return (
     <>
-      {/* <Navbar /> */}
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -58,6 +57,8 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path="/login">
           </Route>
           <Route exact path="/users/:userId/images">
             <UserImages />
@@ -103,8 +104,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <Footer />
-      {/* <Images /> */}
+      {/* <Footer /> */}
     </>
   );
 }

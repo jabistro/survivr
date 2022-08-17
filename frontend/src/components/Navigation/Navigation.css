@@ -5,10 +5,9 @@
     width: 100%;
     min-width: 100vw;
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     flex-direction: start;
     align-items: center;
-    opacity: 50%;
 }
 
 .splash-header-login {
@@ -18,7 +17,7 @@
     width: 100%;
     min-width: 100vw;
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     flex-direction: start;
     align-items: center;
 }
@@ -45,7 +44,7 @@
     align-items: center;
     margin: 20px;
     width: 1200px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
 }
 
@@ -61,7 +60,7 @@
     font-size: 15px;
     background-color: white;
     color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     border-radius: 5px;
 }
@@ -72,7 +71,7 @@
     font-size: 15px;
     background-color: white;
     color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     border-radius: 5px;
 }
@@ -97,10 +96,9 @@
 
 .splash-top-right-logged-out {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    margin: 20px;
-    width: 200px;
+    margin-right: 22px;
 }
 
 .splash-top-right-left {
@@ -127,13 +125,19 @@
 }
 
 .splash-signup-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    border-radius: 10px;
-    width: 105px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 100px;
     opacity: 100%;
     cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    height: 35px;
 }
 
 .splash-top-left {
@@ -145,20 +149,49 @@
     align-items: center;
 }
 
-#home-logo {
+.home-logo-and-text {
+    display: flex;
+    align-items: center;
     color: white;
     text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#home-logo:hover {
-    color: grey;
+.home-logo {
+    width: 50px;
+    height: 50px;
+}
+
+/* #home-logo {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    background-color: blue;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: url('../../images/torch.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+.home-logo-and-text:hover {
     text-decoration: none;
 }
 
 
 .home-logo:hover,
 :active {
-    color: grey;
+    text-decoration: none;
+}
+
+.logo-icon-and-text {
+    display: flex;
+    align-items: center;
     text-decoration: none;
 }
 

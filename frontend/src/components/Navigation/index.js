@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
     const [yourDropdown, setYourDropdown] = useState(false);
     const [othersDropdown, setOthersDropdown] = useState(false);
 
-    const handleClick = () => setClick(!click);
+    // const handleClick = () => setClick(!click);
 
     const onYourMouseEnter = () => setYourDropdown(true);
     const onYourMouseLeave = () => setYourDropdown(false);
@@ -55,9 +55,11 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <LoginFormModal />
-                <Link to="/signup">
-                    <button className='splash-signup-button' type="submit">SIGN UP</button>
+                <Link className='splash-login-link' to="/login">
+                    <button className='splash-login-button' type="submit">Log In</button>
+                </Link>
+                <Link className='splash-signup-link' to="/signup">
+                    <button className='splash-signup-button' type="submit">Sign Up</button>
                 </Link>
             </>
         );
@@ -73,8 +75,9 @@ function Navigation({ isLoaded }) {
                             <i class="fa-solid fa-hand-back-point-left" />
                         </button>
                     }
-                    <Link exact to={sessionUser ? `/users/${sessionUser.id}/images` : "/"}>
-                        <i id='home-logo' className=" fa-solid fa-xl fa-tent">survivr</i>
+                    <Link className='home-logo-and-text' exact to={sessionUser ? `/users/${sessionUser.id}/images` : "/"}>
+                        <img className='home-logo' alt='' src={require('../../images/torch.png')} />
+                        <div>survivr</div>
                     </Link>
                 </div>
                 <div className={sessionUser ? 'splash-top-right-logged-in' : 'splash-top-right-logged-out'}>

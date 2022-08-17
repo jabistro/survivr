@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import '../LoginFormPage/LoginForm.css';
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function LoginForm() {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
 
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
@@ -43,7 +43,7 @@ function LoginForm() {
     };
 
     return (
-        <>
+        <div className="login-wrap">
             <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
                 <ul>
                     {errors.map((error, idx) => (
@@ -73,7 +73,7 @@ function LoginForm() {
                 <button className='modal-login-button' type="submit">Log In</button>
                 <button id='demo-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
             </form>
-        </>
+        </div>
     );
 }
 

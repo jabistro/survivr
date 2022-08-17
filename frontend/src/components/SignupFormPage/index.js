@@ -33,53 +33,65 @@ function SignupFormPage() {
     };
 
     return (
-        <div className="signup-form-container">
-            <form className='signup-form' onSubmit={(e) => handleSubmit(e)}>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <label className="signup-labels">
-                    Email
-                    <input
-                        className="signup-inputs"
-                        type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className="signup-labels">
-                    Username
-                    <input
-                        className="signup-inputs"
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className="signup-labels">
-                    Password
-                    <input
-                        className="signup-inputs"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className="signup-labels">
-                    Confirm Password
-                    <input
-                        className="signup-inputs"
-                        type="password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <button className="signup-page-button" type="submit">Sign Up</button>
-            </form>
+        <div className="signup-form-wrap">
+            <div className="signup-form-container">
+                <div className="signup-logo-and-blurb">
+                    <img className="signup-logo" alt="" src={require("../../images/torch.png")} />
+                    <p className="signup-blurb">Sign up for Survivr</p>
+                </div>
+                <form className='signup-form' onSubmit={(e) => handleSubmit(e)}>
+                    <ul className="signup-form-errors">
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
+                    <div className="signup-input-fields">
+                        <input
+                            className="signup-inputs"
+                            type="text"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                        <span className="signup-floating-label">Email address</span>
+                    </div>
+                    <div className="signup-input-fields">
+                        <input
+                            className="signup-inputs"
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                        <span className="signup-floating-label">Username</span>
+                    </div>
+                    <div className="signup-input-fields">
+                        <input
+                            className="signup-inputs"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <span className="signup-floating-label">Password</span>
+                    </div>
+                    <div className="signup-input-fields">
+                        <input
+                            className="signup-inputs"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                        <span className="signup-floating-label">Confirm password</span>
+                    </div>
+                    <div className="g-recaptcha" data-sitekey="6Ld_34AhAAAAAKLAi5WeOZLAfCVZ2C801-P7ZJlI"></div>
+                    <button className="signup-page-button" type="submit">Sign up</button>
+                </form>
+                <div className="signup-divider"></div>
+                <div className="signup-existing">
+                    <p className="signup-member-text">Already a member?</p>
+                    <a href="/login" className="signup-login-link">Login in here</a>
+                </div>
+            </div>
         </div>
     );
 }

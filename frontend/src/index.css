@@ -108,7 +108,7 @@ section {
     display: block;
 }
 
-body {
+/* body {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -123,7 +123,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
+} */
 
 ol,
 ul {
