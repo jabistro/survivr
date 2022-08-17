@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
+// import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import YourDropdown from './YourDropdown';
 import OthersDropdown from './OthersDropdown';
@@ -32,7 +32,7 @@ function Navigation({ isLoaded }) {
                             onMouseEnter={() => onYourMouseEnter()}
                             onMouseLeave={() => onYourMouseLeave()}
                         >
-                            <p>You</p>
+                            <p className='nav-txt'>You</p>
                             {yourDropdown && <YourDropdown />}
                         </div>
                     </div>
@@ -42,7 +42,7 @@ function Navigation({ isLoaded }) {
                             onMouseEnter={() => onOthersMouseEnter()}
                             onMouseLeave={() => onOthersMouseLeave()}
                         >
-                            <p>Explore</p>
+                            <p className='nav-txt'>Explore</p>
                             {othersDropdown && <OthersDropdown />}
                         </div>
                     </div>
@@ -66,25 +66,23 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-        <nav>
-            <div className={sessionUser ? 'splash-header-login' : 'splash-header'}>
-                <div className='splash-top-left'>
-                    {sessionUser &&
+        <div className={sessionUser ? 'splash-header-login' : 'splash-header'}>
+            <div className='splash-top-left'>
+                {/* {sessionUser &&
                         <button className='back-button' onClick={() => history.goBack()}>
                             Go Back
                             <i class="fa-solid fa-hand-back-point-left" />
                         </button>
-                    }
-                    <Link className='home-logo-and-text' exact to={sessionUser ? `/users/${sessionUser.id}/images` : "/"}>
-                        <img className='home-logo' alt='' src={require('../../images/torch.png')} />
-                        <div>survivr</div>
-                    </Link>
-                </div>
-                <div className={sessionUser ? 'splash-top-right-logged-in' : 'splash-top-right-logged-out'}>
-                    {isLoaded && sessionLinks}
-                </div>
+                    } */}
+                <Link className='home-logo-and-text' exact to={sessionUser ? `/users/${sessionUser.id}/images` : "/"}>
+                    <img className='home-logo' alt='' src={require('../../images/torch.png')} />
+                    <div>survivr</div>
+                </Link>
             </div>
-        </nav>
+            <div className={sessionUser ? 'splash-top-right-logged-in' : 'splash-top-right-logged-out'}>
+                {isLoaded && sessionLinks}
+            </div>
+        </div>
     );
 }
 
