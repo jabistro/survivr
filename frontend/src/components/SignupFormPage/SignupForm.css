@@ -183,4 +183,5 @@ input:not(:focus):valid~.signup-floating-label {
     width: 75px;
     color: #128fdc;
     cursor: pointer;
+    text-decoration: none;
 }

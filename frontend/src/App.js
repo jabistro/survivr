@@ -26,6 +26,7 @@ import OthersAlbums from './components/OthersAlbums';
 import { getImages } from "./store/images";
 import { getAlbums } from "./store/albums";
 import { getComments } from "./store/comments";
+import LoginForm from "./components/LoginFormModal/LoginForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/login">
+            <LoginForm />
           </Route>
           <Route exact path="/users/:userId/images">
             <UserImages />

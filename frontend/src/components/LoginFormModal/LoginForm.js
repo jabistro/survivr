@@ -43,36 +43,47 @@ function LoginForm() {
     };
 
     return (
-        <div className="login-wrap">
-            <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
-                <ul>
-                    {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
-                <label className="login-label-email">
-                    Username/Email:
-                    <input
-                        className="login-username-input"
-                        type="text"
-                        value={credential}
-                        onChange={(e) => setCredential(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className="login-label-password">
-                    Password:
-                    <input
-                        className="login-password-input"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <button className='modal-login-button' type="submit">Log In</button>
-                <button id='demo-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
-            </form>
+        <div className="login-form-wrap">
+            <div className="login-form-container">
+                <div className="login-logo-and-blurb">
+                    <img className="login-logo" alt="" src={require("../../images/torch.png")} />
+                    <p className="login-blurb">Log in to Survivr</p>
+                </div>
+                <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
+                    <ul className="login-form-errors">
+                        {errors.map((error, idx) => (
+                            <li key={idx}>{error}</li>
+                        ))}
+                    </ul>
+                    <div className="login-input-fields">
+                        <input
+                            className="login-inputs"
+                            type="text"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            required
+                        />
+                        <span className="login-floating-label">Username/Email address</span>
+                    </div>
+                    <div className="login-input-fields">
+                        <input
+                            className="login-inputs"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <span className="login-floating-label">Password</span>
+                    </div>
+                    <button className='login-page-button' type="submit">Sign In</button>
+                    <button className='demo-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
+                </form>
+                <div className="login-divider"></div>
+                <div className="login-existing">
+                    <p className="login-member-text">Not a Survivr member?</p>
+                    <a href="/signup" className="login-signup-link">Sign up here</a>
+                </div>
+            </div>
         </div>
     );
 }
