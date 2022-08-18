@@ -13,12 +13,12 @@ export const YourMenuItems = [
 
 export const OthersMenuItems = [
     {
-        title: 'Images',
+        title: 'Recent Photos',
         path: '/explore/images',
         cName: 'dropdown-link'
     },
     {
-        title: 'Albums',
+        title: 'Survivr Galleries',
         path: '/explore/albums',
         cName: 'dropdown-link'
     }

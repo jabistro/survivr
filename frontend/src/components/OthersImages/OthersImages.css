@@ -1,4 +1,4 @@
-.img-list {
+.other-img-list {
     background-color: white;
     display: flex;
     align-items: center;
@@ -9,4 +9,9 @@
     height: 600px;
     margin-top: 50px;
     border-radius: 25px;
+}
+
+.other-img-display {
+    max-width: 250px;
+    max-height: 250px;
 }

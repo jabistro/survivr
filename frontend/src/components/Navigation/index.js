@@ -25,6 +25,10 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <div className='splash-top-right-right'>
+                <Link className='create-image-button' exact to='/create-image'>
+                    <i title='Upload' id='img-upload' className="fa-solid fa-cloud-arrow-up"></i>
+                    {/* <img alt='' src={require('../../images/img-upload2.jpg')} className='img-upload' /> */}
+                </Link>
                 <ProfileButton user={sessionUser} />
             </div>
         );

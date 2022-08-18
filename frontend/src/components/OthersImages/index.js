@@ -12,10 +12,10 @@ function OthersImages() {
 
     return (
 
-        <div className='img-list'>
+        <div className='other-img-list'>
             {userImages.map(image => (
                 <Link key={image.id} to={`/image/${image.id}`}>
-                    <img className='img-display' src={image.imageURL}></img>
+                    <img className='other-img-display' src={image.imageURL}></img>
                 </Link>
             ))}
         </div>

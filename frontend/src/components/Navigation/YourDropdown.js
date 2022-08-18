@@ -14,7 +14,7 @@ function YourDropdown() {
 
     const YourMenuItems = [
         {
-            title: 'Images',
+            title: 'Photostream',
             path: `/users/${user.id}/images`,
             cName: 'dropdown-link'
         },

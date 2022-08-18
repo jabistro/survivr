@@ -1,8 +1,8 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { requireAuth } = require('../../utils/auth');
+// const { requireAuth } = require('../../utils/auth');
 const { Image } = require('../../db/models');
-const { check } = require('express-validator');
+// const { check } = require('express-validator');
 const { validateCreate } = require('../../utils/validations/images');
 const { singleMulterUpload } = require('../../awsS3');
 const { singlePublicFileUpload } = require('../../awsS3');

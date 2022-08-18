@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/jabistro/w16-project/issues"
   },
-  "homepage": "https://github.com/jabistro/w16-project#readme"
+  "homepage": "https://github.com/jabistro/w16-project#readme",
+  "dependencies": {
+    "react-photo-gallery": "^8.0.0"
+  }
 }
