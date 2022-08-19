@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './UserImages.css';
+import PhotoAlbum from 'react-photo-album';
 
 function UserImages() {
+
+    const history = useHistory();
 
     const images = Object.values(useSelector(state => state.images));
     const user = useSelector(state => state.session.user);
@@ -19,7 +22,7 @@ function UserImages() {
                         <img alt='' src={require('../../images/deefault.jpg')} className='user-header-pfp' />
                         <div className='user-header-user-info'>
                             <div className='user-header-username'>{`${user.username}`}</div>
-                            <div className='user-header-fluff'>bottom "fluff"</div>
+                            <div className='user-header-fluff'>{`${user.email}`}</div>
                         </div>
                     </div>
                     <div className='user-header-right'>
@@ -28,7 +31,21 @@ function UserImages() {
                     </div>
                 </div>
             </div>
-            <div className='user-img-container'></div>
+            <div className='user-img-container'>
+                {userImages.map((image, idx) => (
+                    <div className='user-pics' key={idx}>
+                        <Link key={image.id} to={`/image/${image.id}`}>
+                            <img className='user-img-display' src={image.imageURL} />
+                            <div className='user-img-overlay'>
+                                <div className='user-img-fluff'>
+                                    <p className='user-img-title'>Title</p>
+                                    <p className='user-img-username'>by Somebody</p>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
 
         // <div className='user-img-wrap'>
