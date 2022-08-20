@@ -1,6 +1,6 @@
 .splash-header {
     height: 60px;
-    background-color: #202023;
+    background-color: #161816;
     justify-content: space-between;
     width: 100%;
     min-width: 100vw;
@@ -12,7 +12,7 @@
 
 .splash-header-login {
     height: 50px;
-    background-color: #202023;
+    background-color: #161816;
     justify-content: space-between;
     width: 100%;
     min-width: 100vw;

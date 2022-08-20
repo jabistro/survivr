@@ -1,7 +1,77 @@
-#img-detail-img {
-    max-width: 500px;
-    max-height: 500px;
-    margin: 20px;
+.img-detail-wrap {
+    width: 100%;
+    height: 750px;
+    background-color: #212124;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.img-detail-back {
+    width: 97%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.img-detail-back-btn-and-words {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.img-detail-back-btn {
+    color: #f1f1f1;
+    display: flex;
+    width: 18px;
+    height: 18px;
+    margin-bottom: 2px;
+}
+
+.img-detail-back-words {
+    margin-left: 5px;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    height: 50px;
+    width: 96px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    color: #f1f1f1;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.img-detail-back-btn-and-words:hover .img-detail-back-words {
+    border-bottom: 2px solid #f1f1f1;
+    margin-bottom: 0px;
+}
+
+/* .img-detail-back-words:hover {
+    border-bottom: 2px solid #f1f1f1;
+    margin-bottom: 0px;
+} */
+
+.img-detail-img {
+    margin-top: 10px;
+    width: auto;
+    max-width: 90%;
+    min-height: 500px;
+    max-height: 640px;
+}
+
+.img-detail-info {
+    margin-right: 10%;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #f1f1f1;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #img-detail-container {
@@ -16,7 +86,7 @@
     margin-top: 50px;
     padding: 10px;
     border-radius: 25px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .poster {
