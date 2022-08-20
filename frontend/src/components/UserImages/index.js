@@ -15,19 +15,19 @@ function UserImages() {
 
     return (
         <div className='user-img-wrap'>
-            <div className='user-header'>
-                <div className='user-header-top'></div>
-                <div className='user-header-bottom'>
-                    <div className='user-header-left'>
-                        <img alt='' src={require('../../images/deefault.jpg')} className='user-header-pfp' />
-                        <div className='user-header-user-info'>
-                            <div className='user-header-username'>{`${user.username}`}</div>
-                            <div className='user-header-fluff'>{`${user.email}`}</div>
+            <div className='user-img-header'>
+                <div className='user-img-header-top'></div>
+                <div className='user-img-header-bottom'>
+                    <div className='user-img-header-left'>
+                        <img alt='' src={require('../../images/deefault.jpg')} className='user-img-header-pfp' />
+                        <div className='user-img-header-user-info'>
+                            <div className='user-img-header-username'>{`${user.username}`}</div>
+                            <div className='user-img-header-fluff'>{`${user.email}`}</div>
                         </div>
                     </div>
-                    <div className='user-header-right'>
-                        <div className='user-header-right-top'></div>
-                        <p className='user-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
+                    <div className='user-img-header-right'>
+                        <div className='user-img-header-right-top'></div>
+                        <p className='user-img-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
                     </div>
                 </div>
             </div>

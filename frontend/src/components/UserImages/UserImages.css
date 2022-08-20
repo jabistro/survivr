@@ -9,7 +9,7 @@
     height: 94vh;
 }
 
-.user-header {
+.user-img-header {
     color: white;
     display: flex;
     flex-direction: column;
@@ -21,12 +21,12 @@
     background-size: cover;
 }
 
-.user-header-top {
+.user-img-header-top {
     height: 126px;
     width: 100%;
 }
 
-.user-header-bottom {
+.user-img-header-bottom {
     width: 100%;
     height: 126px;
     display: flex;
@@ -34,19 +34,19 @@
     align-items: center;
 }
 
-.user-header-left {
+.user-img-header-left {
     margin-left: 200px;
     display: flex;
     align-items: center;
 }
 
-.user-header-pfp {
+.user-img-header-pfp {
     height: 100px;
     width: 100px;
     border-radius: 50px;
 }
 
-.user-header-user-info {
+.user-img-header-user-info {
     height: 125px;
     margin-left: 15px;
     display: flex;
@@ -55,7 +55,7 @@
     flex-direction: column;
 }
 
-.user-header-username {
+.user-img-header-username {
     height: 70px;
     display: flex;
     justify-content: center;
@@ -65,7 +65,7 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.user-header-fluff {
+.user-img-header-fluff {
     padding-bottom: 7px;
     font-weight: 300;
     height: 50px;
@@ -76,7 +76,7 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.user-header-right {
+.user-img-header-right {
     height: 126px;
     display: flex;
     justify-content: center;
@@ -84,11 +84,11 @@
     flex-direction: column;
 }
 
-.user-header-right-top {
+.user-img-header-right-top {
     height: 70px;
 }
 
-.user-header-photo-count {
+.user-img-header-photo-count {
     padding-bottom: 7px;
     font-weight: 300;
     width: 100px;
