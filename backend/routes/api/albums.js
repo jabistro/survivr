@@ -30,14 +30,16 @@ router.put('/', asyncHandler(async (req, res) => {
     const {
         id,
         userId,
-        title
+        title,
+        description
     } = req.body
 
     const editAlbum = await Album.findByPk(id)
     const newAlbum = await editAlbum.update(
         {
             userId,
-            title
+            title,
+            description
         })
     return res.json(newAlbum)
 }))

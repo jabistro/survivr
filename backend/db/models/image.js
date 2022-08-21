@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    caption: DataTypes.STRING(255)
+    caption: DataTypes.STRING(255),
+    title: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    }
   }, {});
   Image.associate = function (models) {
     // associations can be defined here

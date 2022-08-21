@@ -14,7 +14,10 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(50)
+      },
+      description: {
+        type: Sequelize.TEXT(100)
       },
       createdAt: {
         defaultValue: Sequelize.fn('now'),

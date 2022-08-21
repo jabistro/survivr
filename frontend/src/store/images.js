@@ -53,10 +53,11 @@ export const getImages = () => async (dispatch) => {
 // }
 
 export const createImage = (imageData) => async (dispatch) => {
-    const { albumId, image, caption, userId } = imageData;
+    const { albumId, image, title, caption, userId } = imageData;
     const formData = new FormData();
     formData.append("albumId", albumId);
     formData.append("image", image);
+    formData.append("title", title)
     formData.append("caption", caption);
     formData.append("userId", userId);
 
@@ -77,14 +78,11 @@ export const createImage = (imageData) => async (dispatch) => {
 }
 
 export const editImageThunk = (editImageData) => async (dispatch) => {
-    const { id, albumId, imageURL, image, caption } = editImageData;
+    const { id, albumId, imageURL, image, caption, title } = editImageData;
     const formData = new FormData();
     formData.append("id", id);
     formData.append("albumId", albumId);
-
-    console.log(albumId);
-    console.log(typeof albumId);
-
+    formData.append("title", title)
     formData.append("imageURL", imageURL);
     formData.append("caption", caption);
     // formData.append("userId", userId);

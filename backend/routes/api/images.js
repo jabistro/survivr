@@ -15,16 +15,16 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 router.post('/', singleMulterUpload("image"), validateCreate, asyncHandler(async (req, res) => {
-    const { caption, albumId, userId } = req.body;
+    const { caption, albumId, userId, title } = req.body;
     const imageURL = await singlePublicFileUpload(req.file);
-    const image = await Image.create({ caption, albumId, imageURL, userId });
+    const image = await Image.create({ caption, albumId, imageURL, userId, title });
     res.json(image);
 }));
 
 router.put('/', singleMulterUpload("image"), validateCreate, asyncHandler(async (req, res) => {
     let {
         id,
-        // userId,
+        title,
         imageURL,
         albumId,
         caption
@@ -37,7 +37,7 @@ router.put('/', singleMulterUpload("image"), validateCreate, asyncHandler(async 
     const editImage = await Image.findByPk(id)
     const newImage = await editImage.update(
         {
-            // userId,
+            title,
             imageURL,
             albumId,
             caption

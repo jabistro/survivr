@@ -5,11 +5,13 @@ module.exports = {
     return queryInterface.bulkInsert('Albums', [
       {
         userId: 1,
-        title: "Women of Survivor"
+        title: "Women of Survivor",
+        description: "So many strong women have changed the game of survivor and should be remembered for their awesomeness."
       },
       {
         userId: 2,
-        title: "Jaw Droppers"
+        title: "Jaw Droppers",
+        description: "All of my favorite moments that had me speechless"
       }
     ], {});
   },
