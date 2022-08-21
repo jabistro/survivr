@@ -6,6 +6,7 @@
     background-color: #f3f5f6;
     overflow-x: hidden;
     overflow-y: scroll;
+    height: 94vh;
 }
 
 .album-imgs-header {

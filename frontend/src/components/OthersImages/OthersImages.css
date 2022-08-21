@@ -1,4 +1,264 @@
-.other-img-list {
+.others-img-wrap {
+    background-color: #f3f5f6;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    height: 94vh;
+}
+
+.others-img-header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 252px;
+    width: 100%;
+    line-height: 1;
+    background: url('../../images/others-header2.jpg');
+    background-size: cover;
+}
+
+.others-img-header-top {
+    height: 126px;
+    width: 100%;
+}
+
+.others-img-header-bottom {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    width: 100%;
+    height: 126px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.others-img-header-left {
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.others-img-header-pfp {
+    background-color: #f3f5f6;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.others-img-header-user-info {
+    height: 125px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.others-img-header-username {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 36px;
+    font-weight: 320;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-img-header-fluff {
+    padding-bottom: 7px;
+    font-weight: 300;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-img-header-right {
+    height: 126px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.others-img-header-right-top {
+    height: 70px;
+}
+
+/* .user-img-header-count-and-date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+} */
+
+.others-img-header-photo-count {
+    padding-bottom: 7px;
+    font-weight: 300;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 200px;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+/* .user-img-header-date {
+    color: #f3f5f6;
+} */
+
+.others-img-container {
+    background-color: #f3f5f6;
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    -webkit-column-width: 25%;
+    -moz-column-width: 25%;
+    column-width: 25%;
+    padding: 25px 25px;
+    margin-top: 12px;
+    row-gap: 5px;
+    column-gap: 5px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.others-img-container .user-pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+    cursor: pointer;
+}
+
+/* .user-img-container .user-pics:hover {
+    filter: opacity(.8);
+} */
+
+@media (max-width: 991px) {
+    .others-img-container {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        row-gap: 5px;
+        column-gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .others-img-container {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
+        row-gap: 5px;
+        column-gap: 5px;
+    }
+}
+
+.others-img-display {
+    width: 100%;
+}
+
+/* .user-pics:hover {
+    filter: opacity(.9);
+} */
+
+.others-img-overlay {
+    position: absolute;
+    opacity: 0;
+    transition: .3s ease;
+    width: 100%;
+    height: auto;
+}
+
+.others-pics:hover .others-img-overlay {
+    opacity: 1;
+}
+
+.others-img-fluff {
+    height: 50px;
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 23.4%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-img-title {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.others-img-username {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 3px;
+    font-size: 11px;
+    color: #bebebe;
+}
+
+/* .user-header-left {
+    width: 400px;
+} */
+
+/* .user-img-display {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.user-img-list {
+    display: grid;
+    grid-auto-flow: row;
+    margin-top: 0px;
+}
+
+.your-images {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 30px;
+    font-size: 25px
+}
+
+.create-image-button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 150px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid black;
+} */
+
+
+
+
+
+/* .other-img-list {
     background-color: white;
     display: flex;
     align-items: center;
@@ -14,4 +274,4 @@
 .other-img-display {
     max-width: 250px;
     max-height: 250px;
-}
+} */
