@@ -26,6 +26,7 @@
   "homepage": "https://github.com/jabistro/w16-project#readme",
   "dependencies": {
     "react-photo-album": "^1.16.1",
-    "react-photo-gallery": "^8.0.0"
+    "react-photo-gallery": "^8.0.0",
+    "sequelize": "^4.44.4"
   }
 }
