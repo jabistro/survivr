@@ -41,7 +41,7 @@ const ImageDetail = () => {
                     <div className='img-detail-back'>
                         <div className='img-detail-back-btn-and-words' onClick={() => history.goBack()}>
                             <BiArrowBack className='img-detail-back-btn' />
-                            <p className='img-detail-back-words'>Back to photos</p>
+                            <p className='img-detail-back-words'>Back to previous</p>
                         </div>
                     </div>
                     <img className='img-detail-img' alt='' src={image.imageURL} />

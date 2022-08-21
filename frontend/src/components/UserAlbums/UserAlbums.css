@@ -104,7 +104,41 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.user-album-h2 {
+.user-album-new-album {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.user-album-new-album-icon-and-txt {
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #737b80;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.user-album-new-album-icon {
+    height: 16px;
+    width: 20px;
+    color: purple;
+}
+
+.user-album-new-album-txt {
+    margin-left: 10px;
+    width: 90px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* .user-album-h2 {
     margin-top: 15px;
     color: #404040;
     font-weight: 400;
@@ -128,7 +162,7 @@
     border: none;
     cursor: pointer;
     text-decoration: none;
-}
+} */
 
 .user-album-container {
     width: 78%;
@@ -137,8 +171,8 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    column-gap: 60px;
-    row-gap: 60px;
+    column-gap: 50px;
+    row-gap: 50px;
     margin-top: 50px;
     grid-template-columns: repeat(auto-fill, minmax(300px));
 }
@@ -163,6 +197,7 @@
 .user-album-pics-one {
     height: 100%;
     width: 220px;
+    object-fit: cover;
 }
 
 .user-album-pics-right {
@@ -175,12 +210,14 @@
 .user-album-pics-two {
     width: 100%;
     height: 109px;
+    object-fit: cover;
 }
 
 .user-album-pics-three {
     margin-top: 2px;
     width: 100%;
     height: 109px;
+    object-fit: cover;
 }
 
 .user-album-info {

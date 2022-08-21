@@ -27,7 +27,10 @@ function UserImages() {
                     </div>
                     <div className='user-img-header-right'>
                         <div className='user-img-header-right-top'></div>
+                        {/* <div className='user-img-header-count-and-date'> */}
                         <p className='user-img-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
+                        {/* <p className='user-img-header-date'>{user.createdAt}</p> */}
+                        {/* </div> */}
                     </div>
                 </div>
             </div>

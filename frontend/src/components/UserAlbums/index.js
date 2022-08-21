@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAlbums } from '../../store/albums';
 import { Link } from 'react-router-dom';
+import { FcGallery } from 'react-icons/fc';
 import './UserAlbums.css';
 
 function UserAlbums() {
@@ -29,22 +30,30 @@ function UserAlbums() {
                     </div>
                 </div>
             </div>
-            <h2 className='user-album-h2'>Want to create an album?</h2>
-            <Link className='create-album-btn' exact to='/create-album'>Add an album</Link>
+            <div className='user-album-new-album'>
+                <Link className='user-album-new-album-icon-and-txt' exact to='/create-album'>
+                    <img className='user-album-new-album-icon' alt='' src={require('../../images/new-gallery.jpg')} />
+                    <p className='user-album-new-album-txt'>New Album</p>
+                </Link>
+            </div>
             <div className='user-album-container'>
                 {userAlbums.map(album => {
                     return (
                         <div className='user-album-wrap'>
-                            <div className='user-album-pics'>
-                                <img className='user-album-pics-one' alt='' src={(images.filter(image => image.albumId === album.id)[0].imageURL === undefined) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[0].imageURL} />
-                                <div className='user-album-pics-right'>
-                                    <img className='user-album-pics-two' alt='' src={(images.filter(image => image.albumId === album.id)[1].imageURL === undefined) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[1].imageURL} />
-                                    <img className='user-album-pics-three' alt='' src={!(images.filter(image => image.albumId === album.id)[2].imageURL) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[2].imageURL} />
+                            <Link className='user-album-pics-link' to={`/users/${user.id}/albums/${album.id}/images`}>
+                                <div className='user-album-pics'>
+                                    <img className='user-album-pics-one' alt='' src={!(images.filter(image => image.albumId === album.id)[0]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[0].imageURL} />
+                                    <div className='user-album-pics-right'>
+                                        <img className='user-album-pics-two' alt='' src={!(images.filter(image => image.albumId === album.id)[1]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[1].imageURL} />
+                                        <img className='user-album-pics-three' alt='' src={!(images.filter(image => image.albumId === album.id)[2]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[2].imageURL} />
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                             <div className='user-album-info'>
                                 <div className='user-album-title-container'>
-                                    <span className='user-album-title'>{album.title}</span>
+                                    <Link className='user-album-title-link' to={`/users/${user.id}/albums/${album.id}/images`}>
+                                        <span className='user-album-title'>{album.title}</span>
+                                    </Link>
                                 </div>
                                 <div className='user-album-img-count'>{images.filter(image => image.albumId === album.id).length} items</div>
                             </div>
