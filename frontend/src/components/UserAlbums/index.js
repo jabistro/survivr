@@ -11,6 +11,7 @@ function UserAlbums() {
     const user = useSelector(state => state.session.user);
     const userAlbums = albums.filter(album => album.userId === user.id)
     const images = Object.values(useSelector(state => state.images));
+    const userImages = images.filter(image => image.userId === user.id);
 
     return (
         <div className='user-albums-wrap'>
@@ -26,7 +27,7 @@ function UserAlbums() {
                     </div>
                     <div className='user-album-header-right'>
                         <div className='user-album-header-right-top'></div>
-                        <p className='user-album-header-photo-count'>{userAlbums.length} {userAlbums.length === 1 ? "Album" : "Albums"}</p>
+                        <p className='user-album-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
                     </div>
                 </div>
             </div>
@@ -39,7 +40,7 @@ function UserAlbums() {
             <div className='user-album-container'>
                 {userAlbums.map(album => {
                     return (
-                        <div className='user-album-wrap'>
+                        <div key={album.id} className='user-album-wrap'>
                             <Link className='user-album-pics-link' to={`/users/${user.id}/albums/${album.id}/images`}>
                                 <div className='user-album-pics'>
                                     <img className='user-album-pics-one' alt='' src={!(images.filter(image => image.albumId === album.id)[0]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[0].imageURL} />

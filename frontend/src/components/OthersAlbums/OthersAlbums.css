@@ -1,4 +1,328 @@
+.others-albums-wrap {
+    background-color: #f3f5f6;
+    display: flex;
+    align-items: center;
+    justify-content: fl;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    height: 94vh;
+    overflow: auto;
+}
+
+.others-album-header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 252px;
+    width: 100%;
+    line-height: 1;
+    background: url('../../images/others-header2.jpg');
+    background-size: cover;
+}
+
+.others-album-header-top {
+    height: 126px;
+    width: 100%;
+}
+
+.others-album-header-bottom {
+    width: 100%;
+    height: 126px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+}
+
+.others-album-header-left {
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.others-album-header-pfp {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.others-album-header-user-info {
+    height: 125px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.others-album-header-username {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 36px;
+    font-weight: 320;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-album-header-fluff {
+    padding-bottom: 7px;
+    font-weight: 300;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-album-header-right {
+    height: 126px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.others-album-header-right-top {
+    height: 70px;
+}
+
+.others-album-header-photo-count {
+    padding-bottom: 7px;
+    font-weight: 300;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 200px;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-album-new-album {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.others-album-new-album-icon-and-txt {
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #737b80;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-album-new-album-icon {
+    height: 16px;
+    width: 20px;
+    color: purple;
+}
+
+.others-album-new-album-txt {
+    margin-left: 10px;
+    width: 90px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* .user-album-h2 {
+    margin-top: 15px;
+    color: #404040;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.create-album-btn {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #128fdc;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+} */
+
+.others-album-container {
+    width: 78%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 50px;
+    row-gap: 50px;
+    margin-top: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(300px));
+}
+
+.others-album-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    height: 290px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.others-album-wrap:hover {
+    transition: all 350ms ease;
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+}
+
+.others-album-pics {
+    display: flex;
+    height: 220px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.others-album-pics-one {
+    height: 100%;
+    width: 220px;
+    object-fit: cover;
+}
+
+.others-album-pics-right {
+    margin-left: 2px;
+    display: flex;
+    flex-direction: column;
+    width: 108px;
+}
+
+.others-album-pics-two {
+    width: 100%;
+    height: 109px;
+    object-fit: cover;
+}
+
+.others-album-pics-three {
+    margin-top: 2px;
+    width: 100%;
+    height: 109px;
+    object-fit: cover;
+}
+
+.others-album-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 310px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.others-album-title-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.others-album-title {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    height: 35px;
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.others-album-title:hover {
+    text-decoration: underline;
+}
+
+.others-album-img-count {
+    margin-top: 5px;
+    display: flex;
+    align-items: flex-start;
+    height: 35px;
+    width: 100%;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* .album-list {
+    color: black;
+    font-size: 40px;
+    margin: 40px;
+    text-decoration: none;
+}
+
+.album-list-link {
+    text-decoration: none;
+}
+
 .albums-container {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    margin-top: 50px;
+    border-radius: 25px;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.create-album-button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 150px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid black;
+} */
+
+
+
+
+
+
+
+/* .albums-container {
     background-color: white;
     display: flex;
     align-items: center;
@@ -14,4 +338,4 @@
 
 .album-list-link {
     text-decoration: none;
-}
+} */

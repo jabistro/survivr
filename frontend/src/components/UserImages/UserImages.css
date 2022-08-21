@@ -26,6 +26,7 @@
 }
 
 .user-img-header-bottom {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
     width: 100%;
     height: 126px;
     display: flex;
