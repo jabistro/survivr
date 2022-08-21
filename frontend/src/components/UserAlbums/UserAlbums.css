@@ -187,6 +187,11 @@
     border-bottom-right-radius: 5px;
 }
 
+.user-album-wrap:hover {
+    transition: all 350ms ease;
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+}
+
 .user-album-pics {
     display: flex;
     height: 220px;
