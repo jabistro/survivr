@@ -4,16 +4,16 @@ import { createImage } from '../../store/images';
 import './ImageInput.css';
 import { getUserAlbums } from '../../store/albums';
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 
 
-const ImageInput = () => {
+const ImageInput = ({ setShowModal }) => {
     const [albums, setAlbums] = useState([]);
     const [albumId, setAlbumId] = useState(1);
     const [image, setImage] = useState(false);
     const [caption, setCaption] = useState('');
     const [errors, setErrors] = useState([]);
+    const [title, setTitle] = useState('');
 
     const history = useHistory();
 
@@ -52,6 +52,7 @@ const ImageInput = () => {
             userId: user.id,
             albumId,
             image,
+            title,
             caption
         };
 
@@ -61,12 +62,14 @@ const ImageInput = () => {
                 if (data && data.errors) setErrors(data.errors);
             });
         if (theImage) reset();
+        setShowModal(false)
     };
 
     const reset = () => {
         setImage(false);
         setAlbumId('');
         setCaption('');
+        setTitle('');
     };
 
     const updateImage = (e) => {
@@ -74,42 +77,51 @@ const ImageInput = () => {
         if (file) setImage(file);
     };
 
+    const handleAddAlbum = (e) => {
+        e.preventDefault();
+        history.push("/create-album")
+        setShowModal(false)
+    }
+
     return (
-        <div className='add-img-input-box'>
+        <div className='add-img-container'>
+            <h1 className='add-img-title'>Add photo</h1>
             <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error, idx) => <li className='add-img-errors' key={idx}>{error}</li>)}
             </ul>
             <br />
-            <h1 className='add-image-title'>Add Image</h1>
-            <div>
-                <img id='blank-image' src={require('../../images/5.jpg')}></img>
-            </div>
-            <form className='image-add-form' onSubmit={(e) => handleSubmit(e)}>
-                <label className='add-input-words'>Image
+            <form className='add-img-form' onSubmit={(e) => handleSubmit(e)}>
+                <label className='add-img-input-container'>Image
                     <input
-                        className='add-image-input'
+                        className='add-image-file-input'
                         type='file'
                         onChange={updateImage}
-                        // value={image}
                         placeholder='Image'
-                        // name='imageUrl'
                         accept="image/*"
                     />
                 </label>
-                <label className='add-input-words'>Caption
+                <div className='add-img-input-fields'>
                     <input
-                        className='add-image-input'
+                        className='add-img-input'
+                        type='text'
+                        onChange={(e) => setTitle(e.target.value)}
+                        value={title}
+                    />
+                    <span className='add-img-floating-label'>Title (required)</span>
+                </div>
+                <div className='add-img-input-fields'>
+                    <textarea
+                        className='add-img-textarea'
                         type='text'
                         onChange={(e) => setCaption(e.target.value)}
                         value={caption}
-                        placeholder='Caption (optional)'
-                        name='caption'
                     />
-                </label>
-                <label className='add-input-words'>Album (if no album, click here)
+                    <span className='add-img-floating-label'>Caption</span>
+                </div>
+                <div className='add-img-select-field'>Album
                     <select
                         required
-                        className='add-image-select'
+                        className='add-img-select'
                         value={albumId}
                         onChange={(e) => setAlbumId(e.target.value)}
                         name='albumId'
@@ -120,15 +132,74 @@ const ImageInput = () => {
                             })
                         }
                     </select>
-                </label>
-                <div className='buttons'>
-                    <Link to='/create-album'>
-                        <button className='add-album-button'>Add Album!</button>
-                    </Link>
-                    <button disabled={albums.length < 1} className="img-add-button" type='submit'>Submit</button>
                 </div>
+                <div className='add-img-add-album-container'>
+                    <p className='add-img-add-album-txt'>Don't have any albums?</p>
+                    <button className='add-album-button' onClick={handleAddAlbum}>Add an album</button>
+                </div>
+                <button disabled={albums.length < 1 || !title || !image} className="add-img-button" type='submit'>Submit</button>
             </form>
         </div>
+
+
+
+
+        // <div className='add-img-wrap'>
+        //     <div className='add-img-input-box'>
+        //         <ul>
+        //             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        //         </ul>
+        //         <br />
+        //         <h1 className='add-image-title'>Add Image</h1>
+        //         <div>
+        //             <img id='blank-image' src={require('../../images/5.jpg')}></img>
+        //         </div>
+        //         <form className='image-add-form' onSubmit={(e) => handleSubmit(e)}>
+        //             <label className='add-input-words'>Image
+        //                 <input
+        //                     className='add-image-input'
+        //                     type='file'
+        //                     onChange={updateImage}
+        //                     // value={image}
+        //                     placeholder='Image'
+        //                     // name='imageUrl'
+        //                     accept="image/*"
+        //                 />
+        //             </label>
+        //             <label className='add-input-words'>Caption
+        //                 <input
+        //                     className='add-image-input'
+        //                     type='text'
+        //                     onChange={(e) => setCaption(e.target.value)}
+        //                     value={caption}
+        //                     placeholder='Caption (optional)'
+        //                     name='caption'
+        //                 />
+        //             </label>
+        //             <label className='add-input-words'>Album (if no album, click here)
+        //                 <select
+        //                     required
+        //                     className='add-image-select'
+        //                     value={albumId}
+        //                     onChange={(e) => setAlbumId(e.target.value)}
+        //                     name='albumId'
+        //                 >
+        //                     {
+        //                         albums.map(album => {
+        //                             return <option key={album.id} value={album.id}>{album.title}</option>
+        //                         })
+        //                     }
+        //                 </select>
+        //             </label>
+        //             <div className='buttons'>
+        //                 <Link to='/create-album'>
+        //                     <button className='add-album-button'>Add Album!</button>
+        //                 </Link>
+        //                 <button disabled={albums.length < 1} className="img-add-button" type='submit'>Submit</button>
+        //             </div>
+        //         </form>
+        //     </div>
+        // </div>
     );
 };
 

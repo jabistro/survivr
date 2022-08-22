@@ -44,8 +44,8 @@ const AlbumImages = () => {
                     }
                 </div>
                 <h1 className='album-imgs-title'>{album.title}</h1>
-                <p className='album-imgs-header-blurb'>a gallery curated by <a href='/about'>Survivr</a></p>
-                <div className='album-imgs-description'>description description description description description description description </div>
+                <p className='album-imgs-header-blurb'>a gallery curated by USERNAME</p>
+                <div className='album-imgs-description'>{album.description}</div>
                 <p className='album-imgs-header-stats'>{albumImages.length} items</p>
             </div>
             <div className='album-imgs-container'>
@@ -59,7 +59,7 @@ const AlbumImages = () => {
                                 <div className='album-imgs-img-fluff-left'>
                                     <div className='album-imgs-img-title-container'>
                                         <Link className='album-imgs-title-link' to={`/image/${image.id}`}>
-                                            <span className='album-imgs-img-title'>Title</span>
+                                            <span className='album-imgs-img-title'>{image.title}</span>
                                         </Link>
                                     </div>
                                     <p className='album-imgs-img-username'>by Somebody</p>

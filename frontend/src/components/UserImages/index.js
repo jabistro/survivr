@@ -41,7 +41,7 @@ function UserImages() {
                             <img className='user-img-display' src={image.imageURL} />
                             <div className='user-img-overlay'>
                                 <div className='user-img-fluff'>
-                                    <p className='user-img-title'>Title</p>
+                                    <p className='user-img-title'>{image.title}</p>
                                     <p className='user-img-username'>by Somebody</p>
                                 </div>
                             </div>

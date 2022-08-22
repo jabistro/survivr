@@ -40,7 +40,7 @@ function OthersImages() {
                             <img className='others-img-display' src={image.imageURL} />
                             <div className='others-img-overlay'>
                                 <div className='others-img-fluff'>
-                                    <p className='others-img-title'>Title</p>
+                                    <p className='others-img-title'>{image.title}</p>
                                     <p className='others-img-username'>by Somebody</p>
                                 </div>
                             </div>

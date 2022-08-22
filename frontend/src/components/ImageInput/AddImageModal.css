@@ -1,0 +1,12 @@
+#img-upload {
+    cursor: pointer;
+    color: #f1f1f1;
+    height: 24px;
+    width: 34px;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+#img-upload:hover {
+    color: #bcbcbd;
+}

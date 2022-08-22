@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import YourDropdown from './YourDropdown';
 import OthersDropdown from './OthersDropdown';
+import AddImageModal from '../ImageInput/AddImageModal';
 
 function Navigation({ isLoaded }) {
     const history = useHistory();
@@ -25,10 +26,7 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <div className='splash-top-right-right'>
-                <Link className='create-image-button' exact to='/create-image'>
-                    <i title='Upload' id='img-upload' className="fa-solid fa-cloud-arrow-up"></i>
-                    {/* <img alt='' src={require('../../images/img-upload2.jpg')} className='img-upload' /> */}
-                </Link>
+                <AddImageModal />
                 <ProfileButton user={sessionUser} />
             </div>
         );
