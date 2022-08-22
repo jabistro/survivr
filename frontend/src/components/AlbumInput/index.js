@@ -7,6 +7,7 @@ import './AlbumInput.css';
 
 const AlbumInput = () => {
     const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
 
     const history = useHistory();
 
@@ -26,32 +27,42 @@ const AlbumInput = () => {
         e.preventDefault();
         const newAlbum = {
             userId: user.id,
-            title
+            title,
+            description
         };
 
         const album = await dispatch(createAlbum(newAlbum)).then(() => (history.push(`/users/${user.id}/albums`)));
     };
 
     return (
-        <div className='album-add-input-box'>
-            <h1 className='add-album-header'>Add Album</h1>
-            <div className='add-form-and-buttons'>
-                <form onSubmit={handleSubmit}>
-                    <label className='add-words-label'>Title
-                        <input
-                            className='add-words'
-                            required
-                            type='title'
-                            onChange={(e) => setTitle(e.target.value)}
-                            value={title}
-                            placeholder='Title'
-                            name='title'
-                        />
-                    </label>
-                    <div className='album-form-add-buttons'>
-                        <button id="album-add-button" type='submit'>Submit</button>
-                    </div>
-                </form>
+        <div className='add-album-wrap'>
+            <div className='add-album-container'>
+                <h1 className='add-album-header'>Add Album</h1>
+                <div className='add-album-form-and-buttons'>
+                    <form className='add-album-form' onSubmit={handleSubmit}>
+                        <div className='add-album-input-fields'>
+                            <input
+                                className='add-album-input'
+                                type='text'
+                                onChange={(e) => setTitle(e.target.value)}
+                                value={title}
+                            />
+                            <span className='add-album-floating-label'>Title (required)</span>
+                        </div>
+                        <div className='add-album-input-fields'>
+                            <textarea
+                                className='add-album-textarea'
+                                type='text'
+                                onChange={(e) => setDescription(e.target.value)}
+                                value={description}
+                            />
+                            <span className='add-album-floating-label'>Description</span>
+                        </div>
+                        <div className='album-form-add-buttons'>
+                            <button disabled={!title} id="add-album-form-button" type='submit'>Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );

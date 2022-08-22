@@ -12,6 +12,7 @@
 .add-img-container {
     width: 100%;
     height: 100%;
+    background-color: #f3f5f6;
 }
 
 .add-img-title {
@@ -120,7 +121,7 @@ textarea:not(:focus):valid~.add-img-floating-label {
     display: flex;
     font-size: 16px;
     height: 90px;
-    background-color: transparent;
+    background-color: white;
     padding-top: 30px;
     padding-left: 15px;
     border-radius: 5px;
@@ -206,7 +207,7 @@ textarea:not(:focus):valid~.add-img-floating-label {
     border-radius: 5px;
     border: none;
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 65px;
     font-weight: bold;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
