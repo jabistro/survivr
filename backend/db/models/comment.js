@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    comment: {
-      type: DataTypes.TEXT,
+    content: {
+      type: DataTypes.STRING,
       allowNull: false
     }
   }, {});

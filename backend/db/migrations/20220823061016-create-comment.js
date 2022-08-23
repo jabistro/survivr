@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Images', {
+    return queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,28 +10,27 @@ module.exports = {
       },
       userId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        hooks: 'true',
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
       },
-      albumId: {
+      imageId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         hooks: 'true',
         references: {
-          model: 'Albums',
+          model: 'Images',
           key: 'id'
         }
       },
-      imageURL: {
+      content: {
         allowNull: false,
-        type: Sequelize.TEXT
-      },
-      title: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-      },
-      caption: {
-        type: Sequelize.STRING(255)
+        type: Sequelize.STRING
       },
       createdAt: {
         defaultValue: Sequelize.fn('now'),
@@ -46,6 +45,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Images');
+    return queryInterface.dropTable('Comments');
   }
 };

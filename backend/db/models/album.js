@@ -7,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     title: {
       allowNull: false,
-      type: DataTypes.STRING(50)
+      type: DataTypes.STRING
     },
-    description: DataTypes.TEXT(100)
+    description: DataTypes.STRING(255)
   }, {});
   Album.associate = function (models) {
     // associations can be defined here

@@ -14,10 +14,10 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.TEXT(100)
+        type: Sequelize.STRING(255)
       },
       createdAt: {
         defaultValue: Sequelize.fn('now'),

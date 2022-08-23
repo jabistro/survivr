@@ -6,7 +6,7 @@ module.exports = {
       {
         userId: 1,
         title: "Women of Survivor",
-        description: "So many strong women have changed the game of survivor and should be remembered for their awesomeness."
+        description: "So many strong women have changed the game of survivor & should be remembered for their awesomeness."
       },
       {
         userId: 2,
