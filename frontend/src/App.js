@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation";
 // import Footer from "./components/Footer";
 import SplashBlurb from "./components/SplashBlurb";
 import ImageDetail from "./components/ImageDetail";
-import ImageInput from "./components/ImageInput";
+// import ImageInput from "./components/ImageInput";
 import MyAlbums from "./components/UserAlbums";
 import About from "./components/About";
 import EditImageForm from "./components/EditImage";
@@ -73,9 +73,6 @@ function App() {
           </Route>
           <Route exact path="/explore/albums">
             <OthersAlbums />
-          </Route>
-          <Route exact path='/create-image'>
-            <ImageInput />
           </Route>
           <Route exact path='/explore'>
             <MyAlbums />

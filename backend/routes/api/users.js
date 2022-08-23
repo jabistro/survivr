@@ -29,6 +29,11 @@ const validateSignup = [
     handleValidationErrors
 ];
 
+router.get('/', asyncHandler(async (req, res) => {
+    const users = await User.findAll()
+    return res.json(users);
+}));
+
 router.post(
     '/',
     validateSignup,
@@ -47,7 +52,7 @@ router.post(
 
 router.get('/:userId/likes', asyncHandler(async (req, res) => {
     const { userId } = req.params;
-    const likes = await Likes.findAll({
+    const likes = await Like.findAll({
         order: [['createdAt', 'DESC']],
         where: {
             userId: userId

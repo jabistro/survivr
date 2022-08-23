@@ -46,7 +46,7 @@ export const getImageLikes = (imageId) => async (dispatch) => {
 
     if (response.ok) {
         const likes = await response.json();
-        dispatch(getImageLikes(likes));
+        dispatch(loadImageLikes(likes));
     }
 }
 

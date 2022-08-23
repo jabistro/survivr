@@ -41,9 +41,9 @@ export const getComments = (imageId) => async (dispatch) => {
 export const createComment = (comment) => async (dispatch) => {
     const response = await csrfFetch(`/api/comments`, {
         method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
         body: JSON.stringify(comment)
     });
     const createdComment = await response.json();
@@ -57,7 +57,7 @@ export const createComment = (comment) => async (dispatch) => {
 export const editCommentThunk = (editComment) => async (dispatch) => {
     const response = await csrfFetch(`/api/comments/${editComment.id}`, {
         method: "PUT",
-        headers: { 'Content-Type': 'application/json' },
+        // headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editComment)
     })
     const editedComment = await response.json()
