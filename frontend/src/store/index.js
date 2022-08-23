@@ -4,6 +4,7 @@ import sessionReducer from './session';
 import imageReducer from './images';
 import albumReducer from './albums';
 import commentReducer from './comments.js';
+import likeReducer from './likes';
 // import usersReducer from './users';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     images: imageReducer,
     albums: albumReducer,
     comments: commentReducer,
+    likes: likeReducer,
     // users: usersReducer
 });
 

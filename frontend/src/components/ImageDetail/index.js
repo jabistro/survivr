@@ -13,9 +13,9 @@ const ImageDetail = () => {
     const history = useHistory();
     let sessionUser = useSelector(state => state.session.user);
 
-    const editHandler = image => {
-        history.push(`/image/edit/${image.id}`)
-    }
+    // const editHandler = image => {
+    //     history.push(`/image/edit/${image.id}`)
+    // }
 
     const date = new Date(image.createdAt)
 
@@ -49,7 +49,7 @@ const ImageDetail = () => {
                             <img className='img-detail-img' alt='' src={image.imageURL} />
                         </div>
                         <div className='img-detail-info'>
-                            {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>}
+                            {/* {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>} */}
                         </div>
                     </div>
                     <div className='img-detail-bottom'>

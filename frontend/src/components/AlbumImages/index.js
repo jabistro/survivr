@@ -67,7 +67,7 @@ const AlbumImages = () => {
                                 <div className='album-imgs-img-fluff-right'>
                                     <div className='album-imgs-img-likes'>
                                         <FaRegStar className='album-imgs-img-like-icon' />
-                                        <p className='album-imgs-img-like-txt'>91</p>
+                                        <p className='album-imgs-img-like-txt'></p>
                                     </div>
                                     <div className='album-imgs-img-comments'>
                                         <FaRegComment className='album-imgs-img-comment-icon' />

@@ -45,4 +45,16 @@ router.post(
     }),
 );
 
+router.get('/:userId/likes', asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+    const likes = await Likes.findAll({
+        order: [['createdAt', 'DESC']],
+        where: {
+            userId: userId
+        },
+        include: [User, Image]
+    })
+    return res.json(likes);
+}))
+
 module.exports = router;
