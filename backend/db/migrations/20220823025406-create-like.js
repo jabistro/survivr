@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Comments', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Likes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,30 +11,26 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Users' }
+        references: { model: "Users" }
       },
       imageId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: 'Images' }
       },
-      content: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
       createdAt: {
-        defaultValue: Sequelize.fn('now'),
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
-        defaultValue: Sequelize.fn('now'),
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     });
   },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Comments');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Likes');
   }
 };
