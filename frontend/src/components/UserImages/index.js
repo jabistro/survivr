@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
 import { Link, useHistory } from 'react-router-dom';
 import './UserImages.css';
-import PhotoAlbum from 'react-photo-album';
 
 function UserImages() {
 

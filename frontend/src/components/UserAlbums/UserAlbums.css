@@ -256,6 +256,10 @@
     text-decoration: underline;
 }
 
+.user-album-title-link {
+    text-decoration: none;
+}
+
 .user-album-img-count {
     margin-top: 5px;
     display: flex;
