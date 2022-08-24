@@ -48,6 +48,13 @@
     font-size: 20px;
 }
 
+.profile-button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .profile-button {
     height: 34px;
     width: 34px;
@@ -86,6 +93,7 @@
 }
 
 .profile-button-contents {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

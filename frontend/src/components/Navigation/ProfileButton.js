@@ -6,6 +6,7 @@ import * as sessionActions from '../../store/session';
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [click, setClick] = useState(false);
     // const [showMenu, setShowMenu] = useState(false);
 
     // const openMenu = () => {
@@ -32,8 +33,6 @@ function ProfileButton({ user }) {
         history.push('/');
     };
 
-    const [click, setClick] = useState(false);
-
     const handleClick = () => setClick(!click);
 
     return (
@@ -49,9 +48,10 @@ function ProfileButton({ user }) {
                 </ul>
             </div>
             {/* )} */}
-            <img alt="" src={require('../../images/deefault.jpg')} className='profile-button' /*onClick={openMenu}*/ />
         </>
     );
 }
 
 export default ProfileButton;
+
+/* <img alt="" src={require('../../images/deefault.jpg')} className='profile-button' onClick={openMenu} /> */
