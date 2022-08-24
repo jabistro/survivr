@@ -34,6 +34,7 @@ function Navigation({ isLoaded }) {
                     className={profileButtonOpened ? 'profile-button-container' : 'profile-button-container-closed'}
                     onMouseEnter={() => onProfileButtonMouseEnter()}
                     onMouseLeave={() => onProfileButtonMouseLeave()}
+                    onClick={() => onProfileButtonMouseLeave()}
                 >
                     {profileButtonOpened && <ProfileButton user={sessionUser} />}
                     <img alt="" src={require('../../images/deefault.jpg')} className='profile-button' /*onClick={openMenu}*/ />

@@ -18,6 +18,8 @@ import * as sessionActions from "./store/session";
 import { getImages } from "./store/images";
 import { getAlbums } from "./store/albums";
 import { getComments } from "./store/comments";
+import { getUsers } from "./store/users";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,10 @@ function App() {
 
   useEffect(() => {
     dispatch(getAlbums());
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getUsers());
   }, [dispatch])
 
   return (

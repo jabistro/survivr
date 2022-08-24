@@ -28,7 +28,7 @@ function ProfileButton({ user }) {
 
     const logout = (e) => {
         e.preventDefault();
-        setClick(false);
+        setClick(!click);
         dispatch(sessionActions.logout());
         history.push('/');
     };

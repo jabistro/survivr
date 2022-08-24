@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_COMMENTS = "images/LOAD_COMMENTS";
 const ADD_COMMENT = 'images/ADD_COMMENTS';
-const DELETE_COMMENT = 'photo/DELETE_COMMENTS'
+const DELETE_COMMENT = 'images/DELETE_COMMENTS'
 
 const loadComments = (comments) => ({
     type: LOAD_COMMENTS,
@@ -29,8 +29,8 @@ const removeComment = (commentId) => {
 //     dispatch()
 // }
 
-export const getComments = (imageId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/comments/images/${imageId}`);
+export const getComments = () => async (dispatch) => {
+    const response = await csrfFetch(`/api/comments`);
 
     if (response.ok) {
         const comments = await response.json();

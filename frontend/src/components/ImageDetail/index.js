@@ -1,8 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 // import CommentDetail from '../CommentDetail'
 import './ImageDetail.css'
+import { getImageLikes } from '../../store/likes';
+import { useEffect } from 'react';
 
 
 const ImageDetail = () => {
@@ -11,7 +13,12 @@ const ImageDetail = () => {
     const image = useSelector(state => state.images)[imageId];
 
     const history = useHistory();
+    const dispatch = useDispatch();
     let sessionUser = useSelector(state => state.session.user);
+
+    useEffect(() => {
+        dispatch(getImageLikes(imageId));
+    }, [dispatch])
 
     // const editHandler = image => {
     //     history.push(`/image/edit/${image.id}`)

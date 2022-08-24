@@ -17,6 +17,7 @@ export const getUsers = () => async (dispatch) => {
 
     if (response.ok) {
         const userList = await response.json();
+        console.log(userList)
         dispatch(loadUsers(userList));
         return userList;
     }
@@ -52,7 +53,7 @@ const usersReducer = (state = {}, action) => {
     switch (action.type) {
         case GET_USERS:
             const allUsers = {};
-            action.users.users.forEach(user => {
+            action.users.forEach(user => {
                 allUsers[user.id] = user;
             })
             return allUsers;

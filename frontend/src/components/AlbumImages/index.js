@@ -13,7 +13,6 @@ const AlbumImages = () => {
 
     const albumId = useParams().albumId;
     const album = useSelector(state => state.albums)[albumId];
-    console.log(album)
     const images = Object.values(useSelector(state => state.images));
     const albumImages = images.filter(image => album.id === image.albumId)
     const history = useHistory();

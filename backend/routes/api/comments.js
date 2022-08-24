@@ -15,14 +15,8 @@ const router = express.Router();
 //     handleValidationErrors
 // ];
 
-router.get('/images/:imageId', asyncHandler(async (req, res) => {
-    const { imageId } = req.params;
-    const comments = await Comment.findAll({
-        where: {
-            imageId: imageId
-        },
-        include: User
-    });
+router.get('/', asyncHandler(async (req, res) => {
+    const comments = await Comment.findAll();
     return res.json(comments);
 }))
 

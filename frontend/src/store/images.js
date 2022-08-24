@@ -88,8 +88,6 @@ export const editImageThunk = (editImageData) => async (dispatch) => {
     // formData.append("userId", userId);
     if (image) formData.append("image", image);
 
-    console.log(albumId);
-
     const response = await csrfFetch('/api/images', {
         method: "PUT",
         headers: {
