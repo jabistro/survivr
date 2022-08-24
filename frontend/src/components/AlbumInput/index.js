@@ -8,11 +8,8 @@ import './AlbumInput.css';
 const AlbumInput = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-
     const history = useHistory();
-
     const user = useSelector(state => state.session.user);
-
     const dispatch = useDispatch();
 
     useEffect(() => {

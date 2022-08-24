@@ -6,6 +6,7 @@ import { MdOutlineModeEditOutline } from 'react-icons/md';
 import { FaRegStar, FaRegComment } from 'react-icons/fa';
 // import CommentForm from '../CommentForm'
 import './AlbumImages.css'
+import EditAlbumModal from '../EditAlbum/EditAlbumModal';
 
 
 const AlbumImages = () => {
@@ -37,15 +38,17 @@ const AlbumImages = () => {
                         <p className='album-imgs-back-txt'>Back to albums list</p>
                     </div>
                     {user && user.id === album.userId &&
-                        <div className='album-imgs-edit' onClick={() => editHandler(album)}>
-                            <MdOutlineModeEditOutline className='album-imgs-edit-btn' />
-                            <p className='album-imgs-edit-txt'>Edit album</p>
+                        <div className='album-imgs-edit' /*onClick={() => editHandler(album)}*/>
+                            <EditAlbumModal>
+                                <MdOutlineModeEditOutline className='album-imgs-edit-btn' />
+                                <p className='album-imgs-edit-txt'>Edit album</p>
+                            </EditAlbumModal>
                         </div>
                     }
                 </div>
                 <h1 className='album-imgs-title'>{album.title}</h1>
                 <p className='album-imgs-header-blurb'>a gallery curated by USERNAME</p>
-                <div className='album-imgs-description'>{album.description}</div>
+                <p className='album-imgs-description'>{album.description}</p>
                 <p className='album-imgs-header-stats'>{albumImages.length} items</p>
             </div>
             <div className='album-imgs-container'>
