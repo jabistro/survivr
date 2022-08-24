@@ -56,6 +56,7 @@
 }
 
 .profile-logout-button {
+    cursor: pointer;
     width: 100px;
     height: 35px;
     font-size: 15px;
@@ -80,13 +81,18 @@
 .profile-lists {
     color: white;
     margin: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
 }
 
 .profile-button-contents {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
+}
+
+.profile-button-contents.clicked {
+    display: none;
 }
 
 .profile-dropdown {

@@ -14,6 +14,7 @@ function Navigation({ isLoaded }) {
     const [click, setClick] = useState(false);
     const [yourDropdown, setYourDropdown] = useState(false);
     const [othersDropdown, setOthersDropdown] = useState(false);
+    const [profileButtonOpened, setProfileButtonOpened] = useState(false);
 
     // const handleClick = () => setClick(!click);
 
@@ -21,13 +22,22 @@ function Navigation({ isLoaded }) {
     const onYourMouseLeave = () => setYourDropdown(false);
     const onOthersMouseEnter = () => setOthersDropdown(true);
     const onOthersMouseLeave = () => setOthersDropdown(false);
+    const onProfileButtonMouseEnter = () => setProfileButtonOpened(true);
+    const onProfileButtonMouseLeave = () => setProfileButtonOpened(false);
 
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
             <div className='splash-top-right-right'>
                 <AddImageModal />
-                <ProfileButton user={sessionUser} />
+                <div
+                    className='profile-button-container'
+                    onMouseEnter={() => onProfileButtonMouseEnter()}
+                    onMouseLeave={() => onProfileButtonMouseLeave()}
+                >
+                    <img alt="" src={require('../../images/deefault.jpg')} className='profile-button' /*onClick={openMenu}*/ />
+                    {profileButtonOpened && <ProfileButton user={sessionUser} />}
+                </div>
             </div>
         );
     } else {
