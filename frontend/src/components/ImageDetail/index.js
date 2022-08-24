@@ -65,7 +65,7 @@ const ImageDetail = () => {
                             <div className='img-detail-bottom-comments'></div>
                             <div className='img-detail-bottom-'></div>
                         </div>
-                        <div className='img-detail-bottom-right'>right</div>
+                        <div className='img-detail-bottom-right'>Under construction</div>
                     </div>
                 </div>
             }
