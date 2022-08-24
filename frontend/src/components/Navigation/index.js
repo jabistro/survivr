@@ -31,7 +31,7 @@ function Navigation({ isLoaded }) {
             <div className='splash-top-right-right'>
                 <AddImageModal />
                 <div
-                    className='profile-button-container'
+                    className={profileButtonOpened ? 'profile-button-container' : 'profile-button-container-closed'}
                     onMouseEnter={() => onProfileButtonMouseEnter()}
                     onMouseLeave={() => onProfileButtonMouseLeave()}
                 >

@@ -49,10 +49,17 @@
 }
 
 .profile-button-container {
-    width: 100%;
+    width: 287px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+}
+
+.profile-button-container-closed {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .profile-button {
@@ -74,6 +81,10 @@
     border-radius: 5px;
 }
 
+.profile-logout-button:hover {
+    background-color: #f1f1f1;
+}
+
 /* .back-button {
     width: 100px;
     height: 35px;
@@ -93,7 +104,7 @@
 }
 
 .profile-button-contents {
-    width: 100%;
+    width: 253px;
     display: flex;
     justify-content: center;
     align-items: center;
