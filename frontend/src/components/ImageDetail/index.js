@@ -26,22 +26,22 @@ const ImageDetail = () => {
     //     history.push(`/image/edit/${image.id}`)
     // }
 
-    const date = new Date(image.createdAt)
+    // const date = new Date(image.createdAt)
 
-    const month = [
-        'january',
-        'february',
-        'march',
-        'april',
-        'may',
-        'june',
-        'july',
-        'august',
-        'september',
-        'october',
-        'november',
-        'december'
-    ]
+    // const month = [
+    //     'january',
+    //     'february',
+    //     'march',
+    //     'april',
+    //     'may',
+    //     'june',
+    //     'july',
+    //     'august',
+    //     'september',
+    //     'october',
+    //     'november',
+    //     'december'
+    // ]
 
     return (
         <>
