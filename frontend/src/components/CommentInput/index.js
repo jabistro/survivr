@@ -26,10 +26,13 @@ const CommentInput = ({ image }) => {
         e.preventDefault();
         const newComment = {
             userId: user.id,
+            imageId: image.id,
             content
         };
 
-        const comment = await dispatch(createComment(newComment)).then(() => (history.push(`/image/${image.id}`)));
+        const comment = await dispatch(createComment(newComment));
+
+        setContent("")
     };
 
     return (
@@ -37,8 +40,12 @@ const CommentInput = ({ image }) => {
             <form onSubmit={handleSubmit}>
                 <textarea
                     placeholder='Add a comment'
+                    className='add-comment-textarea'
+                    type='text'
+                    onChange={(e) => setContent(e.target.value)}
+                    value={content}
                 ></textarea>
-                <button type='submit'>comment</button>
+                <button disabled={!content} type='submit'>comment</button>
             </form>
         </div>
 
