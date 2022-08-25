@@ -16,7 +16,7 @@ const CommentDetail = ({ image }) => {
     return (
         <div className='comment-detail-wrap'>
             {imageComments.map(comment => (
-                <div className='comment-detail-comments-container'>
+                <div key={comment.id} className='comment-detail-comments-container'>
                     <div className='comment-detail-pfp-container'>
                         <img className='comment-detail-pfp' alt='' src={require('../../images/deefault.jpg')} />
                     </div>
