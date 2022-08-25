@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi';
 import { MdOutlineModeEditOutline } from 'react-icons/md';
@@ -7,6 +7,7 @@ import { FaRegStar, FaRegComment } from 'react-icons/fa';
 // import CommentForm from '../CommentForm'
 import './AlbumImages.css'
 import EditAlbumModal from '../EditAlbum/EditAlbumModal';
+import { getImageLikes } from '../../store/likes';
 
 
 const AlbumImages = () => {
@@ -16,11 +17,21 @@ const AlbumImages = () => {
     const images = Object.values(useSelector(state => state.images));
     const albumImages = images.filter(image => album.id === image.albumId)
     const history = useHistory();
-    const user = useSelector(state => state.session.user);
+    // const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
+    const users = Object.values(useSelector(state => state.users));
+    const albumUserArr = users.filter(user => user.id === (album.userId))
+    // const likes = Object.values(useSelector(state => state.likes));
+    // const imageLikes = likes.filter(like => like.imageId === image.id)
+    // {likes.filter(like => like.imageId === image.id).length}
 
     useEffect(() => {
-        if (!user) history.push('/')
+        if (!sessionUser) history.push('/')
     }, [])
+
+    // useEffect(() => {
+    //     dispatch(getImageLikes(imageId));
+    // }, [dispatch])
 
     const editHandler = album => {
         history.push(`/album/edit/${album.id}`)
@@ -36,7 +47,7 @@ const AlbumImages = () => {
                         <BiArrowBack className='album-imgs-back-btn' />
                         <p className='album-imgs-back-txt'>Back to albums list</p>
                     </div>
-                    {user && user.id === album.userId &&
+                    {sessionUser && sessionUser.id === album.userId &&
                         <div className='album-imgs-edit' /*onClick={() => editHandler(album)}*/>
                             <EditAlbumModal>
                                 <MdOutlineModeEditOutline className='album-imgs-edit-btn' />
@@ -46,7 +57,7 @@ const AlbumImages = () => {
                     }
                 </div>
                 <h1 className='album-imgs-title'>{album.title}</h1>
-                <p className='album-imgs-header-blurb'>a gallery curated by USERNAME</p>
+                <p className='album-imgs-header-blurb'>a gallery curated by {albumUserArr[0].username}</p>
                 <p className='album-imgs-description'>{album.description}</p>
                 <p className='album-imgs-header-stats'>{albumImages.length} items</p>
             </div>
@@ -64,7 +75,7 @@ const AlbumImages = () => {
                                             <span className='album-imgs-img-title'>{image.title}</span>
                                         </Link>
                                     </div>
-                                    <p className='album-imgs-img-username'>by Somebody</p>
+                                    <p className='album-imgs-img-username'>by {albumUserArr[0].username}</p>
                                 </div>
                                 <div className='album-imgs-img-fluff-right'>
                                     <div className='album-imgs-img-likes'>

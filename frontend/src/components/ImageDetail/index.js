@@ -5,16 +5,18 @@ import { BiArrowBack } from 'react-icons/bi';
 import './ImageDetail.css'
 import { getImageLikes } from '../../store/likes';
 import { useEffect } from 'react';
+import CommentDetail from '../CommentDetail';
 
 
 const ImageDetail = () => {
 
     const imageId = useParams().imageId;
     const image = useSelector(state => state.images)[imageId];
-
     const history = useHistory();
     const dispatch = useDispatch();
     let sessionUser = useSelector(state => state.session.user);
+    const users = Object.values(useSelector(state => state.users));
+    const imageUser = users.filter(user => user.id === image.userId);
 
     useEffect(() => {
         dispatch(getImageLikes(imageId));
@@ -62,15 +64,18 @@ const ImageDetail = () => {
                     <div className='img-detail-bottom'>
                         <div className='img-detail-bottom-left'>
                             <div className='img-detail-bottom-info'>
-                                <img className='img-detail-bottom-pfp' alt='' src={require('../../images/deefault.jpg')} />
+                                <div className='img-detail-bottom-pfp-container'>
+                                    <img className='img-detail-bottom-pfp' alt='' src={require('../../images/deefault.jpg')} />
+                                </div>
                                 <div className='img-detail-bottom-img-info'>
-                                    <div className='img-detail-bottom-username'>Username</div>
+                                    <div className='img-detail-bottom-username'>{imageUser[0].username}</div>
                                     <div className='img-detail-bottom-title'>{image.title}</div>
                                     <div className='img-detail-bottom-caption'>{image.caption}</div>
+                                    <div className='img-detail-bottom-divider'></div>
                                 </div>
                             </div>
-                            <div className='img-detail-bottom-comments'></div>
-                            <div className='img-detail-bottom-'></div>
+                            <CommentDetail image={image} />
+                            {/* <div className='img-detail-bottom-'></div> */}
                         </div>
                         <div className='img-detail-bottom-right'>Under construction</div>
                     </div>

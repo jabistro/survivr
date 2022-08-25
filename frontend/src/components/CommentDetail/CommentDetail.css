@@ -1,0 +1,60 @@
+.comment-detail-wrap {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.comment-detail-comments-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+.comment-detail-comments-container:hover {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.comment-detail-pfp-container {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.comment-detail-pfp {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+}
+
+.comment-detail-comments-info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.comment-detail-username-and-createdAt {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 14px;
+}
+
+.comment-detail-createdAt {
+    font-size: 14px;
+    color: #898989;
+    margin-left: 15px;
+}
+
+.comment-display {
+    height: 1%;
+    overflow: hidden;
+    color: #212124;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
