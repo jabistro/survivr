@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createComment } from '../../store/comments';
 import './CommentInput.css';
-import { getImages } from '../../store/images';
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 
 
@@ -35,14 +33,22 @@ const CommentInput = ({ image }) => {
         setContent("")
     };
 
-    const handleTextArea = async (e) => {
-        const textarea = document.querySelector("textarea");
-        textarea.addEventListener("keyup", e => {
-            textarea.style.height = "70px";
-            let scHeight = e.target.scrollHeight;
-            textarea.style.height = `${scHeight}px`;
-        })
-    }
+    // const handleTextArea = async (e) => {
+    //     const textarea = document.querySelector("textarea");
+    //     textarea.addEventListener("keyup", e => {
+    //         textarea.style.height = "70px";
+    //         let scHeight = e.target.scrollHeight;
+    //         textarea.style.height = `${scHeight}px`;
+    //     })
+    // }
+
+    // const handleOne = (e) => setContent(e.target.value);
+    // const handleTwo = (e) => SetInputHeight(e, '70px');
+
+    // const handleChange = (e) => {
+    //     handleOne();
+    //     handleTwo();
+    // }
 
     return (
         <div className='add-comment-wrap'>
@@ -56,10 +62,8 @@ const CommentInput = ({ image }) => {
                         onChange={(e) => setContent(e.target.value)}
                         value={content}
                     ></textarea>
-                    <script />
                     <div className='add-comment-features'></div>
                 </div>
-
                 <button className='add-comment-btn' disabled={!content} type='submit'>comment</button>
             </form>
         </div>

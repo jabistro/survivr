@@ -5,6 +5,7 @@ import './ImageDetail.css'
 import { getImageLikes } from '../../store/likes';
 import { useEffect } from 'react';
 import CommentDetail from '../CommentDetail';
+import LikeButton from '../Likes/LikeButton/LikeButton';
 
 
 const ImageDetail = () => {
@@ -56,6 +57,7 @@ const ImageDetail = () => {
                             <img className='img-detail-img' alt='' src={image.imageURL} />
                         </div>
                         <div className='img-detail-info'>
+                            <LikeButton image={image} />
                             {/* {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>} */}
                         </div>
                     </div>
