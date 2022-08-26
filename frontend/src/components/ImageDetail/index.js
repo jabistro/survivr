@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
-// import CommentDetail from '../CommentDetail'
 import './ImageDetail.css'
 import { getImageLikes } from '../../store/likes';
 import { useEffect } from 'react';
@@ -15,8 +14,7 @@ const ImageDetail = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     let sessionUser = useSelector(state => state.session.user);
-    const users = Object.values(useSelector(state => state.users));
-    const imageUser = users.filter(user => user.id === image.userId);
+    const users = useSelector(state => state.users)
 
     useEffect(() => {
         dispatch(getImageLikes(imageId));
@@ -68,7 +66,7 @@ const ImageDetail = () => {
                                     <img className='img-detail-bottom-pfp' alt='' src={require('../../images/deefault.jpg')} />
                                 </div>
                                 <div className='img-detail-bottom-img-info'>
-                                    <div className='img-detail-bottom-username'>{imageUser[0].username}</div>
+                                    <div className='img-detail-bottom-username'>{users[image?.userId]?.username}</div>
                                     <div className='img-detail-bottom-title'>{image.title}</div>
                                     <div className='img-detail-bottom-caption'>{image.caption}</div>
                                     <div className='img-detail-bottom-divider'></div>

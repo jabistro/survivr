@@ -35,17 +35,32 @@ const CommentInput = ({ image }) => {
         setContent("")
     };
 
+    const handleTextArea = async (e) => {
+        const textarea = document.querySelector("textarea");
+        textarea.addEventListener("keyup", e => {
+            textarea.style.height = "70px";
+            let scHeight = e.target.scrollHeight;
+            textarea.style.height = `${scHeight}px`;
+        })
+    }
+
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <textarea
-                    placeholder='Add a comment'
-                    className='add-comment-textarea'
-                    type='text'
-                    onChange={(e) => setContent(e.target.value)}
-                    value={content}
-                ></textarea>
-                <button disabled={!content} type='submit'>comment</button>
+        <div className='add-comment-wrap'>
+            <img className='add-comment-pfp' alt='' src={require('../../images/deefault.jpg')} />
+            <form className='add-comment-form-and-btn' onSubmit={handleSubmit}>
+                <div className='add-comment-container'>
+                    <textarea
+                        placeholder='Add a comment'
+                        className='add-comment-textarea'
+                        type='text'
+                        onChange={(e) => setContent(e.target.value)}
+                        value={content}
+                    ></textarea>
+                    <script />
+                    <div className='add-comment-features'></div>
+                </div>
+
+                <button className='add-comment-btn' disabled={!content} type='submit'>comment</button>
             </form>
         </div>
 

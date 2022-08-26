@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <title>survivr</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
   <link rel="icon" type='image/png' href="./favicon.ico">
   <script src="https://kit.fontawesome.com/2169499e3f.js" crossorigin="anonymous"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -13,6 +14,35 @@
   <div className="body-main">
     <div id="root"></div>
   </div>
+  <!-- <textarea class="add-comment-textarea"></textarea> -->
+  <!-- <script>
+    const textArea = document.querySelector('textarea');
+
+    function handleResize() {
+      this.style.height = 'auto';
+      this.style.height = this.scrollHeight + 'px';
+    }
+
+    textArea.addEventListener('input', handleResize);
+  </script> -->
+  <!-- <script>
+    const myText = document.getElementsByClassName("add-comment-textarea");
+    myText.style.cssText = `height: ${myText.scrollHeight}px; overflow-y: hidden`;
+
+    myText.addEventListener("input", function () {
+      this.style.height = "auto";
+      this.style.height = `${this.scrollHeight}px`;
+    })
+  </script> -->
+  <!-- <script>
+    const textarea = document.querySelector("textarea");
+    textarea.addEventListener("keyup", e => {
+      textarea.style.height = "auto";
+      let scHeight = e.target.scrollHeight;
+      textarea.style.height = `${scHeight}px`;
+      textarea.style.backgroundColor = "purple"
+    })
+  </script> -->
 </body>
 
 </html>

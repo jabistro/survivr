@@ -12,6 +12,7 @@ function UserImages() {
     const user = useSelector(state => state.session.user);
     const userImages = images.filter(image => image.userId === user.id)
 
+
     return (
         <div className='user-img-wrap'>
             <div className='user-img-header'>
@@ -41,7 +42,7 @@ function UserImages() {
                             <div className='user-img-overlay'>
                                 <div className='user-img-fluff'>
                                     <p className='user-img-title'>{image.title}</p>
-                                    <p className='user-img-username'>by Somebody</p>
+                                    <p className='user-img-username'>by {user.username}</p>
                                 </div>
                             </div>
                         </Link>

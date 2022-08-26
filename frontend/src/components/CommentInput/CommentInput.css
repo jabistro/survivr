@@ -1,0 +1,63 @@
+.add-comment-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.add-comment-pfp {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-left: 30px;
+}
+
+.add-comment-form-and-btn {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.add-comment-container {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    border: 1px solid #9ea4a7;
+    padding: 10px;
+    background-color: white;
+    padding-right: 15px;
+    border-radius: 5px;
+}
+
+.add-comment-container:focus-within {
+    border: 1px solid #008ddf;
+}
+
+.add-comment-container:focus-within .add-comment-btn {
+    opacity: 1;
+}
+
+.add-comment-textarea {
+    width: 100%;
+    height: 70px;
+    outline: none;
+    resize: none;
+    border: none;
+    overflow-y: scroll;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.add-comment-textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.add-comment-features {
+    height: 25px;
+}
+
+.add-comment-btn {
+    opacity: 0;
+}

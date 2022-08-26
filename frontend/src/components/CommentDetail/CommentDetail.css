@@ -16,6 +16,7 @@
 .comment-detail-comments-container:hover {
     background-color: #ffffff;
     border-radius: 5px;
+    transition: 0.4s ease all;
 }
 
 .comment-detail-pfp-container {
@@ -52,6 +53,7 @@
 }
 
 .comment-display {
+    padding-right: 5px;
     height: 1%;
     overflow: hidden;
     color: #212124;

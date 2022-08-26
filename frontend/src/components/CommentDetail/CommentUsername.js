@@ -7,7 +7,7 @@ const CommentUsername = ({ comment }) => {
     const commentUser = users.filter(user => user.id === comment.userId)
 
     return (
-        <p className="comment-username">{commentUser[0].username}</p>
+        <p className="comment-username">{commentUser[0]?.username}</p>
     )
 }
 
