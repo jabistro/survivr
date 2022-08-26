@@ -64,7 +64,9 @@ const CommentInput = ({ image }) => {
                     ></textarea>
                     <div className='add-comment-features'></div>
                 </div>
-                <button className='add-comment-btn' disabled={!content} type='submit'>comment</button>
+                <div className='add-comment-btn-container'>
+                    <button className='add-comment-btn' disabled={!content} type='submit'>Comment</button>
+                </div>
             </form>
         </div>
 

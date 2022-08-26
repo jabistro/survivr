@@ -9,7 +9,7 @@ const ImageLikeCount = ({ image }) => {
     const imageLikes = likes.filter(like => like.imageId === image.id)
 
     useEffect(() => {
-        dispatch(getImageLikes(image.id));
+        dispatch(getImageLikes());
     }, [dispatch])
 
     return (

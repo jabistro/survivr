@@ -41,8 +41,8 @@ export const getUserLikes = (userId) => async (dispatch) => {
     }
 }
 
-export const getImageLikes = (imageId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/likes/images/${imageId}`);
+export const getImageLikes = () => async (dispatch) => {
+    const response = await csrfFetch(`/api/likes`);
 
     if (response.ok) {
         const likes = await response.json();

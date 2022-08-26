@@ -18,7 +18,7 @@ const ImageDetail = () => {
     const users = useSelector(state => state.users)
 
     useEffect(() => {
-        dispatch(getImageLikes(imageId));
+        dispatch(getImageLikes());
     }, [dispatch])
 
     // const editHandler = image => {

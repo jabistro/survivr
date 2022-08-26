@@ -5,12 +5,8 @@ const { User, Like } = require('../../db/models');
 
 const router = express.Router();
 
-router.get('/images/:imageId', asyncHandler(async (req, res) => {
-    const { imageId } = req.params;
+router.get('/', asyncHandler(async (req, res) => {
     const likes = await Like.findAll({
-        where: {
-            imageId: imageId
-        },
         include: User
     });
 
