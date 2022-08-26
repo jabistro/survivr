@@ -57,7 +57,7 @@ const ImageDetail = () => {
                             <img className='img-detail-img' alt='' src={image.imageURL} />
                         </div>
                         <div className='img-detail-info'>
-                            <LikeButton image={image} />
+                            <LikeButton className='img-detail-like-btn' image={image} />
                             {/* {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>} */}
                         </div>
                     </div>

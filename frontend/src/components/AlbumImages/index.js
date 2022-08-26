@@ -8,6 +8,7 @@ import { FaRegStar, FaRegComment } from 'react-icons/fa';
 import './AlbumImages.css'
 import EditAlbumModal from '../EditAlbum/EditAlbumModal';
 import { getImageLikes } from '../../store/likes';
+import ImageLikeCount from '../Likes/ImageLikeCount/ImageLikeCount';
 
 
 const AlbumImages = () => {
@@ -15,12 +16,12 @@ const AlbumImages = () => {
     const albumId = useParams().albumId;
     const album = useSelector(state => state.albums)[albumId];
     const images = Object.values(useSelector(state => state.images));
-    const albumImages = images.filter(image => album.id === image.albumId)
+    const albumImages = images.filter(image => album?.id === image?.albumId)
     const history = useHistory();
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const users = Object.values(useSelector(state => state.users));
-    const albumUserArr = users.filter(user => user.id === (album.userId))
+    const albumUserArr = users.filter(user => user?.id === (album?.userId))
     // const likes = Object.values(useSelector(state => state.likes));
     // const imageLikes = likes.filter(like => like.imageId === image.id)
     // {likes.filter(like => like.imageId === image.id).length}
@@ -28,10 +29,6 @@ const AlbumImages = () => {
     useEffect(() => {
         if (!sessionUser) history.push('/')
     }, [])
-
-    // useEffect(() => {
-    //     dispatch(getImageLikes(imageId));
-    // }, [dispatch])
 
     const editHandler = album => {
         history.push(`/album/edit/${album.id}`)
@@ -47,7 +44,7 @@ const AlbumImages = () => {
                         <BiArrowBack className='album-imgs-back-btn' />
                         <p className='album-imgs-back-txt'>Back to albums list</p>
                     </div>
-                    {sessionUser && sessionUser.id === album.userId &&
+                    {sessionUser && sessionUser?.id === album?.userId &&
                         <div className='album-imgs-edit' /*onClick={() => editHandler(album)}*/>
                             <EditAlbumModal>
                                 <MdOutlineModeEditOutline className='album-imgs-edit-btn' />
@@ -56,31 +53,32 @@ const AlbumImages = () => {
                         </div>
                     }
                 </div>
-                <h1 className='album-imgs-title'>{album.title}</h1>
-                <p className='album-imgs-header-blurb'>a gallery curated by {albumUserArr[0].username}</p>
-                <p className='album-imgs-description'>{album.description}</p>
+                <h1 className='album-imgs-title'>{album?.title}</h1>
+                <p className='album-imgs-header-blurb'>a gallery curated by {albumUserArr[0]?.username}</p>
+                <p className='album-imgs-description'>{album?.description}</p>
                 <p className='album-imgs-header-stats'>{albumImages.length} items</p>
             </div>
             <div className='album-imgs-container'>
                 {albumImages.map(image => {
                     return (
-                        <div key={image.id} className='album-imgs-div'>
-                            <Link className='album-imgs-img-link' to={`/image/${image.id}`}>
-                                <img className='album-imgs-img' alt='' src={image.imageURL} />
+                        <div key={image?.id} className='album-imgs-div'>
+                            <Link className='album-imgs-img-link' to={`/image/${image?.id}`}>
+                                <img className='album-imgs-img' alt='' src={image?.imageURL} />
                             </Link>
                             <div className='album-imgs-img-fluff'>
                                 <div className='album-imgs-img-fluff-left'>
                                     <div className='album-imgs-img-title-container'>
-                                        <Link className='album-imgs-title-link' to={`/image/${image.id}`}>
-                                            <span className='album-imgs-img-title'>{image.title}</span>
+                                        <Link className='album-imgs-title-link' to={`/image/${image?.id}`}>
+                                            <span className='album-imgs-img-title'>{image?.title}</span>
                                         </Link>
                                     </div>
-                                    <p className='album-imgs-img-username'>by {albumUserArr[0].username}</p>
+                                    <p className='album-imgs-img-username'>by {albumUserArr[0]?.username}</p>
                                 </div>
                                 <div className='album-imgs-img-fluff-right'>
                                     <div className='album-imgs-img-likes'>
                                         <FaRegStar className='album-imgs-img-like-icon' />
-                                        <p className='album-imgs-img-like-txt'></p>
+                                        <ImageLikeCount image={image} />
+                                        {/* <p className='album-imgs-img-like-txt'></p> */}
                                     </div>
                                     <div className='album-imgs-img-comments'>
                                         <FaRegComment className='album-imgs-img-comment-icon' />

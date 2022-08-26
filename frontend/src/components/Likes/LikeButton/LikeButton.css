@@ -1,0 +1,11 @@
+.like-btn-unliked {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.like-btn-liked {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}

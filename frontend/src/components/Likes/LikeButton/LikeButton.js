@@ -10,8 +10,6 @@ const LikeButton = ({ image }) => {
     const sessionUser = useSelector(state => state.session?.user);
     const likes = Object.values(useSelector(state => state?.likes));
     const currentLike = likes.filter(like => like?.userId === sessionUser?.id && like?.imageId === image?.id);
-    console.log(currentLike)
-    console.log(likes)
 
     const handleLike = async (e) => {
         e.preventDefault();
@@ -30,14 +28,14 @@ const LikeButton = ({ image }) => {
     if (currentLike.length === 0) {
         return (
             <div>
-                <FaRegStar onClick={handleLike} />
+                <FaRegStar title='Like' className='like-btn-unliked' onClick={handleLike} />
             </div>
         )
     }
 
     return (
         <div>
-            <FaStar onClick={handleUnlike} />
+            <FaStar title='Unlike' className='like-btn-liked' onClick={handleUnlike} />
         </div>
     )
 }
