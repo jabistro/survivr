@@ -21,7 +21,7 @@ const CommentDetail = ({ image }) => {
     return (
         <div className='comment-detail-wrap'>
             {imageComments.map(comment => (
-                <div key={comment.id} className='comment-detail-comments-container'>
+                <div key={comment.id} className={!edit ? 'comment-detail-comments-container' : 'comment-detail-comments-container-editing'}>
                     <div className='comment-detail-pfp-container'>
                         <img className='comment-detail-pfp' alt='' src={require('../../images/deefault.jpg')} />
                     </div>
@@ -31,10 +31,12 @@ const CommentDetail = ({ image }) => {
                                 <CommentUsername comment={comment} />
                                 <div className='comment-detail-createdAt'>date</div>
                             </div>
-                            <div className='comment-detail-btns'>
-                                <FaEdit title='Edit' className='comment-detail-edit-comment-btn' onClick={e => setEdit(`comment-${comment.id}`)} />
-                                <DeleteComment className='comment-detail-delete-comment-btn' commentId={comment.id} />
-                            </div>
+                            {!edit &&
+                                <div className='comment-detail-btns'>
+                                    <FaEdit title='Edit' className='comment-detail-edit-comment-btn' onClick={e => setEdit(`comment-${comment.id}`)} />
+                                    <DeleteComment className='comment-detail-delete-comment-btn' commentId={comment.id} />
+                                </div>
+                            }
                         </div>
                         {sessionUser.id === comment.userId && (edit === `comment-${comment.id}`) ? (
                             <EditComment setEdit={setEdit} comment={comment} image={image} />

@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { deleteComment } from "../../store/comments";
 import { Modal } from '../../context/Modal';
-import { FaRegTrashAlt } from 'react-icons/fa'
+import { FaRegTrashAlt } from 'react-icons/fa';
+import { MdOutlineClose } from 'react-icons/md';
 
 const DeleteComment = ({ commentId }) => {
     const dispatch = useDispatch();
@@ -20,14 +21,15 @@ const DeleteComment = ({ commentId }) => {
             <FaRegTrashAlt title='Delete' onClick={() => setShowModal(true)} className="comment-delete" />
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <div>
-                        <div>
-                            <h1>Delete Comment</h1>
-                            <p>Are you sure you would like to delete this comment?</p>
+                    <div className='delete-modal-wrap'>
+                        <div className="delete-modal-header">
+                            <h1 className="delete-modal-header-txt">Delete Comment</h1>
+                            <MdOutlineClose className="delete-modal-close-btn" onClick={() => setShowModal(false)} />
                         </div>
-                        <div>
-                            <button onClick={() => setShowModal(false)}>cancel</button>
-                            <button onClick={handleDelete}>delete</button>
+                        <p className="delete-modal-blurb">Are you sure you would like to delete this comment?</p>
+                        <div className="delete-modal-btn-container">
+                            <button className="delete-modal-cancel-btn" onClick={() => setShowModal(false)}>Cancel</button>
+                            <button className="delete-modal-delete-btn" onClick={handleDelete}>Delete</button>
                         </div>
                     </div>
                 </Modal>
