@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { useHistory, useParams, Link } from 'react-router-dom'
 import CommentInput from '../CommentInput';
+import DeleteComment from '../EditComment/DeleteComment';
 import EditComment from '../EditComment/EditComment';
 import './CommentDetail.css'
 import CommentUsername from './CommentUsername';
@@ -31,7 +32,7 @@ const CommentDetail = ({ image }) => {
                             </div>
                             <div>
                                 <i onClick={e => setEdit(`comment-${comment.id}`)}>edit</i>
-                                <i>delete</i>
+                                <DeleteComment commentId={comment.id} />
                             </div>
                         </div>
                         {sessionUser.id === comment.userId && (edit === `comment-${comment.id}`) ? (

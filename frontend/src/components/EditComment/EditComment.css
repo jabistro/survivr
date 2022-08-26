@@ -1,0 +1,101 @@
+.edit-comment-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.edit-comment-form-and-btn {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.edit-comment-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 1px solid #9ea4a7;
+    padding: 10px;
+    background-color: white;
+    padding-right: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.edit-comment-container:focus-within {
+    border: 1px solid #008ddf;
+}
+
+/* .add-comment-container:not(:focus-within)+.add-comment-btn {
+    display: none;
+} */
+
+.edit-comment-textarea {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    resize: none;
+    border: none;
+    position: relative;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* .add-comment-container::before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #008ddf;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    left: -23px;
+}
+
+.add-comment-container::after {
+    content: '';
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid white;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    left: -17px;
+} */
+
+.edit-comment-features {
+    height: 25px;
+}
+
+.edit-comment-btn-container {
+    width: 96%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.edit-comment-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 30px;
+    color: white;
+    background-color: #0091dc;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 0px;
+    padding-bottom: 4px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.edit-comment-btn:hover {
+    background-color: #1c9be9;
+}
