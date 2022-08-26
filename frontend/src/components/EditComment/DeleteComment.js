@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { deleteComment } from "../../store/comments";
 import { Modal } from '../../context/Modal';
+import { FaRegTrashAlt } from 'react-icons/fa'
 
 const DeleteComment = ({ commentId }) => {
     const dispatch = useDispatch();
@@ -15,8 +16,8 @@ const DeleteComment = ({ commentId }) => {
     }
 
     return (
-        <div>
-            <i onClick={() => setShowModal(true)} className="comment-delete">delete</i>
+        <>
+            <FaRegTrashAlt title='Delete' onClick={() => setShowModal(true)} className="comment-delete" />
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <div>
@@ -31,7 +32,7 @@ const DeleteComment = ({ commentId }) => {
                     </div>
                 </Modal>
             )}
-        </div>
+        </>
     )
 }
 

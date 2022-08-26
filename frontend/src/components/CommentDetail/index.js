@@ -6,6 +6,7 @@ import DeleteComment from '../EditComment/DeleteComment';
 import EditComment from '../EditComment/EditComment';
 import './CommentDetail.css'
 import CommentUsername from './CommentUsername';
+import { FaEdit } from 'react-icons/fa'
 
 
 const CommentDetail = ({ image }) => {
@@ -30,9 +31,9 @@ const CommentDetail = ({ image }) => {
                                 <CommentUsername comment={comment} />
                                 <div className='comment-detail-createdAt'>date</div>
                             </div>
-                            <div>
-                                <i onClick={e => setEdit(`comment-${comment.id}`)}>edit</i>
-                                <DeleteComment commentId={comment.id} />
+                            <div className='comment-detail-btns'>
+                                <FaEdit title='Edit' className='comment-detail-edit-comment-btn' onClick={e => setEdit(`comment-${comment.id}`)} />
+                                <DeleteComment className='comment-detail-delete-comment-btn' commentId={comment.id} />
                             </div>
                         </div>
                         {sessionUser.id === comment.userId && (edit === `comment-${comment.id}`) ? (

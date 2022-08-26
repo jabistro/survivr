@@ -1,0 +1,10 @@
+.comment-delete {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    color: #cacdce;
+}
+
+.comment-delete:hover {
+    color: #8e9396;
+}
