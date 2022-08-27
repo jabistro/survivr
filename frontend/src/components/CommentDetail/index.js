@@ -31,7 +31,7 @@ const CommentDetail = ({ image }) => {
                                 <CommentUsername comment={comment} />
                                 <div className='comment-detail-createdAt'>date</div>
                             </div>
-                            {!edit &&
+                            {!edit && (sessionUser.id === comment.userId) &&
                                 <div className='comment-detail-btns'>
                                     <FaEdit title='Edit' className='comment-detail-edit-comment-btn' onClick={e => setEdit(`comment-${comment.id}`)} />
                                     <DeleteComment className='comment-detail-delete-comment-btn' commentId={comment.id} />
