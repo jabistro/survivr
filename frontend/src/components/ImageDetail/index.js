@@ -93,7 +93,9 @@ const ImageDetail = () => {
                                                     <FaEdit title='Edit' className='img-detail-edit-img-info-btn' onClick={e => setEdit(`image-${image?.id}`)} />
                                                 }
                                             </div>
-                                            <div className='img-detail-bottom-caption'>{image?.caption}</div>
+                                            <div className='img-detail-bottom-caption'>
+                                                {image?.caption.split('\n').map(line => (<div key={line?.id} id={image?.id} className="image-detail-bottom-caption-content-lines">{line}</div>))}
+                                            </div>
                                         </div>
                                     )}
                                     <div className='img-detail-bottom-divider'></div>

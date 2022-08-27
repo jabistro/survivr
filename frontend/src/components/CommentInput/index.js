@@ -3,21 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createComment } from '../../store/comments';
 import './CommentInput.css';
 import { useHistory } from 'react-router-dom';
-
-
+import Picker from 'emoji-picker-react';
+import { FaRegSmile } from 'react-icons/fa';
 
 const CommentInput = ({ image }) => {
     const user = useSelector(state => state.session.user);
     const history = useHistory();
     const dispatch = useDispatch();
-    const [content, setContent] = useState('')
+    const [content, setContent] = useState('');
+    const [showPicker, setShowPicker] = useState(false);
 
     useEffect(() => {
         if (!user) {
             history.push('/');
         }
-    }, [history, user])
-
+    }, [history, user]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,7 +29,12 @@ const CommentInput = ({ image }) => {
 
         const comment = await dispatch(createComment(newComment));
 
-        setContent("")
+        setContent("");
+    };
+
+    const onEmojiClick = (event, emojiObject) => {
+        setContent(prevInput => prevInput + emojiObject.emoji);
+        setShowPicker(false);
     };
 
     // const handleTextArea = async (e) => {
@@ -61,7 +66,13 @@ const CommentInput = ({ image }) => {
                         onChange={(e) => setContent(e.target.value)}
                         value={content}
                     ></textarea>
-                    <div className='add-comment-features'></div>
+                    <div className='add-comment-features'>
+                        <FaRegSmile className="add-comment-emoji-icon" onClick={() => setShowPicker(val => !val)} />
+                        {showPicker && <Picker
+                            className="picker"
+                            pickerStyle={{ width: '100%' }}
+                            onEmojiClick={onEmojiClick} />}
+                    </div>
                 </div>
                 <div className='add-comment-btn-container'>
                     <button className='add-comment-btn' disabled={!content} type='submit'>Comment</button>

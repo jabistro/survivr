@@ -46,8 +46,10 @@ const AlbumImages = () => {
                 </div>
                 <h1 className='album-imgs-title'>{album?.title}</h1>
                 <p className='album-imgs-header-blurb'>a gallery curated by {albumUserArr[0]?.username}</p>
-                <p className='album-imgs-description'>{album?.description}</p>
-                <p className='album-imgs-header-stats'>{albumImages.length} items</p>
+                <p className='album-imgs-description'>
+                    {album?.description.split('\n').map(line => (<div key={line?.id} id={album?.id} className="album-images-content-lines">{line}</div>))}
+                </p>
+                <p className='album-imgs-header-stats'>{albumImages?.length} items</p>
             </div>
             <div className='album-imgs-container'>
                 {albumImages.map(image => {
