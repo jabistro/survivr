@@ -123,7 +123,6 @@ export const deleteImage = (destroyedImage) => async (dispatch) => {
     })
     const deletedImage = await response.json();
     dispatch(removeImage(deletedImage))
-    return deletedImage
 }
 
 const imageReducer = (state = {}, action) => {

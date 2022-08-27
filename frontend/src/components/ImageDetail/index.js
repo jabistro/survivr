@@ -8,6 +8,7 @@ import CommentDetail from '../CommentDetail';
 import LikeButton from '../Likes/LikeButton/LikeButton';
 import EditImage from '../EditImage';
 import { FaEdit } from 'react-icons/fa';
+import DeleteImage from '../EditImage/DeleteImage';
 
 
 const ImageDetail = () => {
@@ -65,7 +66,7 @@ const ImageDetail = () => {
                         </div>
                         <div className='img-detail-info'>
                             {sessionUser.id === image.userId ? (
-                                <FaEdit />
+                                <DeleteImage image={image} />
                             ) : (
                                 <LikeButton className='img-detail-like-btn' image={image} />
                                 /* {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>} */

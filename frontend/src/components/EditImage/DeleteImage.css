@@ -1,0 +1,10 @@
+.img-delete-icon {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    color: white;
+}
+
+.img-delete-icon:hover {
+    color: #8e9396;
+}
