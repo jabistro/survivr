@@ -13,7 +13,7 @@ const ImageLikeCount = ({ image }) => {
     }, [dispatch])
 
     return (
-        <div>{imageLikes.length}</div>
+        <div className='album-imgs-img-like-txt'>{imageLikes.length}</div>
     )
 }
 

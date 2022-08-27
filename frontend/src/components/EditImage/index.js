@@ -43,18 +43,19 @@ const EditImageForm = () => {
         // const userId = user.id;
         const editingImage = {
             id: editImage.id,
-            // userId,
+            // userId: user.id,
             imageURL: editImage.imageURL,
             image,
             caption,
+            title,
             albumId
         }
         await dispatch(editImageThunk(editingImage))
-            .then(() => history.push(`/image/${editImageId}`))
-            .catch(async (res) => {
-                const data = await res.json()
-                if (data && errors) setErrors(data.errors)
-            })
+        // .then(() => history.push(`/image/${editImageId}`))
+        // .catch(async (res) => {
+        //     const data = await res.json()
+        //     if (data && errors) setErrors(data.errors)
+        // })
     }
 
     const updateImage = (e) => {

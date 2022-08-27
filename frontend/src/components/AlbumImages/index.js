@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi';
 import { MdOutlineModeEditOutline } from 'react-icons/md';
 import { FaRegStar, FaRegComment } from 'react-icons/fa';
-// import CommentForm from '../CommentForm'
 import './AlbumImages.css'
 import EditAlbumModal from '../EditAlbum/EditAlbumModal';
-import { getImageLikes } from '../../store/likes';
 import ImageLikeCount from '../Likes/ImageLikeCount/ImageLikeCount';
+import ImageCommentCount from './ImageCommentCount';
 
 
 const AlbumImages = () => {
@@ -16,23 +15,16 @@ const AlbumImages = () => {
     const albumId = useParams().albumId;
     const album = useSelector(state => state.albums)[albumId];
     const images = Object.values(useSelector(state => state.images));
-    const albumImages = images.filter(image => album?.id === image?.albumId)
+    const albumImages = images.filter(image => album?.id === image?.albumId);
     const history = useHistory();
-    const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user);
     const users = Object.values(useSelector(state => state.users));
-    const albumUserArr = users.filter(user => user?.id === (album?.userId))
-    // const likes = Object.values(useSelector(state => state.likes));
-    // const imageLikes = likes.filter(like => like.imageId === image.id)
-    // {likes.filter(like => like.imageId === image.id).length}
+    const albumUserArr = users.filter(user => user?.id === (album?.userId));
+
 
     useEffect(() => {
         if (!sessionUser) history.push('/')
     }, [])
-
-    const editHandler = album => {
-        history.push(`/album/edit/${album.id}`)
-    }
 
     if (!album) return null;
 
@@ -82,7 +74,7 @@ const AlbumImages = () => {
                                     </div>
                                     <div className='album-imgs-img-comments'>
                                         <FaRegComment className='album-imgs-img-comment-icon' />
-                                        <p className='album-imgs-img-comment-txt'>91</p>
+                                        <ImageCommentCount image={image} />
                                     </div>
                                 </div>
                             </div>

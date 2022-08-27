@@ -16,6 +16,10 @@ const ImageDetail = () => {
     const dispatch = useDispatch();
     let sessionUser = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
+    const comments = Object.values(useSelector(state => state.comments));
+    const imageComments = comments.filter(comment => comment.imageId === image.id);
+    const likes = Object.values(useSelector(state => state.likes));
+    const imageLikes = likes.filter(like => like.imageId === image.id);
 
     useEffect(() => {
         dispatch(getImageLikes());
@@ -77,7 +81,25 @@ const ImageDetail = () => {
                             <CommentDetail image={image} />
                             {/* <div className='img-detail-bottom-'></div> */}
                         </div>
-                        <div className='img-detail-bottom-right'>Under construction</div>
+                        <div className='img-detail-bottom-right'>
+                            <div className='img-detail-bottom-right-left'>
+                                <div className='img-detail-bottom-right-left-containers'>
+                                    <div className='img-detail-bottom-right-container'>
+                                        <p className='img-detail-bottom-right-count'>13,333</p>
+                                        <p className='img-detail-bottom-right-txt'>views</p>
+                                    </div>
+                                    <div className='img-detail-bottom-right-container'>
+                                        <p className='img-detail-bottom-right-count'>{imageLikes.length}</p>
+                                        <p className='img-detail-bottom-right-txt'>likes</p>
+                                    </div>
+                                    <div className='img-detail-bottom-right-container'>
+                                        <p className='img-detail-bottom-right-count'>{imageComments.length}</p>
+                                        <p className='img-detail-bottom-right-txt'>comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='img-detail-bottom-right-right'>Taken on {image.createdAt}</div>
+                        </div>
                     </div>
                 </div>
             }
