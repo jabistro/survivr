@@ -108,3 +108,7 @@
 .add-comment-btn:hover {
     background-color: #1c9be9;
 }
+
+.add-comment-btn:disabled {
+    background-color: #80c0e8;
+}

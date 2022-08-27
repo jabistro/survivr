@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { editImageThunk } from '../../store/images';
-import './EditImage.css'
+import './EditImage2.css'
 
 const EditImage = ({ image, setEdit }) => {
     const [caption, setCaption] = useState(image.caption || '');
@@ -55,26 +55,27 @@ const EditImage = ({ image, setEdit }) => {
     return (
         <div className='edit-img-container'>
             <form className='edit-img-form' onSubmit={(e) => handleOnSubmit(e)}>
-                <div className='edit-img-input-fields'>
+                <div className='edit-img-input-field'>
                     <input
                         className='edit-img-input'
                         type='text'
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
+                        placeholder='Title (required)'
                     />
-                    <span className='edit-img-floating-label'>Title (required)</span>
                 </div>
-                <div className='edit-img-input-fields'>
+                <div className='edit-img-textarea-field'>
                     <textarea
                         className='edit-img-textarea'
                         type='text'
                         onChange={(e) => setCaption(e.target.value)}
                         value={caption}
-                        placeholder='Add a caption'
+                        placeholder='Add a description'
                     />
-                    <span className='edit-img-floating-label'>Caption</span>
                 </div>
-                <button disabled={!title} className="edit-img-button" type='submit'>Done</button>
+                <div className='edit-img-btn-container'>
+                    <button disabled={!title} className="edit-img-inputs-btn" type='submit'>Done</button>
+                </div>
             </form>
         </div>
 

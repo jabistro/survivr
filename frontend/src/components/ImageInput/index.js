@@ -116,7 +116,7 @@ const ImageInput = ({ setShowModal }) => {
                         onChange={(e) => setCaption(e.target.value)}
                         value={caption}
                     />
-                    <span className='add-img-floating-label'>Caption</span>
+                    <span className='add-img-floating-label'>Description</span>
                 </div>
                 <div className='add-img-select-field'>Album
                     <select

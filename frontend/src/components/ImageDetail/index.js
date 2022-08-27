@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import CommentDetail from '../CommentDetail';
 import LikeButton from '../Likes/LikeButton/LikeButton';
 import EditImage from '../EditImage';
+import { FaEdit } from 'react-icons/fa';
 
 
 const ImageDetail = () => {
@@ -15,7 +16,7 @@ const ImageDetail = () => {
     const image = useSelector(state => state.images)[imageId];
     const history = useHistory();
     const dispatch = useDispatch();
-    let sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
     const comments = Object.values(useSelector(state => state.comments));
     const imageComments = comments.filter(comment => comment.imageId === image.id);
@@ -60,11 +61,15 @@ const ImageDetail = () => {
                             </div>
                         </div>
                         <div className='img-detail-img-container'>
-                            <img className='img-detail-img' alt='' src={image.imageURL} />
+                            <img className='img-detail-img' alt='' src={image?.imageURL} />
                         </div>
                         <div className='img-detail-info'>
-                            <LikeButton className='img-detail-like-btn' image={image} />
-                            {/* {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>} */}
+                            {sessionUser.id === image.userId ? (
+                                <FaEdit />
+                            ) : (
+                                <LikeButton className='img-detail-like-btn' image={image} />
+                                /* {sessionUser && sessionUser.id === image.userId && <button className='photo-detail-edit-button' onClick={() => editHandler(image)}>EDIT</button>} */
+                            )}
                         </div>
                     </div>
                     <div className='img-detail-bottom'>
@@ -75,15 +80,17 @@ const ImageDetail = () => {
                                 </div>
                                 <div className='img-detail-bottom-img-info'>
                                     <div className='img-detail-bottom-username'>{users[image?.userId]?.username}</div>
-                                    {(sessionUser.id === image.userId) && (edit === `image-${image.id}`) ? (
+                                    {(sessionUser?.id === image?.userId) && (edit === `image-${image?.id}`) ? (
                                         <EditImage setEdit={setEdit} image={image} />
                                     ) : (
                                         <div className='img-detail-title-and-caption-container'>
                                             <div className='img-detail-title-and-edit-btn'>
-                                                <div className='img-detail-bottom-title'>{image.title}</div>
-                                                {!edit && (sessionUser.id === image.userId) && <button onClick={e => setEdit(`image-${image.id}`)}>edit</button>}
+                                                <div className='img-detail-bottom-title'>{image?.title}</div>
+                                                {(edit !== `image-${image?.id}`) && (sessionUser?.id === image?.userId) &&
+                                                    <FaEdit title='Edit' className='img-detail-edit-img-info-btn' onClick={e => setEdit(`image-${image?.id}`)} />
+                                                }
                                             </div>
-                                            <div className='img-detail-bottom-caption'>{image.caption}</div>
+                                            <div className='img-detail-bottom-caption'>{image?.caption}</div>
                                         </div>
                                     )}
                                     <div className='img-detail-bottom-divider'></div>
@@ -100,16 +107,16 @@ const ImageDetail = () => {
                                         <p className='img-detail-bottom-right-txt'>views</p>
                                     </div>
                                     <div className='img-detail-bottom-right-container'>
-                                        <p className='img-detail-bottom-right-count'>{imageLikes.length}</p>
+                                        <p className='img-detail-bottom-right-count'>{imageLikes?.length}</p>
                                         <p className='img-detail-bottom-right-txt'>likes</p>
                                     </div>
                                     <div className='img-detail-bottom-right-container'>
-                                        <p className='img-detail-bottom-right-count'>{imageComments.length}</p>
+                                        <p className='img-detail-bottom-right-count'>{imageComments?.length}</p>
                                         <p className='img-detail-bottom-right-txt'>comments</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className='img-detail-bottom-right-right'>Taken on {image.createdAt}</div>
+                            <div className='img-detail-bottom-right-right'>Taken on {image?.createdAt}</div>
                         </div>
                     </div>
                 </div>

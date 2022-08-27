@@ -151,6 +151,12 @@
     align-items: flex-start;
     width: 100%;
     flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.img-detail-title-and-caption-container:hover {
+    background-color: #e7e9e9;
 }
 
 .img-detail-title-and-edit-btn {
@@ -163,7 +169,24 @@
 .img-detail-bottom-title {
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.img-detail-edit-img-info-btn {
+    cursor: pointer;
+    color: #bdc1c2;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    opacity: 0;
+}
+
+.img-detail-title-and-caption-container:hover .img-detail-edit-img-info-btn {
+    opacity: 1;
+}
+
+.img-detail-edit-img-info-btn:hover {
+    color: #8e9396;
 }
 
 .img-detail-bottom-caption {

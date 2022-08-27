@@ -75,7 +75,7 @@ const EditAlbumForm = ({ setShowModal }) => {
                 </form>
                 <div className='edit-album-form-buttons'>
                     <button className='edit-album-delete-btn' onClick={(e) => deleteHandler(e, editAlbum)}>Delete album</button>
-                    <button disabled={!title} id="edit-album-form-button" type='submit' onClick={(e) => handleOnSubmit(e)}>Submit</button>
+                    <button disabled={!title || (description.length > 255)} id="edit-album-form-button" type='submit' onClick={(e) => handleOnSubmit(e)}>Submit</button>
                 </div>
             </div>
         </div>

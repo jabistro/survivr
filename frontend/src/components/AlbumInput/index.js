@@ -56,7 +56,7 @@ const AlbumInput = () => {
                             <span className='add-album-floating-label'>Description</span>
                         </div>
                         <div className='album-form-add-buttons'>
-                            <button disabled={!title} id="add-album-form-button" type='submit'>Submit</button>
+                            <button disabled={!title || (description.length > 255)} id="add-album-form-button" type='submit'>Submit</button>
                         </div>
                     </form>
                 </div>

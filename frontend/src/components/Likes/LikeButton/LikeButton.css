@@ -2,10 +2,12 @@
     height: 30px;
     width: 30px;
     cursor: pointer;
+    color: white;
 }
 
 .like-btn-liked {
     height: 30px;
     width: 30px;
     cursor: pointer;
+    color: white;
 }
