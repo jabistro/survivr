@@ -6,6 +6,7 @@ import DeleteComment from '../EditComment/DeleteComment';
 import EditComment from '../EditComment/EditComment';
 import './CommentDetail.css'
 import CommentUsername from './CommentUsername';
+import ReactTimeAgo from 'react-time-ago'
 import { FaEdit } from 'react-icons/fa'
 
 
@@ -29,7 +30,9 @@ const CommentDetail = ({ image }) => {
                         <div className='comment-detail-comments-info-and-btns'>
                             <div className='comment-detail-username-and-createdAt'>
                                 <CommentUsername comment={comment} />
-                                <div className='comment-detail-createdAt'>date</div>
+                                <div className='comment-detail-createdAt'>
+                                    <ReactTimeAgo className='comment-detail-date' date={comment.createdAt} locale="en-US" timeStyle="round-minute" />
+                                </div>
                             </div>
                             {!edit && (sessionUser.id === comment.userId) &&
                                 <div className='comment-detail-btns'>

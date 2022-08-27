@@ -33,22 +33,24 @@ const ImageDetail = () => {
     //     history.push(`/image/edit/${image.id}`)
     // }
 
-    // const date = new Date(image.createdAt)
+    const date = new Date(image.createdAt)
+    const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
 
-    // const month = [
-    //     'january',
-    //     'february',
-    //     'march',
-    //     'april',
-    //     'may',
-    //     'june',
-    //     'july',
-    //     'august',
-    //     'september',
-    //     'october',
-    //     'november',
-    //     'december'
-    // ]
+
+    const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ]
 
     return (
         <>
@@ -103,21 +105,21 @@ const ImageDetail = () => {
                         <div className='img-detail-bottom-right'>
                             <div className='img-detail-bottom-right-left'>
                                 <div className='img-detail-bottom-right-left-containers'>
-                                    <div className='img-detail-bottom-right-container'>
+                                    {/* <div className='img-detail-bottom-right-container'>
                                         <p className='img-detail-bottom-right-count'>13,333</p>
                                         <p className='img-detail-bottom-right-txt'>views</p>
-                                    </div>
+                                    </div> */}
                                     <div className='img-detail-bottom-right-container'>
                                         <p className='img-detail-bottom-right-count'>{imageLikes?.length}</p>
-                                        <p className='img-detail-bottom-right-txt'>likes</p>
+                                        <p className='img-detail-bottom-right-txt'>{imageLikes?.length === 1 ? "like" : "likes"}</p>
                                     </div>
                                     <div className='img-detail-bottom-right-container'>
                                         <p className='img-detail-bottom-right-count'>{imageComments?.length}</p>
-                                        <p className='img-detail-bottom-right-txt'>comments</p>
+                                        <p className='img-detail-bottom-right-txt'>{imageComments?.length === 1 ? "comment" : "comments"}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className='img-detail-bottom-right-right'>Taken on {image?.createdAt}</div>
+                            <div className='img-detail-bottom-right-right'>Taken on {months[month]} {day}, {year}</div>
                         </div>
                     </div>
                 </div>

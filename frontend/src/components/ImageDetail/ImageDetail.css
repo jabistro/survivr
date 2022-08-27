@@ -219,7 +219,7 @@
 .img-detail-bottom-right-left-containers {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     margin-right: 20px;
 }
