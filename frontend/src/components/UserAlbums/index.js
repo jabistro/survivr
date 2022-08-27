@@ -13,6 +13,9 @@ function UserAlbums() {
     const images = Object.values(useSelector(state => state.images));
     const userImages = images.filter(image => image.userId === user.id);
 
+    // const date = new Date(user.createdAt)
+    // const [year] = [date.getFullYear()];
+
     return (
         <div className='user-albums-wrap'>
             <div className='user-album-header'>
@@ -27,7 +30,10 @@ function UserAlbums() {
                     </div>
                     <div className='user-album-header-right'>
                         <div className='user-album-header-right-top'></div>
+                        {/* <div> */}
+                        {/* <p>Joined {year}</p> */}
                         <p className='user-album-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
+                        {/* </div> */}
                     </div>
                 </div>
             </div>

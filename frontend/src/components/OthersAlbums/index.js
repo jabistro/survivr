@@ -10,6 +10,8 @@ function OthersAlbums() {
     const user = useSelector(state => state.session.user);
     const othersAlbums = albums.filter(album => album.userId !== user.id)
     const images = Object.values(useSelector(state => state.images));
+    const users = useSelector(state => state.users);
+    const usersArr = Object.values(users)
 
     return (
         <div className='others-albums-wrap'>
@@ -20,7 +22,7 @@ function OthersAlbums() {
                         <img alt='' src={require('../../images/torch.png')} className='others-album-header-pfp' />
                         <div className='others-album-header-user-info'>
                             <div className='others-album-header-username'>Survivr</div>
-                            <div className='others-album-header-fluff'>Number of users</div>
+                            <div className='others-album-header-fluff'>{usersArr.length} users in the Survivr community</div>
                         </div>
                     </div>
                     <div className='others-album-header-right'>

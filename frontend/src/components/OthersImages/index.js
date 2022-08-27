@@ -11,6 +11,8 @@ function OthersImages() {
     const images = Object.values(useSelector(state => state.images));
     const user = useSelector(state => state.session.user);
     const othersImages = images.filter(image => image.userId !== user.id)
+    const users = useSelector(state => state.users);
+    const usersArr = Object.values(users)
 
     return (
         <div className='others-img-wrap'>
@@ -21,7 +23,7 @@ function OthersImages() {
                         <img alt='' src={require('../../images/torch.png')} className='others-img-header-pfp' />
                         <div className='others-img-header-user-info'>
                             <div className='others-img-header-username'>Survivr</div>
-                            <div className='others-img-header-fluff'>Number of users</div>
+                            <div className='others-img-header-fluff'>{usersArr.length} users in the Survivr community</div>
                         </div>
                     </div>
                     <div className='others-img-header-right'>
@@ -41,7 +43,7 @@ function OthersImages() {
                             <div className='others-img-overlay'>
                                 <div className='others-img-fluff'>
                                     <p className='others-img-title'>{image.title}</p>
-                                    <p className='others-img-username'>by Somebody</p>
+                                    <p className='others-img-username'>{users[image.userId].username}</p>
                                 </div>
                             </div>
                         </Link>

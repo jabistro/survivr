@@ -10,8 +10,11 @@ function UserImages() {
 
     const images = Object.values(useSelector(state => state.images));
     const user = useSelector(state => state.session.user);
+    console.log(user)
     const userImages = images.filter(image => image.userId === user.id)
 
+    // const date = new Date(user.createdAt)
+    // const [year] = [date.getFullYear()];
 
     return (
         <div className='user-img-wrap'>
@@ -28,7 +31,10 @@ function UserImages() {
                     <div className='user-img-header-right'>
                         <div className='user-img-header-right-top'></div>
                         {/* <div className='user-img-header-count-and-date'> */}
+                        {/* <div> */}
                         <p className='user-img-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
+                        {/* <p>Joined {year}</p> */}
+                        {/* </div> */}
                         {/* <p className='user-img-header-date'>{user.createdAt}</p> */}
                         {/* </div> */}
                     </div>
