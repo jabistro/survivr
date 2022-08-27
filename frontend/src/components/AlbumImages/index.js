@@ -21,10 +21,9 @@ const AlbumImages = () => {
     const users = Object.values(useSelector(state => state.users));
     const albumUserArr = users.filter(user => user?.id === (album?.userId));
 
-
     useEffect(() => {
         if (!sessionUser) history.push('/')
-    }, [])
+    }, [history, sessionUser]);
 
     if (!album) return null;
 

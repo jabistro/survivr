@@ -38,7 +38,7 @@ const CommentDetail = ({ image }) => {
                                 </div>
                             }
                         </div>
-                        {sessionUser.id === comment.userId && (edit === `comment-${comment.id}`) ? (
+                        {(sessionUser.id === comment.userId) && (edit === `comment-${comment.id}`) ? (
                             <EditComment setEdit={setEdit} comment={comment} image={image} />
                         ) : (
                             <div key={comment.id} className='comment-display'>{comment.content}</div>

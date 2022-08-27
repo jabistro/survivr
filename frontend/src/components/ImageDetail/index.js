@@ -3,9 +3,10 @@ import { useHistory, useParams } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import './ImageDetail.css'
 import { getImageLikes } from '../../store/likes';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import CommentDetail from '../CommentDetail';
 import LikeButton from '../Likes/LikeButton/LikeButton';
+import EditImage from '../EditImage';
 
 
 const ImageDetail = () => {
@@ -20,6 +21,7 @@ const ImageDetail = () => {
     const imageComments = comments.filter(comment => comment.imageId === image.id);
     const likes = Object.values(useSelector(state => state.likes));
     const imageLikes = likes.filter(like => like.imageId === image.id);
+    const [edit, setEdit] = useState('');
 
     useEffect(() => {
         dispatch(getImageLikes());
@@ -73,8 +75,17 @@ const ImageDetail = () => {
                                 </div>
                                 <div className='img-detail-bottom-img-info'>
                                     <div className='img-detail-bottom-username'>{users[image?.userId]?.username}</div>
-                                    <div className='img-detail-bottom-title'>{image.title}</div>
-                                    <div className='img-detail-bottom-caption'>{image.caption}</div>
+                                    {(sessionUser.id === image.userId) && (edit === `image-${image.id}`) ? (
+                                        <EditImage setEdit={setEdit} image={image} />
+                                    ) : (
+                                        <div className='img-detail-title-and-caption-container'>
+                                            <div className='img-detail-title-and-edit-btn'>
+                                                <div className='img-detail-bottom-title'>{image.title}</div>
+                                                {!edit && (sessionUser.id === image.userId) && <button onClick={e => setEdit(`image-${image.id}`)}>edit</button>}
+                                            </div>
+                                            <div className='img-detail-bottom-caption'>{image.caption}</div>
+                                        </div>
+                                    )}
                                     <div className='img-detail-bottom-divider'></div>
                                 </div>
                             </div>

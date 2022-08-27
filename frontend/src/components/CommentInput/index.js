@@ -13,7 +13,6 @@ const CommentInput = ({ image }) => {
     const [content, setContent] = useState('')
 
     useEffect(() => {
-
         if (!user) {
             history.push('/');
         }

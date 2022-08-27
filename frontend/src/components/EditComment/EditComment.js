@@ -18,7 +18,7 @@ const EditComment = ({ comment, image, setEdit }) => {
         };
 
         await dispatch(editCommentThunk(newComment));
-        setEdit(false);
+        setEdit('');
     };
 
     return (

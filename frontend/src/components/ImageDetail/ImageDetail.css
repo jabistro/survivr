@@ -146,6 +146,20 @@
     margin-bottom: 10px;
 }
 
+.img-detail-title-and-caption-container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.img-detail-title-and-edit-btn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .img-detail-bottom-title {
     font-size: 16px;
     font-weight: 500;
