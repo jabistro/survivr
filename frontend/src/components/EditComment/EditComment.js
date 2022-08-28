@@ -41,11 +41,11 @@ const EditComment = ({ comment, image, setEdit }) => {
                         value={content}
                     ></textarea>
                     <div className='edit-comment-features'>
-                        {/* <FaRegSmile className="add-comment-emoji-icon" onClick={() => setShowPicker(val => !val)} />
+                        <FaRegSmile className="add-comment-emoji-icon" onClick={() => setShowPicker(val => !val)} />
                         {showPicker && <Picker
                             className="picker"
                             pickerStyle={{ width: '100%' }}
-                            onEmojiClick={onEmojiClick} />} */}
+                            onEmojiClick={onEmojiClick} />}
                     </div>
                 </div>
                 <div className='edit-comment-btn-container'>
