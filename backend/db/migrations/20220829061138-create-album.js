@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING(255)
+        type: Sequelize.STRING
       },
       createdAt: {
         defaultValue: Sequelize.fn('now'),

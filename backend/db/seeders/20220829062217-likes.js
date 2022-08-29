@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Likes', [{
-      userId: 1,
+      userId: 2,
       imageId: 1
     }], {});
   },

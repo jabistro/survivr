@@ -11,7 +11,17 @@ module.exports = {
       {
         userId: 2,
         title: "Jaw Droppers",
-        description: "All of my favorite moments that had me speechless"
+        description: "All of my favorite moments that had me speechless."
+      },
+      {
+        userId: 3,
+        title: "Challenge Beasts",
+        description: "The players who won the most individual challenges."
+      },
+      {
+        userId: 4,
+        title: "Boston Rob Appreciation",
+        description: "Boston Rob is viewed as one of the best players to ever play the game of Survivor."
       }
     ], {});
   },
