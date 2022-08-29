@@ -17,7 +17,7 @@ function LoginForm() {
 
     const handleDefaultButton = (e) => {
         e.preventDefault();
-        const credential = 'Demo-lition'
+        const credential = 'survivorfan87'
         const password = 'password'
         return dispatch(sessionActions.login({ credential, password }))
             .then((user) => history.push(`/users/${user.id}/images`))

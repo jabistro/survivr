@@ -75,7 +75,7 @@ const CommentInput = ({ image }) => {
                     </div>
                 </div>
                 <div className='add-comment-btn-container'>
-                    <button className='add-comment-btn' disabled={!content} type='submit'>Comment</button>
+                    <button className='add-comment-btn' disabled={!content || content.length > 255} type='submit'>Comment</button>
                 </div>
             </form>
         </div>

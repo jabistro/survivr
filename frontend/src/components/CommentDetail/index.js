@@ -22,7 +22,7 @@ const CommentDetail = ({ image }) => {
     return (
         <div className='comment-detail-wrap'>
             {imageComments.map(comment => (
-                <div key={comment.id} className={!edit ? 'comment-detail-comments-container' : 'comment-detail-comments-container-editing'}>
+                <div key={comment?.id} className={!edit ? 'comment-detail-comments-container' : 'comment-detail-comments-container-editing'}>
                     <div className='comment-detail-pfp-container'>
                         <img className='comment-detail-pfp' alt='' src={require('../../images/deefault.jpg')} />
                     </div>
@@ -31,21 +31,21 @@ const CommentDetail = ({ image }) => {
                             <div className='comment-detail-username-and-createdAt'>
                                 <CommentUsername comment={comment} />
                                 <div className='comment-detail-createdAt'>
-                                    <ReactTimeAgo className='comment-detail-date' date={comment.createdAt} locale="en-US" timeStyle="round-minute" />
+                                    <ReactTimeAgo className='comment-detail-date' date={comment?.createdAt} locale="en-US" timeStyle="round-minute" />
                                 </div>
                             </div>
-                            {!edit && (sessionUser.id === comment.userId) &&
+                            {!edit && (sessionUser?.id === comment?.userId) &&
                                 <div className='comment-detail-btns'>
-                                    <FaEdit title='Edit' className='comment-detail-edit-comment-btn' onClick={e => setEdit(`comment-${comment.id}`)} />
-                                    <DeleteComment className='comment-detail-delete-comment-btn' commentId={comment.id} />
+                                    <FaEdit title='Edit' className='comment-detail-edit-comment-btn' onClick={e => setEdit(`comment-${comment?.id}`)} />
+                                    <DeleteComment className='comment-detail-delete-comment-btn' commentId={comment?.id} />
                                 </div>
                             }
                         </div>
-                        {(sessionUser.id === comment.userId) && (edit === `comment-${comment.id}`) ? (
+                        {(sessionUser?.id === comment?.userId) && (edit === `comment-${comment?.id}`) ? (
                             <EditComment setEdit={setEdit} comment={comment} image={image} />
                         ) : (
-                            <div key={comment.id} className='comment-display'>
-                                {comment.content.split('\n').map(line => (<div key={line.id} id={comment.id} className="comment-detail-content-lines">{line}</div>))}
+                            <div key={comment?.id} className='comment-display'>
+                                {comment?.content.split('\n').map(line => (<div key={line?.id} id={comment?.id} className="comment-detail-content-lines">{line}</div>))}
                             </div>
                         )}
                     </div>

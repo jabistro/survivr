@@ -31,7 +31,48 @@
     padding-right: 15px;
     border-radius: 5px;
     margin-bottom: 10px;
+    position: relative;
 }
+
+/* .add-comment-container::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    border-right-color: #9ea4a7;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    left: -20px;
+} */
+
+/* .add-comment-container:focus-within .add-comment-container::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    border-right-color: #008ddf;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    left: -20px;
+} */
+
+/* .add-comment-textarea::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    border-right-color: black;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    top: 100%;
+    left: 50%
+} */
 
 .add-comment-container:focus-within {
     border: 1px solid #008ddf;

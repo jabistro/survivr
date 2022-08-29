@@ -49,7 +49,7 @@ const EditComment = ({ comment, image, setEdit }) => {
                     </div>
                 </div>
                 <div className='edit-comment-btn-container'>
-                    <button className='edit-comment-btn' disabled={!content} type='submit'>Done</button>
+                    <button className='edit-comment-btn' disabled={!content || content.length > 255} type='submit'>Done</button>
                 </div>
             </form>
         </div>
