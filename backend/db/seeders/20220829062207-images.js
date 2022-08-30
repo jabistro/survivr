@@ -120,7 +120,7 @@ module.exports = {
         albumId: 2,
         imageURL: 'https://i0.wp.com/www.purplerockpodcast.com/wp-content/uploads/2015/04/cdpyfrxwyai9zif.png?fit=599%2C335&ssl=1',
         title: "Shirin Votes No",
-        caption: "Contestand Will Sims asked host Jeff Probst if he could get his loved-ones letter. Jeff said he could as long as no one objected. But Shirin Oskooi, who had been subject to nasty bullying from Will, was the lone vote to say no."
+        caption: "Contestant Will Sims asked host Jeff Probst if he could get his loved-ones letter. Jeff said he could as long as no one objected. But Shirin Oskooi, who had been subject to nasty bullying from Will, was the lone vote to say no."
       },
       {
         userId: 2,
