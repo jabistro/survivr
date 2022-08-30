@@ -18,6 +18,10 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      pfpURL: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false
