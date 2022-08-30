@@ -45,7 +45,10 @@ const CommentDetail = ({ image }) => {
                             <EditComment setEdit={setEdit} comment={comment} image={image} />
                         ) : (
                             <div key={comment?.id} className='comment-display'>
-                                {comment?.content.split('\n').map(line => (<div key={line?.id} id={comment?.id} className="comment-detail-content-lines">{line}</div>))}
+                                {comment?.content.split('\n').map(line => {
+                                    if (!line) line = "‎";
+                                    return (<div key={line?.id} id={comment?.id} className="comment-detail-content-lines">{line}</div>);
+                                })}
                             </div>
                         )}
                     </div>

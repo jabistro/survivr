@@ -33,7 +33,8 @@ const ImageDetail = () => {
     //     history.push(`/image/edit/${image.id}`)
     // }
 
-    const date = new Date(image.createdAt)
+    let date = new Date();
+    if (image) date = new Date(image.createdAt);
     const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
 
 

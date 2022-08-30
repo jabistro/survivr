@@ -103,3 +103,7 @@
 .edit-comment-btn:disabled {
     background-color: #80c0e8;
 }
+
+.picker {
+    z-index: 7;
+}

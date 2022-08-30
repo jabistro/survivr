@@ -44,7 +44,7 @@ const EditComment = ({ comment, image, setEdit }) => {
                         <FaRegSmile className="add-comment-emoji-icon" onClick={() => setShowPicker(val => !val)} />
                         {showPicker && <Picker
                             className="picker"
-                            pickerStyle={{ width: '100%' }}
+                            pickerStyle={{ width: '100%', zIndex: 6 }}
                             onEmojiClick={onEmojiClick} />}
                     </div>
                 </div>
