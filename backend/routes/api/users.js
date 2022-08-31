@@ -3,7 +3,8 @@ const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
-
+const { singleMulterUpload } = require('../../awsS3');
+const { singlePublicFileUpload } = require('../../awsS3');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validations/validation');
 
@@ -39,6 +40,32 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
     const user = await User.signup({ email, username, password });
     await setTokenCookie(res, user);
     return res.json(user);
+}));
+
+router.put('/', singleMulterUpload("pfpURL"), asyncHandler(async (req, res) => {
+    console.log(req.file)
+    let {
+        id,
+        username,
+        email,
+        // pfpURL,
+        // password
+    } = req.body
+
+    let pfpURL;
+
+    if (req.file) {
+        pfpURL = await singlePublicFileUpload(req.file);
+    }
+
+    const editUser = await User.findByPk(id)
+    const newUser = await editUser.update({
+        username,
+        email,
+        pfpURL: pfpURL || editUser.pfpURL,
+        // password
+    });
+    return res.json(newUser)
 }));
 
 router.get('/:userId/likes', asyncHandler(async (req, res) => {

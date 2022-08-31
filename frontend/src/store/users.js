@@ -1,3 +1,5 @@
+import { csrfFetch } from './csrf';
+
 const GET_USERS = "/users/GET_USERS";
 const CREATE_USER = '/users/CREATE_USER';
 
@@ -47,6 +49,34 @@ export const addUser = (user) => async (dispatch) => {
         return ["An error occurred. Please try again."];
     }
 };
+
+export const editUserThunk = (editUserData) => async (dispatch) => {
+    const { id, username, email, pfpURL, user } = editUserData;
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("username", username);
+    formData.append("email", email)
+    formData.append("pfpURL", pfpURL);
+    // formData.append("password", password);
+    // if (user) formData.append("image", user);
+
+    const response = await csrfFetch('/api/users', {
+        method: "PUT",
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData,
+    })
+
+    const editedUser = await response.json()
+
+    console.log(editedUser)
+
+    if (editedUser) {
+        dispatch(createUser(editedUser))
+    }
+    return editedUser
+}
 
 const usersReducer = (state = {}, action) => {
     switch (action.type) {

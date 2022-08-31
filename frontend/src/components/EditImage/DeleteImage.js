@@ -13,7 +13,6 @@ const DeleteImage = ({ image }) => {
     const history = useHistory();
     const [showModal, setShowModal] = useState(false);
     const user = useSelector(state => state.session.user);
-    console.log(user.id)
 
     const handleDelete = async (e) => {
         e.preventDefault();

@@ -7,7 +7,7 @@ module.exports = {
       {
         email: 'demo@user.io',
         username: 'survivorfan87',
-        pfpURL: 'https://play-lh.googleusercontent.com/_utF99hukdO5VgAdiYektjfB4nGaYTxAQGyIgfSM8fThitO2rECL927dZjwrO9LK8kNcnfcinHK4ZqtESz0R',
+        pfpURL: 'https://flxt.tmsimg.com/assets/p20340551_b_v13_ab.jpg',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
