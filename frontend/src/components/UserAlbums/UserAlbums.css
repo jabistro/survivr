@@ -42,10 +42,50 @@
     align-items: center;
 }
 
+.user-album-header-pfp-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.user-album-header-edit-div {
+    cursor: pointer;
+    top: 33px;
+    left: 33px;
+    z-index: 5;
+    position: absolute;
+    transition: .3s ease;
+    width: 30px;
+    height: 30px;
+    background: url('../../images/edit.png');
+    background-size: 30px 30px;
+    opacity: 0;
+}
+
+.user-album-header-pfp-container:hover .user-album-header-edit-div {
+    opacity: 1;
+}
+
+.user-album-header-edit-div:hover {
+    opacity: 1;
+}
+
 .user-album-header-pfp {
+    position: absolute;
+    cursor: pointer;
     height: 100px;
     width: 100px;
     border-radius: 50px;
+    object-fit: cover;
+}
+
+.user-album-header-pfp-container:hover .user-album-header-pfp {
+    filter: brightness(50%);
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
 }
 
 .user-album-header-user-info {

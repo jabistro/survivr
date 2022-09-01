@@ -40,7 +40,7 @@ function ProfileButton({ user }) {
             {/* {showMenu && ( */}
             <div onClick={handleClick} className={click ? "profile-button-contents clicked" : "profile-button-contents"} >
                 <ul className="profile-dropdown">
-                    <li className="profile-lists">Hi, {user.username}!</li>
+                    <li className="profile-list">Hi, {user.username}!</li>
                     {/* <li className="profile-lists">{user.email}</li> */}
                     <li className="profile-lists">
                         <button className="profile-logout-button" onClick={logout}>Log Out</button>

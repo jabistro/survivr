@@ -4,15 +4,17 @@ import { getAlbums } from '../../store/albums';
 import { Link } from 'react-router-dom';
 import { FcGallery } from 'react-icons/fc';
 import './UserAlbums.css';
+import EditProfilePictureModal from '../EditProfilePicture/EditProfilePictureModal';
 
 function UserAlbums() {
 
     const albums = Object.values(useSelector(state => state.albums));
-    const user = useSelector(state => state.session.user);
-    const userAlbums = albums.filter(album => album.userId === user.id)
+    const sessionUser = useSelector(state => state.session.user);
+    const userAlbums = albums.filter(album => album.userId === sessionUser.id)
     const images = Object.values(useSelector(state => state.images));
-    const userImages = images.filter(image => image.userId === user.id);
-
+    const user = useSelector(state => state.users)[sessionUser.id];
+    const userImages = images.filter(image => image.userId === sessionUser.id);
+    const [showModal, setShowModal] = useState(false);
     // const date = new Date(user.createdAt)
     // const [year] = [date.getFullYear()];
 
@@ -22,10 +24,14 @@ function UserAlbums() {
                 <div className='user-album-header-top'></div>
                 <div className='user-album-header-bottom'>
                     <div className='user-album-header-left'>
-                        <img alt='' src={require('../../images/deefault.jpg')} className='user-album-header-pfp' />
+                        <div className='user-album-header-pfp-container'>
+                            <div className='user-album-header-edit-div' onClick={() => setShowModal(true)} />
+                            <img alt='' src={user?.pfpURL ? user?.pfpURL : require('../../images/deefault.jpg')} className='user-album-header-pfp' onClick={() => setShowModal(true)} />
+                        </div>
+                        {showModal && <EditProfilePictureModal setShowModal={setShowModal} />}
                         <div className='user-album-header-user-info'>
-                            <div className='user-album-header-username'>{`${user.username}`}</div>
-                            <div className='user-album-header-fluff'>{`${user.email}`}</div>
+                            <div className='user-album-header-username'>{`${sessionUser.username}`}</div>
+                            <div className='user-album-header-fluff'>{`${sessionUser.email}`}</div>
                         </div>
                     </div>
                     <div className='user-album-header-right'>
@@ -47,7 +53,7 @@ function UserAlbums() {
                 {userAlbums.map(album => {
                     return (
                         <div key={album.id} className='user-album-wrap'>
-                            <Link className='user-album-pics-link' to={`/users/${user.id}/albums/${album.id}/images`}>
+                            <Link className='user-album-pics-link' to={`/users/${sessionUser.id}/albums/${album.id}/images`}>
                                 <div className='user-album-pics'>
                                     <img className='user-album-pics-one' title={images.filter(image => image.albumId === album.id)[0] ? images.filter(image => image.albumId === album.id)[0].title : null} alt='' src={!(images.filter(image => image.albumId === album.id)[0]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[0].imageURL} />
                                     <div className='user-album-pics-right'>
@@ -58,7 +64,7 @@ function UserAlbums() {
                             </Link>
                             <div className='user-album-info'>
                                 <div className='user-album-title-container'>
-                                    <Link className='user-album-title-link' to={`/users/${user.id}/albums/${album.id}/images`}>
+                                    <Link className='user-album-title-link' to={`/users/${sessionUser.id}/albums/${album.id}/images`}>
                                         <span className='user-album-title'>{album.title}</span>
                                     </Link>
                                 </div>
