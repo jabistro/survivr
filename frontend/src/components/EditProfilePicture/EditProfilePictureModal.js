@@ -26,17 +26,32 @@ const EditProfilePictureModal = ({ setShowModal }) => {
         if (file) setPfpURL(file);
     };
 
+    // const removePfp = (e) => {
+    //     e.preventDefault();
+
+    //     const editingUser = {
+    //         id: user.id,
+    //         username: user.username,
+    //         email: user.email,
+    //         pfpURL: ''
+    //     }
+    //     dispatch(editUserThunk(editingUser));
+    //     setShowModal(false);
+    // }
+
     return (
         <>
             <Modal onClose={() => setShowModal(false)}>
                 <div className='edit-pfp-wrap'>
+                    <h1 className='edit-pfp-header'>Edit profile picture</h1>
                     <input
                         className='edit-pfp-input'
                         type='file'
                         onChange={updatePfp}
                         accept='image/*'
                     />
-                    <button type='submit' onClick={handleSubmit}>submit</button>
+                    {/* <button onClick={removePfp}>Remove profile picture</button> */}
+                    <button className='edit-pfp-submit-btn' type='submit' onClick={handleSubmit}>Submit</button>
                 </div>
             </Modal>
         </>

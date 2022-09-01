@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
 import { Link, useHistory } from 'react-router-dom';
+import { MdModeEditOutline } from 'react-icons/md';
 import './UserImages.css';
 import EditProfilePictureModal from '../EditProfilePicture/EditProfilePictureModal';
 
@@ -12,7 +13,7 @@ function UserImages() {
     const images = Object.values(useSelector(state => state.images));
     const sessionUser = useSelector(state => state.session.user);
     const user = useSelector(state => state.users)[sessionUser.id];
-    const userImages = images.filter(image => image.userId === user.id);
+    const userImages = images.filter(image => image.userId === sessionUser.id);
 
     // const date = new Date(user.createdAt)
     // const [year] = [date.getFullYear()];
@@ -23,7 +24,10 @@ function UserImages() {
                 <div className='user-img-header-top'></div>
                 <div className='user-img-header-bottom'>
                     <div className='user-img-header-left'>
-                        <img alt='' src={user?.pfpURL ? user?.pfpURL : require('../../images/deefault.jpg')} className='user-img-header-pfp' onClick={() => setShowModal(true)} />
+                        <div className='user-img-header-pfp-container'>
+                            <div className='user-img-header-edit-div' onClick={() => setShowModal(true)} />
+                            <img alt='' src={user?.pfpURL ? user?.pfpURL : require('../../images/deefault.jpg')} className='user-img-header-pfp' onClick={() => setShowModal(true)} />
+                        </div>
                         {showModal && <EditProfilePictureModal setShowModal={setShowModal} />}
                         <div className='user-img-header-user-info'>
                             <div className='user-img-header-username'>{`${sessionUser?.username}`}</div>
