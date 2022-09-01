@@ -15,6 +15,7 @@ const CommentDetail = ({ image }) => {
     const imageComments = comments.filter(comment => comment.imageId === image.id)
     const [edit, setEdit] = useState('');
     const sessionUser = useSelector(state => state.session.user);
+    const users = useSelector(state => state.users);
     // const imageId = useParams().imageId;
     // const image = useSelector(state => state.images)[imageId];
     // const users = useSelector(state => state.users)
@@ -24,7 +25,7 @@ const CommentDetail = ({ image }) => {
             {imageComments.map(comment => (
                 <div key={comment?.id} className={!edit ? 'comment-detail-comments-container' : 'comment-detail-comments-container-editing'}>
                     <div className='comment-detail-pfp-container'>
-                        <img className='comment-detail-pfp' alt='' src={require('../../images/deefault.jpg')} />
+                        <img className='comment-detail-pfp' alt='' src={users[comment.userId]?.pfpURL ? users[comment.userId]?.pfpURL : require('../../images/deefault.jpg')} />
                     </div>
                     <div className='comment-detail-comments-info'>
                         <div className='comment-detail-comments-info-and-btns'>

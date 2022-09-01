@@ -11,7 +11,7 @@ import AddImageModal from '../ImageInput/AddImageModal';
 function Navigation({ isLoaded }) {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const user = useSelector(state => state.users)[sessionUser.id];
+    const users = useSelector(state => state.users);
     const [click, setClick] = useState(false);
     const [yourDropdown, setYourDropdown] = useState(false);
     const [othersDropdown, setOthersDropdown] = useState(false);
@@ -38,7 +38,7 @@ function Navigation({ isLoaded }) {
                     onClick={() => onProfileButtonMouseLeave()}
                 >
                     {profileButtonOpened && <ProfileButton user={sessionUser} />}
-                    <img alt="" src={user?.pfpURL ? user?.pfpURL : require('../../images/deefault.jpg')} className='profile-button' /*onClick={openMenu}*/ />
+                    <img alt="" src={users[sessionUser.id]?.pfpURL ? users[sessionUser.id]?.pfpURL : require('../../images/deefault.jpg')} className='profile-button' /*onClick={openMenu}*/ />
                 </div>
             </div>
         );

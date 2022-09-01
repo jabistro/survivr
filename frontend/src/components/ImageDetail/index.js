@@ -80,7 +80,7 @@ const ImageDetail = () => {
                         <div className='img-detail-bottom-left'>
                             <div className='img-detail-bottom-info'>
                                 <div className='img-detail-bottom-pfp-container'>
-                                    <img className='img-detail-bottom-pfp' alt='' src={require('../../images/deefault.jpg')} />
+                                    <img className='img-detail-bottom-pfp' alt='' src={users[image.userId]?.pfpURL ? users[image.userId]?.pfpURL : require('../../images/deefault.jpg')} />
                                 </div>
                                 <div className='img-detail-bottom-img-info'>
                                     <div className='img-detail-bottom-username'>{users[image?.userId]?.username}</div>
@@ -95,7 +95,10 @@ const ImageDetail = () => {
                                                 }
                                             </div>
                                             <div className='img-detail-bottom-caption'>
-                                                {image?.caption.split('\n').map(line => (<div key={line?.id} id={image?.id} className="image-detail-bottom-caption-content-lines">{line}</div>))}
+                                                {image?.caption.split('\n').map(line => {
+                                                    if (!line) line = "‎";
+                                                    return (<div key={line?.id} id={image?.id} className="image-detail-bottom-caption-content-lines">{line}</div>)
+                                                })}
                                             </div>
                                         </div>
                                     )}

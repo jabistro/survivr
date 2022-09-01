@@ -7,22 +7,23 @@ import Picker from 'emoji-picker-react';
 import { FaRegSmile } from 'react-icons/fa';
 
 const CommentInput = ({ image }) => {
-    const user = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
+    const user = useSelector(state => state.users)[sessionUser.id];
     const history = useHistory();
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
     const [showPicker, setShowPicker] = useState(false);
 
     useEffect(() => {
-        if (!user) {
+        if (!sessionUser) {
             history.push('/');
         }
-    }, [history, user]);
+    }, [history, sessionUser]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newComment = {
-            userId: user.id,
+            userId: sessionUser.id,
             imageId: image.id,
             content
         };
@@ -56,7 +57,7 @@ const CommentInput = ({ image }) => {
 
     return (
         <div className='add-comment-wrap'>
-            <img className='add-comment-pfp' alt='' src={require('../../images/deefault.jpg')} />
+            <img className='add-comment-pfp' alt='' src={user?.pfpURL ? user?.pfpURL : require('../../images/deefault.jpg')} />
             <form className='add-comment-form-and-btn' onSubmit={handleSubmit}>
                 <div className='add-comment-container'>
                     <textarea

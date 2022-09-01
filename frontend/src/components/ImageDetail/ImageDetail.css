@@ -129,6 +129,7 @@
     height: 60px;
     width: 60px;
     border-radius: 30px;
+    object-fit: cover;
 }
 
 .img-detail-bottom-img-info {
@@ -191,6 +192,8 @@
 
 .img-detail-bottom-caption {
     font-size: 14px;
+    overflow-x: hidden;
+    word-wrap: break-word;
 }
 
 .img-detail-bottom-divider {

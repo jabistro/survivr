@@ -12,6 +12,7 @@
     height: 30px;
     border-radius: 15px;
     margin-left: 30px;
+    object-fit: cover;
 }
 
 .add-comment-form-and-btn {
