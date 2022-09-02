@@ -49,31 +49,39 @@ function UserAlbums() {
                     <p className='user-album-new-album-txt'>New Album</p>
                 </Link>
             </div>
-            <div className='user-album-container'>
-                {userAlbums.map(album => {
-                    return (
-                        <div key={album.id} className='user-album-wrap'>
-                            <Link className='user-album-pics-link' to={`/users/${sessionUser.id}/albums/${album.id}/images`}>
-                                <div className='user-album-pics'>
-                                    <img className='user-album-pics-one' title={images.filter(image => image.albumId === album.id)[0] ? images.filter(image => image.albumId === album.id)[0].title : null} alt='' src={!(images.filter(image => image.albumId === album.id)[0]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[0].imageURL} />
-                                    <div className='user-album-pics-right'>
-                                        <img className='user-album-pics-two' title={images.filter(image => image.albumId === album.id)[1] ? images.filter(image => image.albumId === album.id)[1].title : null} alt='' src={!(images.filter(image => image.albumId === album.id)[1]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[1].imageURL} />
-                                        <img className='user-album-pics-three' title={images.filter(image => image.albumId === album.id)[2] ? images.filter(image => image.albumId === album.id)[2].title : null} alt='' src={!(images.filter(image => image.albumId === album.id)[2]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[2].imageURL} />
+            {userAlbums?.length > 0 &&
+                <div className='user-album-container'>
+                    {userAlbums.map(album => {
+                        return (
+                            <div key={album.id} className='user-album-wrap'>
+                                <Link className='user-album-pics-link' to={`/users/${sessionUser.id}/albums/${album.id}/images`}>
+                                    <div className='user-album-pics'>
+                                        <img className='user-album-pics-one' title={images.filter(image => image.albumId === album.id)[0] ? images.filter(image => image.albumId === album.id)[0].title : null} alt='' src={!(images.filter(image => image.albumId === album.id)[0]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[0].imageURL} />
+                                        <div className='user-album-pics-right'>
+                                            <img className='user-album-pics-two' title={images.filter(image => image.albumId === album.id)[1] ? images.filter(image => image.albumId === album.id)[1].title : null} alt='' src={!(images.filter(image => image.albumId === album.id)[1]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[1].imageURL} />
+                                            <img className='user-album-pics-three' title={images.filter(image => image.albumId === album.id)[2] ? images.filter(image => image.albumId === album.id)[2].title : null} alt='' src={!(images.filter(image => image.albumId === album.id)[2]) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-PDfavcidh7T4Ocucr_DtQ-Xe_0MA3JQ5h5j93zs2j_S_IT65S1C58fbJsieXcKSGDE&usqp=CAU" : images.filter(image => image.albumId === album.id)[2].imageURL} />
+                                        </div>
                                     </div>
+                                </Link>
+                                <div className='user-album-info'>
+                                    <div className='user-album-title-container'>
+                                        <Link className='user-album-title-link' to={`/users/${sessionUser.id}/albums/${album.id}/images`}>
+                                            <span className='user-album-title'>{album.title}</span>
+                                        </Link>
+                                    </div>
+                                    <div className='user-album-img-count'>{images.filter(image => image.albumId === album.id).length} items</div>
                                 </div>
-                            </Link>
-                            <div className='user-album-info'>
-                                <div className='user-album-title-container'>
-                                    <Link className='user-album-title-link' to={`/users/${sessionUser.id}/albums/${album.id}/images`}>
-                                        <span className='user-album-title'>{album.title}</span>
-                                    </Link>
-                                </div>
-                                <div className='user-album-img-count'>{images.filter(image => image.albumId === album.id).length} items</div>
                             </div>
-                        </div>
-                    )
-                })}
-            </div>
+                        )
+                    })}
+                </div>
+            }
+            {userAlbums?.length === 0 &&
+                <div className='user-img-no-albums-container'>
+                    <p className='user-img-no-albums-header'>You have no Albums!</p>
+                    <p className='user-img-no-albums-blurb'>Use the "New Album" button in the top right to add an album.</p>
+                </div>
+            }
         </div>
 
 

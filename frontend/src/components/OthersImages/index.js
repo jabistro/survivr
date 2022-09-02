@@ -10,7 +10,7 @@ function OthersImages() {
 
     const images = Object.values(useSelector(state => state.images));
     const user = useSelector(state => state.session.user);
-    const othersImages = images.filter(image => image.userId !== user.id)
+    const othersImages = images.filter(image => image.userId !== user?.id)
     const users = useSelector(state => state.users);
     const usersArr = Object.values(users)
 

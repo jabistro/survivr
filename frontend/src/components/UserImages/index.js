@@ -3,17 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getImages } from '../../store/images';
 import { Link, useHistory } from 'react-router-dom';
 import { MdModeEditOutline } from 'react-icons/md';
+import * as sessionActions from "../../store/session";
 import './UserImages.css';
 import EditProfilePictureModal from '../EditProfilePicture/EditProfilePictureModal';
 
 function UserImages() {
 
     const history = useHistory();
+    const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
     const images = Object.values(useSelector(state => state.images));
     const sessionUser = useSelector(state => state.session.user);
-    const user = useSelector(state => state.users)[sessionUser.id];
-    const userImages = images.filter(image => image.userId === sessionUser.id);
+    const users = useSelector(state => state.users);
+    const userImages = images.filter(image => image.userId === sessionUser?.id);
+
+    useEffect(() => {
+        dispatch(sessionActions.restoreUser());
+    }, [dispatch]);
 
     // const date = new Date(user.createdAt)
     // const [year] = [date.getFullYear()];
@@ -26,7 +32,7 @@ function UserImages() {
                     <div className='user-img-header-left'>
                         <div className='user-img-header-pfp-container'>
                             <div className='user-img-header-edit-div' onClick={() => setShowModal(true)} />
-                            <img alt='' src={user?.pfpURL ? user?.pfpURL : require('../../images/deefault.jpg')} className='user-img-header-pfp' onClick={() => setShowModal(true)} />
+                            <img alt='' src={users[sessionUser?.id]?.pfpURL ? users[sessionUser?.id]?.pfpURL : require('../../images/deefault.jpg')} className='user-img-header-pfp' onClick={() => setShowModal(true)} />
                         </div>
                         {showModal && <EditProfilePictureModal setShowModal={setShowModal} />}
                         <div className='user-img-header-user-info'>
@@ -46,7 +52,7 @@ function UserImages() {
                     </div>
                 </div>
             </div>
-            {userImages.length > 0 &&
+            {userImages?.length > 0 &&
                 <div className='user-img-container'>
                     {userImages.map((image, idx) => (
                         <div className='user-pics' key={idx}>
@@ -63,7 +69,7 @@ function UserImages() {
                     ))}
                 </div>
             }
-            {userImages.length === 0 &&
+            {userImages?.length === 0 &&
                 <div className='user-img-no-imgs-container'>
                     <p className='user-img-no-imgs-header'>You have no photos uploaded!</p>
                     <p className='user-img-no-imgs-blurb'>Use the upload button in the top right to add a photo.</p>

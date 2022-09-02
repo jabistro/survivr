@@ -3,7 +3,8 @@ import { ValidationError } from "../utils/validationError";
 
 const LOAD_IMAGES = "images/LOAD_IMAGES";
 const ADD_IMAGE = 'images/ADD_IMAGE';
-const DELETE_IMAGE = 'photo/DELETE_IMAGES'
+const DELETE_IMAGE = 'images/DELETE_IMAGES'
+const DELETE_ALBUM = 'albums/DELETE_ALBUM'
 
 const loadImages = (images) => ({
     type: LOAD_IMAGES,
@@ -116,29 +117,40 @@ export const editImageThunk = (editImageData) => async (dispatch) => {
 //     return editedImage
 // }
 
-export const deleteImage = (destroyedImage) => async (dispatch) => {
-    const response = await csrfFetch('/api/images', {
+export const deleteImage = (imageId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/${imageId}`, {
         method: "DELETE",
-        body: JSON.stringify(destroyedImage)
+        // body: JSON.stringify(destroyedImageId)
     })
-    const deletedImage = await response.json();
-    dispatch(removeImage(deletedImage))
+    // const deletedImage = await response.json();
+    if (response.ok) {
+        dispatch(removeImage(imageId))
+    }
 }
 
 const imageReducer = (state = {}, action) => {
+    let newState;
     switch (action.type) {
         case LOAD_IMAGES:
-            const allImages = {};
+            newState = {};
             action.images.forEach((image) => {
-                allImages[image.id] = image;
+                newState[image.id] = image;
             });
-            return allImages
+            return newState
         case ADD_IMAGE:
             return { ...state, [action.image.id]: { ...action.image } }
+        case DELETE_ALBUM:
+            newState = {};
+            Object.values(state).forEach((image) => {
+                if (image.albumId !== action.albumId) {
+                    newState[image.id] = image;
+                }
+            })
+            return newState
         case DELETE_IMAGE:
-            const deleteState = { ...state }
-            delete deleteState[action.imageId]
-            return deleteState
+            newState = { ...state }
+            delete newState[action.imageId]
+            return newState
         default:
             return state;
     }

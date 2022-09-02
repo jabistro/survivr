@@ -1,8 +1,8 @@
 import { csrfFetch } from './csrf';
 
-const LOAD_ALBUMS = "images/LOAD_ALBUMS";
-const ADD_ALBUM = 'images/ADD_ALBUM';
-const DELETE_ALBUM = 'image/DELETE_ALBUM'
+const LOAD_ALBUMS = "albums/LOAD_ALBUMS";
+const ADD_ALBUM = 'albums/ADD_ALBUM';
+const DELETE_ALBUM = 'albums/DELETE_ALBUM'
 
 const loadAlbums = (albums) => ({
     type: LOAD_ALBUMS,

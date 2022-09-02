@@ -17,7 +17,7 @@ const DeleteImage = ({ image }) => {
     const handleDelete = async (e) => {
         e.preventDefault();
         history.push(`/users/${user.id}/images`);
-        await dispatch(deleteImage(image));
+        await dispatch(deleteImage(image.id));
         // history.push(`/users/${user.id}/images`)
         setShowModal(false);
     }

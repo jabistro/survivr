@@ -24,7 +24,6 @@ function SignupFormPage() {
         if (password === confirmPassword && recaptcha) {
             setErrors([]);
             return dispatch(sessionActions.signup({ email, username, password }))
-                .then((user) => history.push(`/users/${user.id}/images`))
                 .catch(
                     async (res) => {
                         const data = await res.json();

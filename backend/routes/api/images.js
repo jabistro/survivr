@@ -45,10 +45,12 @@ router.put('/', singleMulterUpload("image"), validateCreate, asyncHandler(async 
     return res.json(newImage)
 }))
 
-router.delete('/', asyncHandler(async (req, res) => {
-    const deleteImage = await Image.findByPk(req.body.id)
+router.delete('/:imageId', asyncHandler(async (req, res) => {
+    const { imageId } = req.params;
+    const deleteImage = await Image.findByPk(imageId)
+    console.log(deleteImage)
     await deleteImage.destroy()
-    return res.json(req.body.id)
+    return res.json(deleteImage)
 }))
 
 module.exports = router;

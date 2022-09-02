@@ -48,7 +48,8 @@ export const signup = (user) => async (dispatch) => {
         }),
     });
     const data = await response.json();
-    dispatch(setUser(data.user));
+    console.log(data)
+    dispatch(setUser(data));
     return response;
 };
 
@@ -66,8 +67,9 @@ const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_USER:
-            newState = Object.assign({}, state);
+            newState = {};
             newState.user = action.payload;
+            console.log(newState)
             return newState;
         case REMOVE_USER:
             newState = Object.assign({}, state);

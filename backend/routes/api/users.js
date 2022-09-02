@@ -43,7 +43,6 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
 }));
 
 router.put('/', singleMulterUpload("pfpURL"), asyncHandler(async (req, res) => {
-    console.log(req.file)
     let {
         id,
         username,

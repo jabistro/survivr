@@ -11,8 +11,8 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        // onDelete: 'CASCADE',
-        // hooks: 'true',
+        onDelete: 'CASCADE',
+        hooks: 'true',
         references: {
           model: 'Users',
           key: 'id'
@@ -21,8 +21,8 @@ module.exports = {
       imageId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        // onDelete: 'CASCADE',
-        // hooks: 'true',
+        onDelete: 'CASCADE',
+        hooks: 'true',
         references: {
           model: 'Images',
           key: 'id'

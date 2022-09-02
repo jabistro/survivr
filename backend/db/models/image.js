@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     Image.hasMany(models.Comment, {
       foreignKey: 'imageId',
       onDelete: 'cascade',
-      hooks: true
+      hooks: 'true'
     });
     Image.belongsTo(models.User, {
       foreignKey: 'userId'
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     Image.hasMany(models.Like, {
       foreignKey: 'imageId',
       onDelete: 'cascade',
-      hooks: true
+      hooks: 'true'
     });
   };
   return Image;
