@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Album.hasMany(models.Image, {
       onDelete: 'cascade',
-      hooks: 'true',
+      hooks: true,
       foreignKey: 'albumId'
     });
     Album.belongsTo(models.User, {

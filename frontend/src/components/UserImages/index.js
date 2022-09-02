@@ -46,21 +46,29 @@ function UserImages() {
                     </div>
                 </div>
             </div>
-            <div className='user-img-container'>
-                {userImages.map((image, idx) => (
-                    <div className='user-pics' key={idx}>
-                        <Link key={image?.id} to={`/image/${image?.id}`}>
-                            <img className='user-img-display' src={image?.imageURL} />
-                            <div className='user-img-overlay'>
-                                <div className='user-img-fluff'>
-                                    <p className='user-img-title'>{image?.title}</p>
-                                    <p className='user-img-username'>by {sessionUser?.username}</p>
+            {userImages.length > 0 &&
+                <div className='user-img-container'>
+                    {userImages.map((image, idx) => (
+                        <div className='user-pics' key={idx}>
+                            <Link key={image?.id} to={`/image/${image?.id}`}>
+                                <img className='user-img-display' src={image?.imageURL} />
+                                <div className='user-img-overlay'>
+                                    <div className='user-img-fluff'>
+                                        <p className='user-img-title'>{image?.title}</p>
+                                        <p className='user-img-username'>by {sessionUser?.username}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
-            </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            }
+            {userImages.length === 0 &&
+                <div className='user-img-no-imgs-container'>
+                    <p className='user-img-no-imgs-header'>You have no photos uploaded!</p>
+                    <p className='user-img-no-imgs-blurb'>Use the upload button in the top right to add a photo.</p>
+                </div>
+            }
         </div>
 
         // <div className='user-img-wrap'>
