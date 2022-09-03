@@ -144,33 +144,38 @@
     height: 70px;
 }
 
-/* .user-img-header-count-and-date {
+.user-img-header-count-and-joined {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-} */
+    justify-content: space-between;
+    height: 70px;
+    margin-right: 200px;
+    width: 200px;
+}
 
 .user-img-header-photo-count {
-    padding-bottom: 7px;
     font-weight: 300;
-    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 100%;
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-right: 200px;
     font-size: 16px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-
-
-/* .user-img-header-date {
-    color: #f3f5f6;
-} */
+.user-img-header-joined {
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 .user-img-container {
     width: 80%;

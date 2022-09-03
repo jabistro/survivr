@@ -130,17 +130,35 @@
     height: 70px;
 }
 
+.user-album-header-count-and-joined {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    margin-right: 200px;
+    width: 200px;
+}
+
 .user-album-header-photo-count {
-    padding-bottom: 7px;
     font-weight: 300;
-    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 100%;
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-right: 200px;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.user-album-header-joined {
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-size: 16px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

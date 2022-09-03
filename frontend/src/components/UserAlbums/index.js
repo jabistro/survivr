@@ -13,8 +13,8 @@ function UserAlbums() {
     const user = useSelector(state => state.users)[sessionUser.id];
     const userImages = images.filter(image => image.userId === sessionUser.id);
     const [showModal, setShowModal] = useState(false);
-    // const date = new Date(user.createdAt)
-    // const [year] = [date.getFullYear()];
+    const date = new Date(user?.createdAt)
+    const year = date.getFullYear();
 
     return (
         <div className='user-albums-wrap'>
@@ -34,10 +34,10 @@ function UserAlbums() {
                     </div>
                     <div className='user-album-header-right'>
                         <div className='user-album-header-right-top'></div>
-                        {/* <div> */}
-                        {/* <p>Joined {year}</p> */}
-                        <p className='user-album-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
-                        {/* </div> */}
+                        <div className='user-album-header-count-and-joined'>
+                            <p className='user-album-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
+                            <p className='user-album-header-joined'>Joined {year}</p>
+                        </div>
                     </div>
                 </div>
             </div>

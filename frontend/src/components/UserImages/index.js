@@ -13,13 +13,13 @@ function UserImages() {
     const sessionUser = useSelector(state => state.session.user);
     const users = useSelector(state => state.users);
     const userImages = images.filter(image => image.userId === sessionUser?.id);
+    const date = new Date(users[sessionUser?.id]?.createdAt)
+    const year = date.getFullYear();
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser());
     }, [dispatch]);
 
-    // const date = new Date(user.createdAt)
-    // const [year] = [date.getFullYear()];
 
     return (
         <div className='user-img-wrap'>
@@ -39,13 +39,10 @@ function UserImages() {
                     </div>
                     <div className='user-img-header-right'>
                         <div className='user-img-header-right-top'></div>
-                        {/* <div className='user-img-header-count-and-date'> */}
-                        {/* <div> */}
-                        <p className='user-img-header-photo-count'>{userImages?.length} {userImages?.length === 1 ? "Photo" : "Photos"}</p>
-                        {/* <p>Joined {year}</p> */}
-                        {/* </div> */}
-                        {/* <p className='user-img-header-date'>{user.createdAt}</p> */}
-                        {/* </div> */}
+                        <div className='user-img-header-count-and-joined'>
+                            <p className='user-img-header-photo-count'>{userImages.length} {userImages.length === 1 ? "Photo" : "Photos"}</p>
+                            <p className='user-img-header-joined'>Joined {year}</p>
+                        </div>
                     </div>
                 </div>
             </div>
