@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getImages } from '../../store/images';
-import { Link, useHistory } from 'react-router-dom';
-import { MdModeEditOutline } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import * as sessionActions from "../../store/session";
 import './UserImages.css';
 import EditProfilePictureModal from '../EditProfilePicture/EditProfilePictureModal';
 
 function UserImages() {
 
-    const history = useHistory();
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
     const images = Object.values(useSelector(state => state.images));
@@ -57,7 +54,7 @@ function UserImages() {
                     {userImages.map((image, idx) => (
                         <div className='user-pics' key={idx}>
                             <Link key={image?.id} to={`/image/${image?.id}`}>
-                                <img className='user-img-display' src={image?.imageURL} />
+                                <img alt='' className='user-img-display' src={image?.imageURL} />
                                 <div className='user-img-overlay'>
                                     <div className='user-img-fluff'>
                                         <p className='user-img-title'>{image?.title}</p>

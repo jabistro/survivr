@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getImages } from '../../store/images';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './OthersImages.css';
 
 function OthersImages() {
-
-    const history = useHistory();
 
     const images = Object.values(useSelector(state => state.images));
     const user = useSelector(state => state.session.user);
@@ -39,7 +36,7 @@ function OthersImages() {
                 {othersImages.map((image, idx) => (
                     <div className='others-pics' key={idx}>
                         <Link key={image.id} to={`/image/${image.id}`}>
-                            <img className='others-img-display' src={image.imageURL} />
+                            <img alt='' className='others-img-display' src={image.imageURL} />
                             <div className='others-img-overlay'>
                                 <div className='others-img-fluff'>
                                     <p className='others-img-title'>{image.title}</p>

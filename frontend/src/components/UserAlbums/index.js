@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAlbums } from '../../store/albums';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FcGallery } from 'react-icons/fc';
 import './UserAlbums.css';
 import EditProfilePictureModal from '../EditProfilePicture/EditProfilePictureModal';
 

@@ -1,5 +1,4 @@
 import { csrfFetch } from './csrf';
-import { ValidationError } from "../utils/validationError";
 
 const LOAD_IMAGES = "images/LOAD_IMAGES";
 const ADD_IMAGE = 'images/ADD_IMAGE';
