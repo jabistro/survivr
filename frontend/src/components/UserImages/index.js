@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import * as sessionActions from "../../store/session";
 import './UserImages.css';
 import EditProfilePictureModal from '../EditProfilePicture/EditProfilePictureModal';
+import { getUsers } from '../../store/users';
 
 function UserImages() {
 
@@ -12,14 +13,19 @@ function UserImages() {
     const images = Object.values(useSelector(state => state.images));
     const sessionUser = useSelector(state => state.session.user);
     const users = useSelector(state => state.users);
+    const user = users[sessionUser.id];
+    console.log(user)
     const userImages = images.filter(image => image.userId === sessionUser?.id);
-    const date = new Date(users[sessionUser?.id]?.createdAt)
+    const date = new Date(user?.createdAt);
     const year = date.getFullYear();
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser());
     }, [dispatch]);
 
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [dispatch])
 
     return (
         <div className='user-img-wrap'>

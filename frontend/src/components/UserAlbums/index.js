@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './UserAlbums.css';
 import EditProfilePictureModal from '../EditProfilePicture/EditProfilePictureModal';
+import { getUsers } from '../../store/users';
 
 function UserAlbums() {
-
+    const dispatch = useDispatch();
     const albums = Object.values(useSelector(state => state.albums));
     const sessionUser = useSelector(state => state.session.user);
     const userAlbums = albums.filter(album => album.userId === sessionUser.id)
@@ -15,6 +16,10 @@ function UserAlbums() {
     const [showModal, setShowModal] = useState(false);
     const date = new Date(user?.createdAt)
     const year = date.getFullYear();
+
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [dispatch])
 
     return (
         <div className='user-albums-wrap'>
