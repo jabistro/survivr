@@ -14,7 +14,6 @@ function UserImages() {
     const sessionUser = useSelector(state => state.session.user);
     const users = useSelector(state => state.users);
     const user = users[sessionUser.id];
-    console.log(user)
     const userImages = images.filter(image => image.userId === sessionUser?.id);
     const date = new Date(user?.createdAt);
     const year = date.getFullYear();

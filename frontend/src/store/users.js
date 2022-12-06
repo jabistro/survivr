@@ -70,8 +70,6 @@ export const editUserThunk = (editUserData) => async (dispatch) => {
 
     const editedUser = await response.json()
 
-    console.log(editedUser)
-
     if (editedUser) {
         dispatch(createUser(editedUser))
     }

@@ -12,7 +12,8 @@
     "start:production": "node ./bin/www",
     "reseed": "npx sequelize db:seed:undo:all && npx sequelize db:migrate:undo && npx sequelize db:migrate && npx sequelize db:seed:all",
     "reset": "dotenv sequelize-cli db:drop && dotenv sequelize-cli db:create && dotenv sequelize-cli db:migrate && dotenv sequelize-cli db:seed:all",
-    "create": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
+    "create": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "build": "node psql-setup-script.js"
   },
   "keywords": [],
   "author": "",
