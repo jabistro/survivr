@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi';
 import { MdOutlineModeEditOutline } from 'react-icons/md';

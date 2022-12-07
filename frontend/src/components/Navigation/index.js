@@ -9,10 +9,10 @@ import OthersDropdown from './OthersDropdown';
 import AddImageModal from '../ImageInput/AddImageModal';
 
 function Navigation({ isLoaded }) {
-    const history = useHistory();
+    // const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const users = useSelector(state => state.users);
-    const [click, setClick] = useState(false);
+    // const [click, setClick] = useState(false);
     const [yourDropdown, setYourDropdown] = useState(false);
     const [othersDropdown, setOthersDropdown] = useState(false);
     const [profileButtonOpened, setProfileButtonOpened] = useState(false);
