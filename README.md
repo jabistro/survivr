@@ -5,8 +5,7 @@
 <p align="center">survivr's core functionality includes albums and images.
  With survivr's smooth user experience, it is best place to store and view snapshots of your favorite Survivor moments.</p>
 
-
-<p align="center"><a  href="https://john-allan-survivr.herokuapp.com/">survivr Live Demo</a></p>
+<p align="center"><a  href="https://survivr-app-c5869e65e362.herokuapp.com/">survivr Live Demo</a></p>
 
 <img width="866" src='https://user-images.githubusercontent.com/97556168/172131164-b6ba4c84-389c-4760-aa3f-586756111933.jpg'>
 Splash page
